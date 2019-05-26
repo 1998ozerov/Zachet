@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TsSoft.AbstractMapper.Select</name>
+    </assembly>
+    <members>
+        <member name="T:TsSoft.Bindings.AbstractMapperSelectBindings">
+            <summary>
+            Описание интерфейсов и их реализаций в сборке TsSoft.AbstractMapper.Select
+            </summary>
+        </member>
+        <member name="M:TsSoft.Bindings.AbstractMapperSelectBindings.#ctor">
+            <summary>
+            Описание интерфейсов и их реализаций в сборке TsSoft.AbstractMapper.Select
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Engine.IMapperSelectTreeExtractor">
+            <summary>
+            Получает по описанию маппера дерево выбранных свойств
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.IMapperSelectTreeExtractor.GetSelectedTree(TsSoft.Expressions.Models.AbstractMapper.MapperDescription,TsSoft.Expressions.Models.AbstractMapper.GeneratorContext)">
+            <summary>
+            Получить дерево выбранных свойств для маппера
+            </summary>
+            <param name="description">Описание маппера</param>
+            <param name="context">Контекст генерации</param>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Engine.ISelectExpressionCreator">
+            <summary>
+            Создатель select-выражения для маппера
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.ISelectExpressionCreator.Create``1(System.Collections.Generic.IEnumerable{TsSoft.Expressions.Models.AbstractMapper.MappedPathDescription},TsSoft.Expressions.Models.AbstractMapper.GeneratorContext,TsSoft.Expressions.SelectBuilder.Models.SelectSettings)">
+            <summary>
+            Создать select-выражение по использованным преобразователем путям
+            </summary>
+            <typeparam name="TEntity">Тип сущности БД</typeparam>
+            <param name="paths">Описания использованных путей</param>
+            <param name="context">Контекст генерации</param>
+            <param name="settings">Настройки генерации селекта</param>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.IAbstractSelectProviderMapperHelper">
+            <summary>
+            Хелпер для маппера, отдающего селект
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.IAbstractSelectProviderMapperHelper.GetSelectFromPaths``1(System.Collections.Generic.IEnumerable{TsSoft.Expressions.Models.AbstractMapper.MappedPathDescription},TsSoft.Expressions.SelectBuilder.Models.IReadOnlySelectExpression{``0},TsSoft.Expressions.Models.AbstractMapper.GeneratorContext,TsSoft.Expressions.SelectBuilder.Models.SelectSettings)">
+            <summary>
+            Построить селект по использованным путям
+            </summary>
+            <typeparam name="TFrom">Тип, из которого осуществляется преобразование</typeparam>
+            <param name="paths">Описание маппинга</param>
+            <param name="additionalSelect">Дополнительный селект</param>
+            <param name="context">Контекст генерации</param>
+            <param name="settings">Настройки генерации селекта</param>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.ISelectProviderMapper`2">
+            <summary>
+            Маппер, отдающий необходимые ему селект
+            </summary>
+            <typeparam name="TEntity">Тип сущности</typeparam>
+            <typeparam name="TModel">Тип модели</typeparam>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.ISelectProviderCollectionMapper`2">
+            <summary>
+            Маппер, отдающий необходимые ему селект
+            </summary>
+            <typeparam name="TEntity">Тип сущности</typeparam>
+            <typeparam name="TModel">Тип модели</typeparam>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.SelectProviderMapper`2">
+            <summary>
+            Маппер, отдающий необходимый ему селект
+            </summary>
+            <typeparam name="TFrom">Тип, из которого осуществляется преобразование</typeparam>
+            <typeparam name="TTo">Тип, в который осуществляется преобразование</typeparam>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.SelectProviderMapper`2.#ctor(TsSoft.AbstractMapper.IAbstractSelectProviderMapperHelper)">
+            <summary>
+            Маппер, отдающий необходимый ему селект
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.SelectProviderMapper`2.Select">
+            <summary>
+            Минимальный селект, необходимый для обработки сущности
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.SelectProviderMapper`2.AdditionalSelect">
+            <summary>
+            Добавленные в обход MapRules селекты
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.SelectProviderMapper`2.IsExpressionProcessed">
+            <summary>
+            Вся ли необходимая информация получена из построенного выражения
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.SelectProviderMapper`2.GenerateSelect(TsSoft.Expressions.Models.AbstractMapper.GeneratorContext,TsSoft.Expressions.SelectBuilder.Models.SelectSettings)">
+            <summary>
+            Сгенерировать селект в заданном контексте
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.SelectProviderMapper`2.GenerateSelect(TsSoft.Expressions.Models.AbstractMapper.GeneratorContext)">
+            <summary>
+            Сгенерировать селект в заданном контексте
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.SelectProviderMapper`2.MaxNestingLevel">
+            <summary>
+            Максимальное количество вложений генератора селекта в себя
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.SelectProviderMapper`2.SelectSettings">
+            <summary>
+            Настройки генерации селекта
+            </summary>
+        </member>
+    </members>
+</doc>

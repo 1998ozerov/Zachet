@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TsSoft.EntityRepository.Interfaces</name>
+    </assembly>
+    <members>
+        <member name="T:TsSoft.EntityRepository.Helpers.EntityComparer`2">
+            <summary>
+            Проверяет на равенство сущности по ключу
+            </summary>
+            <typeparam name="T">Тип сущности</typeparam>
+            <typeparam name="TKey">Тип ключа</typeparam>
+        </member>
+        <member name="F:TsSoft.EntityRepository.Helpers.EntityComparer`2.Instance">
+            <summary>
+            Проверяет на равенство сущности по ключу
+            </summary>
+        </member>
+        <member name="M:TsSoft.EntityRepository.Helpers.EntityComparer`2.Equals(`0,`0)">
+            <summary>
+            Равны ли сущности
+            </summary>
+        </member>
+        <member name="M:TsSoft.EntityRepository.Helpers.EntityComparer`2.GetHashCode(`0)">
+            <summary>
+            Получить хэш ключа
+            </summary>
+        </member>
+        <member name="T:TsSoft.EntityRepository.Interfaces.IComplexEntity">
+            <summary>
+            Интерфейс сложной сущности, у которой могут появляться зависимости до её сохранения
+            </summary>
+        </member>
+        <member name="P:TsSoft.EntityRepository.Interfaces.IComplexEntity.IsSaved">
+            <summary>
+            Сохранена ли сущность
+            </summary>
+        </member>
+        <member name="T:TsSoft.EntityRepository.Interfaces.IDeletable">
+            <summary>
+            Интерфейс удаляемой сущности
+            </summary>
+        </member>
+        <member name="P:TsSoft.EntityRepository.Interfaces.IDeletable.IsDeleted">
+            <summary>
+            Является ли сущность удалённой
+            </summary>
+        </member>
+        <member name="T:TsSoft.EntityRepository.Interfaces.IEntityWithId`1">
+            <summary>
+            Интерфейс сущности с ключом
+            </summary>
+            <typeparam name="TId">Тип ключа</typeparam>
+        </member>
+        <member name="P:TsSoft.EntityRepository.Interfaces.IEntityWithId`1.Id">
+            <summary>
+            Ключ экземпляра
+            </summary>
+        </member>
+        <member name="T:TsSoft.EntityRepository.Interfaces.IExternalEntity`1">
+            <summary>
+            Интерфейс внешней сущности
+            </summary>
+        </member>
+        <member name="P:TsSoft.EntityRepository.Interfaces.IExternalEntity`1.Id">
+            <summary>
+            Идентификатор внешней сущности
+            </summary>
+        </member>
+        <member name="T:TsSoft.EntityRepository.Interfaces.IExternalEntity">
+            <summary>
+            Интерфейс внешней сущности
+            </summary>
+        </member>
+        <member name="T:TsSoft.EntityRepository.Interfaces.IHasParent`1">
+            <summary>
+            Интерфейс сущности, имеющей родителя
+            </summary>
+            <typeparam name="TEntity">Тип сущности</typeparam>
+        </member>
+        <member name="P:TsSoft.EntityRepository.Interfaces.IHasParent`1.Parent">
+            <summary>
+            Родительская сущность
+            </summary>
+        </member>
+        <member name="T:TsSoft.EntityRepository.Interfaces.IHasParentId`1">
+            <summary>
+            Интерфейс обладающий идентификатором родителя
+            </summary>
+            <typeparam name="TId">Тип идентификатора</typeparam>
+        </member>
+        <member name="P:TsSoft.EntityRepository.Interfaces.IHasParentId`1.ParentId">
+            <summary>
+            Ключ родительского элемента
+            </summary>
+        </member>
+        <member name="T:TsSoft.EntityRepository.Interfaces.ITreeElement`2">
+            <summary>
+            Интерфейс элемента дерева
+            </summary>
+            <typeparam name="TEntity">Тип элемента дерева</typeparam>
+            <typeparam name="TId">Тип ключа элемента дерева</typeparam>
+        </member>
+        <member name="T:TsSoft.EntityRepository.Interfaces.IWithChildren`1">
+            <summary>
+            Интерфейс сущности, имеющей дочерние сущности
+            </summary>
+            <typeparam name="TEntity">Тип сущности</typeparam>
+        </member>
+        <member name="P:TsSoft.EntityRepository.Interfaces.IWithChildren`1.Children">
+            <summary>
+            Дочерние сущности
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,346 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TsSoft.AbstractMapper.Update</name>
+    </assembly>
+    <members>
+        <member name="T:TsSoft.Bindings.AbstractMapperUpdateBindings">
+            <summary>
+            Описание интерфейсов и их реализаций в сборке TsSoft.AbstractMapper.Update
+            </summary>
+        </member>
+        <member name="M:TsSoft.Bindings.AbstractMapperUpdateBindings.#ctor">
+            <summary>
+            Описание интерфейсов и их реализаций в сборке TsSoft.AbstractMapper.Update
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Engine.AbstractUpdatePathProviderMapperHelper">
+            <summary>
+            Хелпер для абстрактного маппера, отдающего пути обновления
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.AbstractUpdatePathProviderMapperHelper.#ctor(TsSoft.AbstractMapper.Engine.IMapExpressionCreator,TsSoft.AbstractMapper.Rules.Factories.IIgnoreRulesFactory,TsSoft.Expressions.Helpers.Closures.ILambdaCompiler,TsSoft.AbstractMapper.Engine.IFullMapRulesCreator,TsSoft.AbstractMapper.Engine.IUpdatePathsCreator)">
+            <summary>
+            Хелпер для абстрактного маппера, отдающего пути обновления
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.AbstractUpdatePathProviderMapperHelper.GetUpdatePaths``1(System.Collections.Generic.IEnumerable{TsSoft.Expressions.Models.AbstractMapper.MappedPathDescription},System.Boolean,TsSoft.Expressions.Models.AbstractMapper.GeneratorContext)">
+            <summary>
+            Получить пути обновления по описанию маппинга
+            </summary>
+            <typeparam name="TTo">Тип, в который осуществляется преобразование</typeparam>
+            <param name="paths">Описание маппинга</param>
+            <param name="excludePrimaryKey">Не обновлять первичный ключ</param>
+            <param name="context">Контекст генерации</param>
+            <returns>Пути обновления</returns>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Engine.IUpdatePathsCreator">
+            <summary>
+            Создаёт пути обновления по описанию маппинга
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.IUpdatePathsCreator.Create``1(System.Collections.Generic.IEnumerable{TsSoft.Expressions.Models.AbstractMapper.MappedPathDescription},System.Boolean,TsSoft.Expressions.Models.AbstractMapper.GeneratorContext)">
+            <summary>
+            Создать пути обновления сущности по описанию маппинга
+            </summary>
+            <typeparam name="TTo">Тип сущности</typeparam>
+            <param name="paths">Описание маппинга</param>
+            <param name="excludePrimaryKey">Не добавлять первичный ключ в обновляемые пути</param>
+            <param name="context">Контекст генерации</param>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.IAbstractUpdateFuncProviderMapperHelper">
+            <summary>
+            Хелпер для абстрактного маппера, отдающего делегат обновления
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.IAbstractUpdateFuncProviderMapperHelper.GetUpdateFunc``1(System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}},TsSoft.Expressions.Models.Reflection.IObjectUpdateManager,System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}})">
+            <summary>
+            Получить делегат обновления по описанию маппинга
+            </summary>
+            <typeparam name="TTo">Тип, в который осуществляется преобразование</typeparam>
+            <param name="paths">Описание маппинга</param>
+            <param name="updateManager"></param>
+            <param name="dropCreateOnPaths">На каких путях удалять и создавать элементы вложенных коллекций вместо обновления</param>
+            <returns>Делегат обновления</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.IAbstractUpdateFuncProviderMapperHelper.GetAsyncUpdateFunc``1(System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}},TsSoft.Expressions.Models.Reflection.IObjectUpdateManager,System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}})">
+            <summary>
+            Получить асинхронный делегат обновления по описанию маппинга
+            </summary>
+            <typeparam name="TTo">Тип, в который осуществляется преобразование</typeparam>
+            <param name="paths">Описание маппинга</param>
+            <param name="updateManager"></param>
+            <param name="dropCreateOnPaths">На каких путях удалять и создавать элементы вложенных коллекций вместо обновления</param>
+            <returns>Делегат обновления</returns>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.IAbstractUpdatePathProviderMapperHelper">
+            <summary>
+            Хелпер для абстрактного маппера, отдающего пути обновления
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.IAbstractUpdatePathProviderMapperHelper.GetUpdatePaths``1(System.Collections.Generic.IEnumerable{TsSoft.Expressions.Models.AbstractMapper.MappedPathDescription},System.Boolean,TsSoft.Expressions.Models.AbstractMapper.GeneratorContext)">
+            <summary>
+            Получить пути обновления по описанию маппинга
+            </summary>
+            <typeparam name="TTo">Тип, в который осуществляется преобразование</typeparam>
+            <param name="paths">Описание маппинга</param>
+            <param name="excludePrimaryKey">Не обновлять первичный ключ</param>
+            <param name="context">Контекст генерации</param>
+            <returns>Пути обновления</returns>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.ICyclePreventingUpdatePathGenerator`1">
+            <summary>
+            Интерфейс генератора обновляемых путей, способного включить себя в качестве зависимого генератора
+            </summary>
+            <typeparam name="TTo">Тип, в который происходит преобразование</typeparam>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.ICyclePreventingUpdatePathGenerator`1.GenerateUpdatePaths(TsSoft.Expressions.Models.AbstractMapper.GeneratorContext)">
+            <summary>
+            Сгенерировать обновляемые пути в заданном контексте
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.IUpdateFuncProvider`1">
+            <summary>
+            Предоставляет делегат для обновления объекта
+            </summary>
+            <typeparam name="TTo">Тип объекта</typeparam>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.IUpdateFuncProvider`1.Updater">
+            <summary>
+            Делегат для обновления объекта
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.IAsyncUpdateFuncProvider`1">
+            <summary>
+            Предоставляет асинхронный делегат для обновления объекта
+            </summary>
+            <typeparam name="TTo">Тип объекта</typeparam>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.IAsyncUpdateFuncProvider`1.AsyncUpdater">
+            <summary>
+            Делегат для обновления объекта, возвращающий набор задач, возникающих при обновлении
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.IUpdateFuncProviderMapper`2">
+            <summary>
+            Маппер, предоставляющий делегат для обновления объекта
+            </summary>
+            <typeparam name="TFrom">Тип объекта, из которого осуществляется преобразование</typeparam>
+            <typeparam name="TTo">Тип объекта, в который осуществляется преобразование</typeparam>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.IUpdatePathProvider`1">
+            <summary>
+            Обработчик, отдающий изменяемые им пути
+            </summary>
+            <typeparam name="TTo">Тип, являющийся результатом обработки</typeparam>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.IUpdatePathProvider`1.Paths">
+            <summary>
+            Изменяемые пути
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.IUpdatePathProvider`1.DeleteAndCreateOnPaths">
+            <summary>
+            На каких путях пересоздавать сущности после удаления вместо слияния
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.IUpdatePathProviderMapper`2">
+            <summary>
+            Маппер, отдающий изменяемые им пути
+            </summary>
+            <typeparam name="TFrom">Тип, из которого происходит преобразование</typeparam>
+            <typeparam name="TTo">Тип, в который происходит преобразование</typeparam>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Rules.EmptyUpdateRules`1">
+            <summary>
+            Пустые правила обновления
+            </summary>
+            <typeparam name="TTo">Тип, в который поисходит преобразование</typeparam>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.EmptyUpdateRules`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Перечислитель пустых правил обновления
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.EmptyUpdateRules`1.GetEnumerator">
+            <summary>
+            Перечислитель пустых правил обновления
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Rules.EmptyUpdateRules`1.Count">
+            <summary>
+            Нуль
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.EmptyUpdateRules`1.ContainsKey(System.Linq.Expressions.Expression{System.Func{`0,System.Object}})">
+            <summary>
+            Ложь
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.EmptyUpdateRules`1.TryGetValue(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},TsSoft.AbstractMapper.Rules.UpdateType@)">
+            <summary>
+            Правило по умолчанию
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Rules.EmptyUpdateRules`1.Item(System.Linq.Expressions.Expression{System.Func{`0,System.Object}})">
+            <summary>
+            Выбрасывает <exception cref="T:System.Collections.Generic.KeyNotFoundException"></exception>
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Rules.EmptyUpdateRules`1.Keys">
+            <summary>
+            Пустая коллекция ключей
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Rules.EmptyUpdateRules`1.Values">
+            <summary>
+            Пустая коллекция значений
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Rules.IUpdateRules`1">
+            <summary>
+            Правила обновления
+            </summary>
+            <typeparam name="TTo">Тип обновляемой сущности</typeparam>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Rules.UpdateRules`1">
+            <summary>
+            Правила обновления
+            </summary>
+            <typeparam name="TTo">Тип обновляемой сущности</typeparam>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Rules.UpdateType">
+            <summary>
+            Тип обновления зависимых сущностей
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Rules.UpdateType.PreserveByIds">
+            <summary>
+            При совпадении id обновлять подсущности, а не пересоздавать
+            </summary>
+            <remarks>Обновляемая коллекция получается в одном запросе вместе с обновляемой сущностью</remarks>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Rules.UpdateType.DeleteThenCreate">
+            <summary>
+            Удалить всю коллекцию и создать все обновлённые элементы заново
+            </summary>
+            <remarks>Пересоздаваемая коллекция получается в отдельном запросе</remarks>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.UpdateFuncProviderMapper`2">
+            <summary>
+            Абстрактный маппер, отдающий делегат для обновления
+            </summary>
+            <typeparam name="TFrom">Тип, из которого происходит преобразование</typeparam>
+            <typeparam name="TTo">Тип, в который происходит преобразование</typeparam>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.UpdateFuncProviderMapper`2.#ctor(TsSoft.AbstractMapper.IAbstractUpdateFuncProviderMapperHelper)">
+            <summary>
+            Абстрактный маппер, отдающий делегат для обновления
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.UpdateFuncProviderMapper`2.AutoPropertiesBehavior">
+            <summary>
+            Поведение в случае наличия в TTo свойств, для которых не найдено соответствие
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.UpdateFuncProviderMapper`2.Updater">
+            <summary>
+            Делегат для обновления
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.UpdateFuncProviderMapper`2.AsyncUpdater">
+            <summary>
+            Делегат для обновления объекта, возвращающий набор задач, возникающих при обновлении
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.UpdateFuncProviderMapper`2.UpdateManager">
+            <summary>
+            Управляющий обновлением объект
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.AbstractUpdateFuncProviderMapperHelper">
+            <summary>
+            Хелпер для абстрактного маппера, отдающего делегат обновления
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.AbstractUpdateFuncProviderMapperHelper.#ctor(TsSoft.AbstractMapper.Engine.IMapExpressionCreator,TsSoft.AbstractMapper.Rules.Factories.IIgnoreRulesFactory,TsSoft.Expressions.Helpers.Closures.ILambdaCompiler,TsSoft.AbstractMapper.Engine.IFullMapRulesCreator,TsSoft.AbstractMapper.Engine.IUpdatePathsCreator,TsSoft.Expressions.Helpers.IUpdateObjectActionFactory)">
+            <summary>
+            Хелпер для абстрактного маппера, отдающего делегат обновления
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.AbstractUpdateFuncProviderMapperHelper.GetUpdateFunc``1(System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}},TsSoft.Expressions.Models.Reflection.IObjectUpdateManager,System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}})">
+            <summary>
+            Получить делегат обновления по описанию маппинга
+            </summary>
+            <typeparam name="TTo">Тип, в который осуществляется преобразование</typeparam>
+            <param name="paths">Описание маппинга</param>
+            <param name="updateManager"></param>
+            <param name="dropCreateOnPaths">На каких путях удалять и создавать элементы вложенных коллекций вместо обновления</param>
+            <returns>Делегат обновления</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.AbstractUpdateFuncProviderMapperHelper.GetAsyncUpdateFunc``1(System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}},TsSoft.Expressions.Models.Reflection.IObjectUpdateManager,System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}})">
+            <summary>
+            Получить асинхронный делегат обновления по описанию маппинга
+            </summary>
+            <typeparam name="TTo">Тип, в который осуществляется преобразование</typeparam>
+            <param name="paths">Описание маппинга</param>
+            <param name="updateManager"></param>
+            <param name="dropCreateOnPaths">На каких путях удалять и создавать элементы вложенных коллекций вместо обновления</param>
+            <returns>Делегат обновления</returns>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.UpdatePathProviderMapper`2">
+            <summary>
+            Преобразователь с контейнером обновляемых путей
+            </summary>
+            <typeparam name="TFrom">Тип, из которого происходит преобразование</typeparam>
+            <typeparam name="TTo">Тип, в который происходит преобразование</typeparam>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.UpdatePathProviderMapper`2.#ctor(TsSoft.AbstractMapper.IAbstractUpdatePathProviderMapperHelper)">
+            <summary>
+            Преобразователь с контейнером обновляемых путей
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.UpdatePathProviderMapper`2.Paths">
+            <summary>
+            Обновляемые пути
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.UpdatePathProviderMapper`2.AutoPropertiesBehavior">
+            <summary>
+            Поведение в случае наличия в TTo свойств, для которых не найдено соответствие
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.UpdatePathProviderMapper`2.UpdateRules">
+            <summary>
+            Правила обновления
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.UpdatePathProviderMapper`2.DeleteAndCreateOnPaths">
+            <summary>
+            На каких путях удалять сущности и создавать новые вместо слияния
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.UpdatePathProviderMapper`2.IsExpressionProcessed">
+            <summary>
+            Вся ли необходимая информация получена из построенного выражения
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.UpdatePathProviderMapper`2.MaxNestingLevel">
+            <summary>
+            Максимальное количество вложений в себя
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.UpdatePathProviderMapper`2.GenerateUpdatePaths(TsSoft.Expressions.Models.AbstractMapper.GeneratorContext)">
+            <summary>
+            Сгенерировать обновляемые пути в заданном контексте
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.UpdatePathProviderMapper`2.ExcludePrimaryKey">
+            <summary>
+            Исключить первичный ключ TTo из обновляемых путей
+            </summary>
+        </member>
+    </members>
+</doc>

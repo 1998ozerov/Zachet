@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TsSoft.AbstractMapper.Include</name>
+    </assembly>
+    <members>
+        <member name="T:TsSoft.Bindings.AbstractMapperIncludeBindings">
+            <summary>
+            Описание интерфейсов и их реализаций в сборке TsSoft.AbstractMapper.Include
+            </summary>
+        </member>
+        <member name="M:TsSoft.Bindings.AbstractMapperIncludeBindings.#ctor">
+            <summary>
+            Описание интерфейсов и их реализаций в сборке TsSoft.AbstractMapper.Include
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Engine.IIncludeCreator">
+            <summary>
+            Создаёт инклюды по описанию маппинга
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.IIncludeCreator.Create``1(System.Collections.Generic.IEnumerable{TsSoft.Expressions.Models.AbstractMapper.MappedPathDescription},System.Type,TsSoft.Expressions.Models.AbstractMapper.GeneratorContext)">
+            <summary>
+            Создать include-выражения по используемым преобразователем путям
+            </summary>
+            <typeparam name="TEntity">Тип сущности БД</typeparam>
+            <param name="paths">Используемые преобразователем пути</param>
+            <param name="to">Тип, в который идёт преобразование</param>
+            <param name="context">Контекст генерации</param>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.IAbstractIncludeProviderMapperHelper">
+            <summary>
+            Хелпер для абстрактного маппера, отдающего инклюды
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.IAbstractIncludeProviderMapperHelper.GetIncludesFromPaths``2(System.Collections.Generic.IEnumerable{TsSoft.Expressions.Models.AbstractMapper.MappedPathDescription},TsSoft.Expressions.Models.AbstractMapper.GeneratorContext)">
+            <summary>
+            Получить инклюды по описанию маппинга
+            </summary>
+            <typeparam name="TFrom">Тип, из которого осуществляется преобразование</typeparam>
+            <typeparam name="TTo">Тип, в который осуществляется преобразование</typeparam>
+            <param name="paths">Описание маппинга</param>
+            <param name="context">Контекст генерации</param>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.IIncludeProviderMapper`2">
+            <summary>
+            Маппер, отдающий необходимые ему инклюды
+            </summary>
+            <typeparam name="TEntity">Тип сущности</typeparam>
+            <typeparam name="TModel">Тип модели</typeparam>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.IIncludeProviderCollectionMapper`2">
+            <summary>
+            Маппер коллекции, отдающий необходимые ему инклюды
+            </summary>
+            <typeparam name="TFrom">Тип сущности</typeparam>
+            <typeparam name="TTo">Тип модели</typeparam>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.IncludeProviderMapper`2">
+            <summary>
+            Маппер, отдающий необходимые ему инклюды
+            </summary>
+            <typeparam name="TFrom">Тип, из которого осуществляется преобразование</typeparam>
+            <typeparam name="TTo">Тип, в который осуществляется преобразование</typeparam>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.IncludeProviderMapper`2.#ctor(TsSoft.AbstractMapper.IAbstractIncludeProviderMapperHelper)">
+            <summary>
+            Маппер, отдающий необходимые ему инклюды
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.IncludeProviderMapper`2.IsExpressionProcessed">
+            <summary>
+            Вся ли необходимая информация получена из построенного выражения
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.IncludeProviderMapper`2.Includes">
+            <summary>
+            Инклюды, необходимые мапперу
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.IncludeProviderMapper`2.AdditionalIncludes">
+            <summary>
+            Добавленные в обход правил преобразования инклюды
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.IncludeProviderMapper`2.GenerateIncludes(TsSoft.Expressions.Models.AbstractMapper.GeneratorContext)">
+            <summary>
+            Создать инклюды в заданном контексте
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.IncludeProviderMapper`2.MaxNestingLevel">
+            <summary>
+            Максимальное количество вложений маппера в себя
+            </summary>
+        </member>
+    </members>
+</doc>

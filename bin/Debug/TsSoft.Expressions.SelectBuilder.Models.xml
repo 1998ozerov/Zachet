@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TsSoft.Expressions.SelectBuilder.Models</name>
+    </assembly>
+    <members>
+        <member name="T:TsSoft.Expressions.SelectBuilder.Models.ICyclePreventingSelectGenerator`1">
+            <summary>
+            Интерфейс генератора селектов, способного включить себя в качестве зависимого генератора
+            </summary>
+            <typeparam name="TFrom">Тип сущности</typeparam>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.Models.ICyclePreventingSelectGenerator`1.GenerateSelect(TsSoft.Expressions.Models.AbstractMapper.GeneratorContext)">
+            <summary>
+            Сгенерировать селект в заданном контексте
+            </summary>
+        </member>
+        <member name="T:TsSoft.Expressions.SelectBuilder.Models.IReadOnlySelectExpression`1">
+            <summary>
+            Селект-выражение
+            </summary>
+            <typeparam name="T">Тип сущности</typeparam>
+        </member>
+        <member name="P:TsSoft.Expressions.SelectBuilder.Models.IReadOnlySelectExpression`1.Select">
+            <summary>
+            Селект-выражение
+            </summary>
+        </member>
+        <member name="P:TsSoft.Expressions.SelectBuilder.Models.IReadOnlySelectExpression`1.ExternalIncludes">
+            <summary>
+            Внешние инклюды
+            </summary>
+        </member>
+        <member name="T:TsSoft.Expressions.SelectBuilder.Models.ISelectProvider`1">
+            <summary>
+            Обработчик сущности, отдающий необходимое ему селект-выражение
+            </summary>
+            <typeparam name="TEntity">Тип сущности</typeparam>
+        </member>
+        <member name="P:TsSoft.Expressions.SelectBuilder.Models.ISelectProvider`1.Select">
+            <summary>
+            Минимальный селект, необходимый для обработки сущности
+            </summary>
+        </member>
+        <member name="T:TsSoft.Expressions.SelectBuilder.Models.PathDeadendBehavior">
+            <summary>
+            Поведение построителя селектов при обработке пути, заканчивающегося сущностью или коллекцией сущностей
+            </summary>
+        </member>
+        <member name="F:TsSoft.Expressions.SelectBuilder.Models.PathDeadendBehavior.TakeAllPrimitiveProperties">
+            <summary>
+            Выбрать все столбцы сущности
+            </summary>
+        </member>
+        <member name="F:TsSoft.Expressions.SelectBuilder.Models.PathDeadendBehavior.TakeOnlyId">
+            <summary>
+            Выбрать только первичный ключ
+            </summary>
+        </member>
+        <member name="F:TsSoft.Expressions.SelectBuilder.Models.PathDeadendBehavior.IgnorePath">
+            <summary>
+            Ничего не выбирать
+            </summary>
+        </member>
+        <member name="F:TsSoft.Expressions.SelectBuilder.Models.PathDeadendBehavior.ThrowException">
+            <summary>
+            Выбрасывать исключение
+            </summary>
+        </member>
+        <member name="T:TsSoft.Expressions.SelectBuilder.Models.SelectExpression`1">
+            <summary>
+            Селект-выражение
+            </summary>
+            <typeparam name="T">Тип сущности</typeparam>
+        </member>
+        <member name="P:TsSoft.Expressions.SelectBuilder.Models.SelectExpression`1.Select">
+            <summary>
+            Селект-выражение для передачи в репозиторий
+            </summary>
+        </member>
+        <member name="P:TsSoft.Expressions.SelectBuilder.Models.SelectExpression`1.ExternalIncludes">
+            <summary>
+            Внешние инклюды
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.Models.SelectExpression`1.#ctor">
+            <summary>
+            Селект-выражение
+            </summary>
+        </member>
+        <member name="P:TsSoft.Expressions.SelectBuilder.Models.SelectExpression`1.TsSoft#Expressions#SelectBuilder#Models#IReadOnlySelectExpression{T}#ExternalIncludes">
+            <summary>
+            Внешние инклюды
+            </summary>
+        </member>
+        <member name="T:TsSoft.Expressions.SelectBuilder.Models.SelectSettings">
+            <summary>
+            Настройки для генерации селекта 
+            </summary>
+        </member>
+        <member name="P:TsSoft.Expressions.SelectBuilder.Models.SelectSettings.SkipNullChecks">
+            <summary>
+            Не делать проверки навигации на null, если внешний ключ обязателен
+            </summary>
+        </member>
+        <member name="P:TsSoft.Expressions.SelectBuilder.Models.SelectSettings.AlwaysCheckNull">
+            <summary>
+            Множество навигационных свойств, на которые всегда нужно вешать проверки на null
+            <remarks>В качестве IEqualityComparer следует использовать MemberInfoEqualityComparer.Instance</remarks>
+            </summary>
+        </member>
+    </members>
+</doc>

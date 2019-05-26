@@ -1,0 +1,274 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TsSoft.Expressions.IncludeBuilder</name>
+    </assembly>
+    <members>
+        <member name="T:TsSoft.Bindings.ExpressionsIncludeBuilderBindings">
+            <summary>
+            Описание интерфейсов и их реализаций в сборке TsSoft.Expressions.IncludeBuilder
+            </summary>
+        </member>
+        <member name="M:TsSoft.Bindings.ExpressionsIncludeBuilderBindings.#ctor">
+            <summary>
+            Описание интерфейсов и их реализаций в сборке TsSoft.Expressions.IncludeBuilder
+            </summary>
+        </member>
+        <member name="T:TsSoft.Expressions.IncludeBuilder.IConditionalIncludeCreator">
+            <summary>
+            Создаёт условные инклюды
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.IConditionalIncludeCreator.Create``2(System.Linq.Expressions.Expression{System.Func{``0,System.Collections.Generic.IEnumerable{``1}}},System.Linq.Expressions.Expression{System.Func{``1,System.Object}},System.Linq.Expressions.Expression{System.Func{``1,System.Boolean}},System.Collections.Generic.IEnumerable{TsSoft.Expressions.OrderBy.IOrderByClause{``1}})">
+            <summary>
+            Создать условие на инклюд
+            </summary>
+            <typeparam name="TEntity">Основная запрашиваемая сущность</typeparam>
+            <typeparam name="TIncludedEntity">Сущность, на которую накладывается условие</typeparam>
+            <param name="path">Путь от запрашиваемой сущности до сущностей с условием</param>
+            <param name="foreignKeySelector">Внешний ключ сущности с условием</param>
+            <param name="where">Условие для выборки</param>
+            <param name="orderBy">Сортировка</param>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.IConditionalIncludeCreator.Create``2(System.Linq.Expressions.Expression{System.Func{``0,System.Collections.Generic.IEnumerable{``1}}},System.Linq.Expressions.Expression{System.Func{``1,System.Boolean}},System.Collections.Generic.IEnumerable{TsSoft.Expressions.OrderBy.IOrderByClause{``1}})">
+            <summary>
+            Создать условие на инклюд с автоматическим выбором внешнего ключа
+            </summary>
+            <typeparam name="TEntity">Основная запрашиваемая сущность</typeparam>
+            <typeparam name="TIncludedEntity">Сущность, на которую накладывается условие</typeparam>
+            <param name="path">Путь от запрашиваемой сущности до сущностей с условием</param>
+            <param name="where">Условие для выборки</param>
+            <param name="orderBy">Сортировка</param>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.IConditionalIncludeCreator.GetNested``2(TsSoft.Expressions.IncludeBuilder.Models.IIncludeCondition{``0},System.Collections.Generic.IEnumerable{TsSoft.Expressions.IncludeBuilder.Models.IIncludeCondition{``0}})">
+            <summary>
+            Создать условия для вложенной сущности из вложенный условий для внешней сущности
+            </summary>
+            <typeparam name="TEntity">Исходная запрашиваемая сущность</typeparam>
+            <typeparam name="TNestedEntity">Сущность, на которую наложено условие, содержащее вложенные условия</typeparam>
+            <param name="condition">Условие, содержащее вложенные условия</param>
+            <param name="nestedConditions">Вложенные условия</param>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.IConditionalIncludeCreator.Compose``2(System.Collections.Generic.IEnumerable{TsSoft.Expressions.Models.ValueHoldingMember},TsSoft.Expressions.IncludeBuilder.Models.IIncludeCondition{``1})">
+            <summary>
+            Собрать условие на инклюд для внешней сущности
+            </summary>
+            <typeparam name="TOuterEntity">Тип внешней сущности</typeparam>
+            <typeparam name="TInnerEntity">Тип внутренней сущности</typeparam>
+            <param name="path">Путь от внешней сущности к внутренней</param>
+            <param name="innerCondition">Условие для внутренней сущности</param>
+        </member>
+        <member name="T:TsSoft.Expressions.IncludeBuilder.IIncludeDescriptionHelper">
+            <summary>
+            Хелпер для разбора инклюдов
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.IIncludeDescriptionHelper.IncludeToApplicationDescription``1(TsSoft.Expressions.IncludeBuilder.Models.IncludeDescription{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Получить описание применения внешнего инклюда
+            </summary>
+            <typeparam name="T">Тип сущности</typeparam>
+            <param name="include">Инклюд</param>
+            <param name="entities">Извлечённые из БД сущности</param>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.IIncludeDescriptionHelper.IncludeToConditionalDescription``1(System.Collections.Generic.IEnumerable{``0},TsSoft.Expressions.IncludeBuilder.Models.IIncludeCondition{``0})">
+            <summary>
+            Получить описание применения условного инклюда
+            </summary>
+            <typeparam name="T">Тип сущности</typeparam>
+            <param name="entities">Извлечённые из БД сущности</param>
+            <param name="condition">Условный инклюд</param>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.IIncludeDescriptionHelper.IncludeToDescription``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.Collections.Generic.ICollection{TsSoft.Expressions.IncludeBuilder.Models.IIncludeCondition{``0}})">
+            <summary>
+            Разбить инклюд на непосредственную и отложенную части (например, внешние или условные инклюды)
+            </summary>
+            <typeparam name="T">Тип сущности</typeparam>
+            <param name="include">Инклюд</param>
+            <param name="conditions">Условия</param>
+        </member>
+        <member name="T:TsSoft.Expressions.IncludeBuilder.IIncludeHelper">
+            <summary>
+            Хелпер для построения инклюдов
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.IIncludeHelper.AddIncludes``2(System.Collections.Generic.ICollection{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}},TsSoft.Expressions.IncludeBuilder.Models.IIncludeProvider{``1},System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,``1}}},System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Collections.Generic.IEnumerable{``1}}}},System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``1}}}}})">
+            <summary>
+            Добавить инклюды инжектируемого обработчика вложенной сущности (например, маппера) в текущий обработчик
+            </summary>
+            <typeparam name="TEntity">Тип сущности текущего маппера</typeparam>
+            <typeparam name="TInjectedProcessorEntity">Тип сущности инжектируемого обработчика</typeparam>
+            <param name="includes">Коллекция инклюдов текущего обработчика</param>
+            <param name="processor">Инжектируемый обработчик сущности (например, маппер)</param>
+            <param name="usedProperties">Обрабатываемые инжектируемым обработчиком свойства (по умолчанию - все свойства сущности подходящего типа)</param>
+            <param name="usedCollections">Обрабатываемые инжектируемым обработчиком свойства-коллекции (по умолчанию - все свойства сущности подходящего типа)</param>
+            <param name="usedCollectionCollections">Обрабатываемые инжектируемым обработчиком коллекции, вложенные в коллекции</param>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.IIncludeHelper.AddIncludes``2(System.Collections.Generic.ICollection{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}},System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``1,System.Object}}},System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,``1}}},System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Collections.Generic.IEnumerable{``1}}}},System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``1}}}}})">
+            <summary>
+            Добавить инклюды инжектируемого обработчика вложенной сущности (например, маппера) в текущий обработчик
+            </summary>
+            <typeparam name="TEntity">Тип сущности текущего маппера</typeparam>
+            <typeparam name="TInjectedProcessorEntity">Тип сущности инжектируемого обработчика</typeparam>
+            <param name="includes">Коллекция инклюдов текущего обработчика</param>
+            <param name="processorIncludes">Инклюды инжектируемого обработчика сущности (например, маппера)</param>
+            <param name="usedProperties">Обрабатываемые инжектируемым обработчиком свойства (по умолчанию - все свойства сущности подходящего типа)</param>
+            <param name="usedCollections">Обрабатываемые инжектируемым обработчиком свойства-коллекции (по умолчанию - все свойства сущности подходящего типа)</param>
+            <param name="usedCollectionCollections">Обрабатываемые инжектируемым обработчиком коллекции, вложенные в коллекции</param>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.IIncludeHelper.AddIncludes``2(System.Collections.Generic.ICollection{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}},TsSoft.Expressions.IncludeBuilder.Models.IIncludeProvider{``1},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+            Добавить инклюды инжектируемого обработчика вложенной сущности (например, маппера) в текущий обработчик
+            </summary>
+            <typeparam name="TEntity">Тип сущности текущего маппера</typeparam>
+            <typeparam name="TInjectedProcessorEntity">Тип сущности инжектируемого обработчика</typeparam>
+            <param name="includes">Коллекция инклюдов текущего обработчика</param>
+            <param name="processor">Инжектируемый обработчик сущности (например, маппер)</param>
+            <param name="usedProperty">Обрабатываемое инжектируемым обработчиком свойство</param>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.IIncludeHelper.AddIncludes``2(System.Collections.Generic.ICollection{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}},TsSoft.Expressions.IncludeBuilder.Models.IIncludeProvider{``1},System.Linq.Expressions.Expression{System.Func{``0,System.Collections.Generic.IEnumerable{``1}}})">
+            <summary>
+            Добавить инклюды инжектируемого обработчика вложенной сущности (например, маппера) в текущий обработчик
+            </summary>
+            <typeparam name="TEntity">Тип сущности текущего маппера</typeparam>
+            <typeparam name="TInjectedProcessorEntity">Тип сущности инжектируемого обработчика</typeparam>
+            <param name="includes">Коллекция инклюдов текущего обработчика</param>
+            <param name="processor">Инжектируемый обработчик сущности (например, маппер)</param>
+            <param name="usedCollection">Обрабатываемая инжектируемым обработчиком коллекция</param>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.IIncludeHelper.AddIncludesForSelfProcessor``2(System.Collections.Generic.ICollection{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}},TsSoft.Expressions.IncludeBuilder.Models.IIncludeProvider{``1})">
+            <summary>
+            Добавить инклюды инжектируемого обработчика сущности в текущий обработчик той же сущности
+            </summary>
+            <typeparam name="TEntity">Тип сущности текущего обработчика</typeparam>
+            <typeparam name="TEntityInterface">Интерфейс, принимаемый инжектируемым обработчиком</typeparam>
+            <param name="includes">Коллекция инклюдов текущего обработчика</param>
+            <param name="processor">Инжектируемый обработчик</param>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.IIncludeHelper.AddIncludes``2(System.Collections.Generic.ICollection{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}},TsSoft.Expressions.IncludeBuilder.Models.IIncludeProvider{``1},System.Linq.Expressions.Expression{System.Func{``0,System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``1}}}})">
+            <summary>
+            Добавить инклюды инжектируемого обработчика вложенной сущности (например, маппера) в текущий обработчик
+            </summary>
+            <typeparam name="TEntity">Тип сущности текущего маппера</typeparam>
+            <typeparam name="TInjectedProcessorEntity">Тип сущности инжектируемого обработчика</typeparam>
+            <param name="includes">Коллекция инклюдов текущего обработчика</param>
+            <param name="processor">Инжектируемый обработчик сущности (например, маппер)</param>
+            <param name="usedCollection">Обрабатываемая инжектируемым обработчиком коллекция</param>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.IIncludeHelper.LoadConditionalIncludes``2(TsSoft.Expressions.IncludeBuilder.Models.Includes{``0},TsSoft.Expressions.IncludeBuilder.Models.IIncludeProvider{``1},System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,``1}}},System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Collections.Generic.IEnumerable{``1}}}})">
+            <summary>
+            Добавить условия из инжектируемого обработчика сущности (условия на один инклюд соединяются с помощью OrElse)
+            </summary>
+            <typeparam name="TEntity">Тип сущности текущего обработчика</typeparam>
+            <typeparam name="TInjectedProcessorEntity">Тип сущности инжектируемого обработчика</typeparam>
+            <param name="includes">Коллекция инклюдов текущего обработчика</param>
+            <param name="processor">Инжектируемый обработчик</param>
+            <param name="usedProperties">Обрабатываемые инжектируемым обработчиком свойства</param>
+            <param name="usedCollections">Обрабатываемые инжектируемым обработчиком коллекции</param>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.IIncludeHelper.LoadConditionalIncludes``2(TsSoft.Expressions.IncludeBuilder.Models.Includes{``0},TsSoft.Expressions.IncludeBuilder.Models.IIncludeProvider{``1},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+            Добавить условия из инжектируемого обработчика сущности (условия на один инклюд соединяются с помощью OrElse)
+            </summary>
+            <typeparam name="TEntity">Тип сущности текущего обработчика</typeparam>
+            <typeparam name="TInjectedProcessorEntity">Тип сущности инжектируемого обработчика</typeparam>
+            <param name="includes">Коллекция инклюдов текущего обработчика</param>
+            <param name="processor">Инжектируемый обработчик</param>
+            <param name="usedProperty">Обрабатываемое инжектируемым обработчиком свойство</param>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.IIncludeHelper.LoadConditionalIncludes``2(TsSoft.Expressions.IncludeBuilder.Models.Includes{``0},TsSoft.Expressions.IncludeBuilder.Models.IIncludeProvider{``1},System.Linq.Expressions.Expression{System.Func{``0,System.Collections.Generic.IEnumerable{``1}}})">
+            <summary>
+            Добавить условия из инжектируемого обработчика сущности (условия на один инклюд соединяются с помощью OrElse)
+            </summary>
+            <typeparam name="TEntity">Тип сущности текущего обработчика</typeparam>
+            <typeparam name="TInjectedProcessorEntity">Тип сущности инжектируемого обработчика</typeparam>
+            <param name="includes">Коллекция инклюдов текущего обработчика</param>
+            <param name="processor">Инжектируемый обработчик</param>
+            <param name="usedCollection">Обрабатываемая инжектируемым обработчиком коллекция</param>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.IIncludeHelper.LoadConditionalIncludes``2(System.Collections.Generic.ICollection{TsSoft.Expressions.IncludeBuilder.Models.IIncludeCondition{``0}},System.Collections.Generic.IEnumerable{TsSoft.Expressions.IncludeBuilder.Models.IIncludeCondition{``1}},System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,``1}}},System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Collections.Generic.IEnumerable{``1}}}})">
+            <summary>
+            Добавить условия на инклюды
+            </summary>
+            <typeparam name="TEntity">Тип сущности текущего обработчика</typeparam>
+            <typeparam name="TInjectedProcessorEntity">Тип сущности в добавляемых условиях</typeparam>
+            <param name="conditions">Условия текущего обработчика</param>
+            <param name="addedConditions">Добавляемые условия</param>
+            <param name="usedProperties"></param>
+            <param name="usedCollections"></param>
+        </member>
+        <member name="T:TsSoft.Expressions.IncludeBuilder.IncludeDescriptionHelper">
+            <summary>
+            Хелпер для разбора инклюдов
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.IncludeDescriptionHelper.#ctor(TsSoft.Expressions.Helpers.IFlatPathParser,TsSoft.Expressions.Helpers.Collections.ICollectionHelper,TsSoft.Expressions.Helpers.IExpressionBuilder,TsSoft.Expressions.Helpers.Entity.IEntityTypesHelper)">
+            <summary>
+            Хелпер для разбора инклюдов
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.IncludeDescriptionHelper.IncludeToApplicationDescription``1(TsSoft.Expressions.IncludeBuilder.Models.IncludeDescription{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Получить описание применения внешнего инклюда
+            </summary>
+            <typeparam name="T">Тип сущности</typeparam>
+            <param name="include">Инклюд</param>
+            <param name="entities">Извлечённые из БД сущности</param>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.IncludeDescriptionHelper.IncludeToDescription``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.Collections.Generic.ICollection{TsSoft.Expressions.IncludeBuilder.Models.IIncludeCondition{``0}})">
+            <summary>
+            Разбить инклюд на непосредственную и отложенную части (например, внешние или условные инклюды)
+            </summary>
+            <typeparam name="T">Тип сущности</typeparam>
+            <param name="include">Инклюд</param>
+            <param name="conditions">Условия</param>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.IncludeDescriptionHelper.IncludeToConditionalDescription``1(System.Collections.Generic.IEnumerable{``0},TsSoft.Expressions.IncludeBuilder.Models.IIncludeCondition{``0})">
+            <summary>
+            Получить описание применения условного инклюда
+            </summary>
+            <typeparam name="T">Тип сущности</typeparam>
+            <param name="entities">Извлечённые из БД сущности</param>
+            <param name="condition">Условный инклюд</param>
+        </member>
+        <member name="T:TsSoft.Expressions.IncludeBuilder.IPathToDbIncludeConverter">
+            <summary>
+            Преобразует пути в инклюды
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.IPathToDbIncludeConverter.ToDbInclude``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
+            <summary>
+            Преобразовать путь в чистый БД-инклюд
+            </summary>
+            <param name="path">Путь</param>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.IPathToDbIncludeConverter.GetIncludes``1(System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}},System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}})">
+            <summary>
+            Преобразовать пути в чистые БД-инклюд
+            </summary>
+            <param name="paths">Пути</param>
+            <param name="ignoreStarts">Игнорировать пути, начинающиеся так</param>
+        </member>
+        <member name="T:TsSoft.Expressions.IncludeBuilder.ISelectToIncludeConverter">
+            <summary>
+            Преобразует селект-выражения в инклюды
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.ISelectToIncludeConverter.ConvertToIncludes``1(TsSoft.Expressions.SelectBuilder.Models.IReadOnlySelectExpression{``0})">
+            <summary>
+            Преобразовать в инклюды
+            </summary>
+            <typeparam name="TEntity">Тип сущности</typeparam>
+            <param name="select">Селект-выражение</param>
+            <returns>Инклюды</returns>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.ISelectToIncludeConverter.ConvertToPaths``1(TsSoft.Expressions.SelectBuilder.Models.IReadOnlySelectExpression{``0})">
+            <summary>
+            Преобразовать в пути
+            </summary>
+            <typeparam name="TEntity">Тип сущности</typeparam>
+            <param name="select">Селект-выражение</param>
+            <returns>Пути</returns>
+        </member>
+    </members>
+</doc>

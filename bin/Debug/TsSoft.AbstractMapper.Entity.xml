@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TsSoft.AbstractMapper.Entity</name>
+    </assembly>
+    <members>
+        <member name="T:TsSoft.AbstractMapper.Rules.EntityMapRules`2">
+            <summary>
+            Коллекция правил преобразования сущности БД
+            </summary>
+            <typeparam name="TTo">Тип, в который преобразуется сущность БД</typeparam>
+            <typeparam name="TFrom">Тип сущности БД</typeparam>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.EntityMapRules`2.Add``3(System.Linq.Expressions.Expression{System.Func{`0,``1}},System.Linq.Expressions.Expression{System.Func{`1,``0}},TsSoft.AbstractMapper.Rules.IncludeProviderRule,``2,System.Linq.Expressions.Expression{System.Func{``0,``2,``1}})">
+            <summary>
+            </summary>
+            <typeparam name="TToProperty">Тип свойства, в которое идёт преобразование</typeparam>
+            <typeparam name="TFromProperty">Тип свойства, из которого идёт преобразование</typeparam>
+            <typeparam name="TProcessor">Тип обработчика</typeparam>
+            <param name="toAccess">Куда</param>
+            <param name="processor">Обработчик</param>
+            <param name="convert">Как</param>
+            <param name="fromAccess">Что</param>
+            <param name="dummy">Маркер правила с обработчиком</param>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.EntityMapRules`2.Add``3(System.Linq.Expressions.Expression{System.Func{`0,``1}},System.Linq.Expressions.Expression{System.Func{`1,System.Collections.Generic.IEnumerable{``0}}},TsSoft.AbstractMapper.Rules.IncludeCollectionProviderRule,``2,System.Linq.Expressions.Expression{System.Func{System.Collections.Generic.IEnumerable{``0},``2,``1}})">
+            <summary>
+            </summary>
+            <typeparam name="TToProperty">Тип свойства, в которое идёт преобразование</typeparam>
+            <typeparam name="TFromProperty">Тип элемента свойства-коллекции, из которого идёт преобразование</typeparam>
+            <typeparam name="TProcessor">Тип обработчика</typeparam>
+            <param name="toAccess">Куда</param>
+            <param name="processor">Обработчик</param>
+            <param name="convert">Как</param>
+            <param name="fromAccess">Что</param>
+            <param name="dummy">Маркер правила с обработчиком</param>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.EntityMapRules`2.Add``3(System.Linq.Expressions.Expression{System.Func{`0,``1}},System.Linq.Expressions.Expression{System.Func{`1,``0}},TsSoft.AbstractMapper.Rules.SelectProviderRule,``2,System.Linq.Expressions.Expression{System.Func{``0,``2,``1}})">
+            <summary>
+            </summary>
+            <typeparam name="TToProperty">Тип свойства, в которое идёт преобразование</typeparam>
+            <typeparam name="TFromProperty">Тип свойства, из которого идёт преобразование</typeparam>
+            <typeparam name="TProcessor">Тип обработчика</typeparam>
+            <param name="toAccess">Куда</param>
+            <param name="processor">Обработчик</param>
+            <param name="convert">Как</param>
+            <param name="fromAccess">Что</param>
+            <param name="dummy">Маркер правила с обработчиком</param>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.EntityMapRules`2.Add``3(System.Linq.Expressions.Expression{System.Func{`0,``1}},System.Linq.Expressions.Expression{System.Func{`1,System.Collections.Generic.IEnumerable{``0}}},TsSoft.AbstractMapper.Rules.SelectCollectionProviderRule,``2,System.Linq.Expressions.Expression{System.Func{System.Collections.Generic.IEnumerable{``0},``2,``1}})">
+            <summary>
+            </summary>
+            <typeparam name="TToProperty">Тип свойства, в которое идёт преобразование</typeparam>
+            <typeparam name="TFromProperty">Тип элемента свойства-коллекции, из которого идёт преобразование</typeparam>
+            <typeparam name="TProcessor">Тип обработчика</typeparam>
+            <param name="toAccess">Куда</param>
+            <param name="processor">Обработчик</param>
+            <param name="convert">Как</param>
+            <param name="fromAccess">Что</param>
+            <param name="dummy">Маркер правила с обработчиком</param>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Rules.SelectProviderRule">
+            <summary>
+            Маркер правила маппинга, использующего ISelectProvider
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Rules.SelectProviderRule.Rule">
+            <summary>
+            Маркер правила маппинга, использующего ISelectProvider
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Rules.SelectCollectionProviderRule">
+            <summary>
+            Маркер правила маппинга, использующего ISelectProvider
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Rules.SelectCollectionProviderRule.Rule">
+            <summary>
+            Маркер правила маппинга, использующего ISelectProvider
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Rules.IncludeProviderRule">
+            <summary>
+            Маркер правила маппинга, использующего IIncludeProvider
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Rules.IncludeProviderRule.Rule">
+            <summary>
+            Маркер правила маппинга, использующего IIncludeProvider
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Rules.IncludeCollectionProviderRule">
+            <summary>
+            Маркер правила маппинга, использующего IIncludeProvider
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Rules.IncludeCollectionProviderRule.Rule">
+            <summary>
+            Маркер правила маппинга, использующего IIncludeProvider
+            </summary>
+        </member>
+    </members>
+</doc>

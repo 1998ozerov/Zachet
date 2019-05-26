@@ -1,0 +1,579 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TsSoft.Expressions.Helpers.Entity</name>
+    </assembly>
+    <members>
+        <member name="T:TsSoft.Expressions.Helpers.Entity.Attributes.DependentOnColumnAttribute">
+            <summary>
+            Атрибут для разметки NotMapped-свойств, зависящих от Mapped-свойства, соответствующего столбцу
+            </summary>
+        </member>
+        <member name="F:TsSoft.Expressions.Helpers.Entity.Attributes.DependentOnColumnAttribute.Column">
+            <summary>
+            Имя столбца, значение которого необходимо для вычисления значения размечаемого свойства
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.Attributes.DependentOnColumnAttribute.#ctor(System.String)">
+            <summary>
+            Атрибут для разметки NotMapped-свойств, зависящих от Mapped-свойства, соответствующего столбцу
+            </summary>
+        </member>
+        <member name="T:TsSoft.Expressions.Helpers.Entity.Attributes.NavigationToParentAttribute">
+            <summary>
+            Атрибут для разметки навигационных коллекций, которые являются ссылкой на родителей
+            </summary>
+        </member>
+        <member name="T:TsSoft.Expressions.Helpers.Entity.Attributes.NavigationWrapperAttribute">
+            <summary>
+            Атрибут для разметки NotMapped-свойств, пробрасывающих навигационное свойство
+            </summary>
+        </member>
+        <member name="F:TsSoft.Expressions.Helpers.Entity.Attributes.NavigationWrapperAttribute.Navigation">
+            <summary>
+            Имя пробрасываемого навигационного свойства
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.Attributes.NavigationWrapperAttribute.#ctor(System.String)">
+            <summary>
+            Атрибут для разметки NotMapped-свойств, пробрасывающих навигационное свойство
+            </summary>
+        </member>
+        <member name="T:TsSoft.Expressions.Helpers.Entity.Attributes.NonDeletableAttribute">
+            <summary>
+            Атрибут для разметки сущностей, с соответствующим которым объектом БД нельзя сделать delete
+            </summary>
+        </member>
+        <member name="T:TsSoft.Expressions.Helpers.Entity.Attributes.NonInsertableAttribute">
+            <summary>
+            Атрибут для разметки сущностей, в соответствующий которым объект БД нельзя сделать insert
+            </summary>
+        </member>
+        <member name="T:TsSoft.Expressions.Helpers.Entity.ChildMembers">
+            <summary>
+            Описание навигационных свойств, ведущих к дочерним сущностям
+            </summary>
+        </member>
+        <member name="P:TsSoft.Expressions.Helpers.Entity.ChildMembers.Single">
+            <summary>
+            Навигационные свойства к одиночной сущности
+            </summary>
+        </member>
+        <member name="P:TsSoft.Expressions.Helpers.Entity.ChildMembers.Collections">
+            <summary>
+            Навигационные свойства к коллекции
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.ChildMembers.#ctor(System.Collections.Generic.IReadOnlyCollection{TsSoft.Expressions.Models.ValueHoldingMember},System.Collections.Generic.IReadOnlyCollection{TsSoft.Expressions.Models.ValueHoldingMember})">
+            <summary>
+            Описание навигационных свойств, ведущих к дочерним сущностям
+            </summary>
+        </member>
+        <member name="T:TsSoft.Expressions.Helpers.Entity.EntityDependencyHelper">
+            <summary>
+            Хелпер для определения зависимостей между сущностями
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityDependencyHelper.#ctor(TsSoft.Expressions.Helpers.Entity.IEntityTypesHelper)">
+            <summary>
+            Хелпер для определения зависимостей между сущностями
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityDependencyHelper.GetHardDependencies(System.Type)">
+            <summary>
+            Получить все типы сущностей, на которые существуют незануляемые ссылки из данной
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityDependencyHelper.GetHardDependencies(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.Collections.Generic.IReadOnlyList{TsSoft.Expressions.Models.ValueHoldingMember},TsSoft.Expressions.Models.ValueHoldingMember}})">
+            <summary>
+            Получить все типы сущностей, на которые существуют незануляемые ссылки из данной, по списку её внешних ключей
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityDependencyHelper.IsNavigationalToChildrenProperty(TsSoft.Expressions.Models.ValueHoldingMember,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.Collections.Generic.IReadOnlyList{TsSoft.Expressions.Models.ValueHoldingMember},TsSoft.Expressions.Models.ValueHoldingMember}})">
+            <summary>
+            Является ли свойство навигационным к коллекции зависимых сущностей
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityDependencyHelper.IsNavigationalToSingleChildProperty(TsSoft.Expressions.Models.ValueHoldingMember,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.Collections.Generic.IReadOnlyList{TsSoft.Expressions.Models.ValueHoldingMember},TsSoft.Expressions.Models.ValueHoldingMember}})">
+            <summary>
+            Является ли свойство навигационным к зависимой сущности
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityDependencyHelper.IsNavigationalToParentProperty(TsSoft.Expressions.Models.ValueHoldingMember,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.Collections.Generic.IReadOnlyList{TsSoft.Expressions.Models.ValueHoldingMember},TsSoft.Expressions.Models.ValueHoldingMember}})">
+            <summary>
+            Является ли свойство навигационным к сущности, от которой зависит данная
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityDependencyHelper.GetChildMembers(System.Type)">
+            <summary>
+            Получить свойства, содержащие зависимые сущности
+            </summary>
+            <param name="entityType">Тип сущности</param>
+        </member>
+        <member name="T:TsSoft.Expressions.Helpers.Entity.EntityEqualityComparerProvider">
+            <summary>
+            Предоставляет сравнение на равенство по идентификаторам для классов, реализующих <see cref="T:TsSoft.EntityRepository.Interfaces.IEntityWithId`1"/>
+            </summary>
+        </member>
+        <member name="F:TsSoft.Expressions.Helpers.Entity.EntityEqualityComparerProvider.Instance">
+            <summary>
+            Предоставляет сравнение на равенство по идентификаторам для классов, реализующих <see cref="T:TsSoft.EntityRepository.Interfaces.IEntityWithId`1"/>
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityEqualityComparerProvider.GetEqualityComparer``1">
+            <summary>
+            Получить сравнитель на равенство для типа
+            </summary>
+            <typeparam name="T">Тип объектов</typeparam>
+            <returns>Сравнитель на равенство</returns>
+        </member>
+        <member name="T:TsSoft.Expressions.Helpers.Entity.EntityExpressionBuilder">
+            <summary>
+            Построитель выражений для работы с сущностями
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityExpressionBuilder.#ctor(TsSoft.Expressions.Helpers.Entity.IEntityTypesHelper,TsSoft.Expressions.Helpers.Reflection.ICollectionReflectionHelper)">
+            <summary>
+            Построитель выражений для работы с сущностями
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityExpressionBuilder.GetGetByIdLambda(System.Type,System.Collections.Generic.IReadOnlyList{TsSoft.Expressions.Models.ValueHoldingMember},System.Collections.Generic.IReadOnlyList{System.Object})">
+            <summary>
+            Получить лямбда-выражение для выборки сущности по идентификатору
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityExpressionBuilder.GetGetByIdLambda(System.Type,TsSoft.Expressions.Models.ValueHoldingMember,System.Object)">
+            <summary>
+            Получить лямбда-выражение для выборки сущности по идентификатору
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityExpressionBuilder.GetGetByIdLambda(System.Type,System.Collections.Generic.IReadOnlyList{System.Object})">
+            <summary>
+            Получить лямбда-выражение для выборки сущности по идентификатору
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityExpressionBuilder.GetGetByIdLambda``1(System.Collections.Generic.IReadOnlyList{System.Object})">
+            <summary>
+            Получить лямбда-выражение для выборки сущности по идентификатору
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityExpressionBuilder.GetIncludeLambda(System.Type,TsSoft.Expressions.Models.ValueHoldingMember)">
+            <summary>
+            Получить инклюды для свойств
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityExpressionBuilder.GetIncludeLambdas(System.Type,System.Collections.Generic.IEnumerable{TsSoft.Expressions.Models.ValueHoldingMember})">
+            <summary>
+            Получить список инклюдов для заданных навигационных свойств
+            </summary>
+            <returns>List[Expression[Func[entityType, object]]] с инклюдами</returns>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityExpressionBuilder.GetAllIncludes(System.Type)">
+            <summary>
+            Получить список инклюдов для всех навигационных свойств
+            </summary>
+            <param name="entityType"></param>
+            <returns>List[Expression[Func[entityType, object]]] с инклюдами</returns>
+        </member>
+        <member name="T:TsSoft.Expressions.Helpers.Entity.EntityTypesHelper">
+            <summary>
+            Хелпер для работы с типами сущностей: определяет тип свойства в классе сущности, получает обёрнутые свойства из обёрток, получает имена таблиц и столбцов для raw sql
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityTypesHelper.#ctor(TsSoft.Expressions.Helpers.Entity.IEntityTypesRetriever)">
+            <summary>
+            Хелпер для работы с типами сущностей
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityTypesHelper.Create(System.Type)">
+            <summary>
+            Создать объект сущности
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityTypesHelper.IsNavigationalCollectionProperty(TsSoft.Expressions.Models.ValueHoldingMember)">
+            <summary>
+            Является ли свойство навигационной коллекцией
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityTypesHelper.IsNavigationalSingleProperty(TsSoft.Expressions.Models.ValueHoldingMember)">
+            <summary>
+            Является ли свойство навигационной ссылкой
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityTypesHelper.IsColumnProperty(TsSoft.Expressions.Models.ValueHoldingMember)">
+            <summary>
+            Соответствует ли свойству столбец
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityTypesHelper.IsDependentProperty(TsSoft.Expressions.Models.ValueHoldingMember)">
+            <summary>
+            Является ли свойство зависимым от свойства-столбца
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityTypesHelper.IsNavigationWrapperProperty(TsSoft.Expressions.Models.ValueHoldingMember)">
+            <summary>
+            Является ли свойство обёрткой над навигационным свойством
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityTypesHelper.GetUnderlyingColumn(TsSoft.Expressions.Models.ValueHoldingMember)">
+            <summary>
+            Получить свойство-столбец, от которого зависит данное
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityTypesHelper.GetUnderlyingColumns(TsSoft.Expressions.Models.ValueHoldingMember)">
+            <summary>
+            Получить свойства-столбцы, от которого зависит данное
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityTypesHelper.GetWrappedNavigation(TsSoft.Expressions.Models.ValueHoldingMember)">
+            <summary>
+            Получить навигационные свойства, обёрнутые данным
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityTypesHelper.IsExternalProperty(TsSoft.Expressions.Models.ValueHoldingMember)">
+            <summary>
+            Является ли свойство ссылкой на внешнюю сущность
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityTypesHelper.IsNonDbProperty(TsSoft.Expressions.Models.ValueHoldingMember)">
+            <summary>
+            Является ли свойство NotMapped-свойством
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityTypesHelper.GetPrimaryKeySimple(System.Type)">
+            <summary>
+            Получить свойство, содержащее первичный ключ
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityTypesHelper.GetPrimaryKey(System.Type)">
+            <summary>
+            Получить свойства, содержащие первичный ключ
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityTypesHelper.RetrieveForeignKeys(System.Type)">
+            <summary>
+            Получить набор внешних ключей по атрибутам ForeignKeyAttribute
+            </summary>
+            <param name="entityType">Тип сущности</param>
+            <returns>Набор пар (список образующих внешний ключ свойств, соответствующая ключу навигация)</returns>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityTypesHelper.GetForeignKeys(System.Type)">
+            <summary>
+            Получить пары свойств (внешний ключ, соответствующее навигационное свойство)
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityTypesHelper.TryGetExternalKey(TsSoft.Expressions.Models.ValueHoldingMember)">
+            <summary>
+            Получить свойство, содержащее ключ для заданного sp-навигационного свойства
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityTypesHelper.GetExternalKeys(System.Type)">
+            <summary>
+            Получить пары свойств (sp-ключ, соответствующее sp-свойство)
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityTypesHelper.GetInverseForeignKey(TsSoft.Expressions.Models.ValueHoldingMember)">
+            <summary>
+            Получить внешний ключ, соответствующий коллекции
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityTypesHelper.GetInverseForeignKeySimple(TsSoft.Expressions.Models.ValueHoldingMember)">
+            <summary>
+            Получить внешний ключ, соответствующий коллекции
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityTypesHelper.GetTableName(System.Type)">
+            <summary>
+            Получить имя таблицы
+            </summary>
+            <param name="entityType">Тип сущности</param>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityTypesHelper.GetColumnName(TsSoft.Expressions.Models.ValueHoldingMember)">
+            <summary>
+            Получить имя столбца
+            </summary>
+            <param name="column">Свойство, которому соответствует столбец</param>
+            <returns>Экранированное имя столбца для использования в SQL-запросе</returns>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityTypesHelper.RetrieveTableName(System.Type)">
+            <summary>
+            Получить имя таблицы из атрибута TableAttribute на типе
+            </summary>
+        </member>
+        <member name="T:TsSoft.Expressions.Helpers.Entity.EntityTypesHelperExtensions">
+            <summary>
+            Расширения для хелпера типов сущностей
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityTypesHelperExtensions.GetColumnProperties(TsSoft.Expressions.Helpers.Entity.IEntityTypesHelper,System.Type)">
+            <summary>
+            Получить все свойства, которым соответствуют столбцы
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityTypesHelperExtensions.TryGetForeignKey(TsSoft.Expressions.Helpers.Entity.IEntityTypesHelper,TsSoft.Expressions.Models.ValueHoldingMember)">
+            <summary>
+            Получить свойство, содержащее внешний ключ, по навигационному свойству
+            </summary>
+            <returns>Свойство-внешний ключ или null, если исходная навигация не найдена среди внешних ключей</returns>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityTypesHelperExtensions.IsCorrespondingForeignKeyNotNullable(TsSoft.Expressions.Helpers.Entity.IEntityTypesHelper,TsSoft.Expressions.Models.ValueHoldingMember)">
+            <summary>
+            Является ли соответствующий навигации внешний ключ необязательным
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityTypesHelperExtensions.GetNavigationalCollectionProperties(TsSoft.Expressions.Helpers.Entity.IEntityTypesHelper,System.Type)">
+            <summary>
+            Получить все навигационные свойства, являющиеся коллекциями
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityTypesHelperExtensions.GetNavigationalSingleProperties(TsSoft.Expressions.Helpers.Entity.IEntityTypesHelper,System.Type)">
+            <summary>
+            Получить все навигационные свойства, не являющиеся коллекциями
+            </summary>
+        </member>
+        <member name="T:TsSoft.Expressions.Helpers.Entity.IEntityDependencyHelper">
+            <summary>
+            Хелпер для определения зависимостей между сущностями
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityDependencyHelper.GetHardDependencies(System.Type)">
+            <summary>
+            Получить все типы сущностей, на которые существуют незануляемые ссылки из данной
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityDependencyHelper.GetHardDependencies(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.Collections.Generic.IReadOnlyList{TsSoft.Expressions.Models.ValueHoldingMember},TsSoft.Expressions.Models.ValueHoldingMember}})">
+            <summary>
+            Получить все типы сущностей, на которые существуют незануляемые ссылки из данной, по списку её внешних ключей
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityDependencyHelper.IsNavigationalToChildrenProperty(TsSoft.Expressions.Models.ValueHoldingMember,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.Collections.Generic.IReadOnlyList{TsSoft.Expressions.Models.ValueHoldingMember},TsSoft.Expressions.Models.ValueHoldingMember}})">
+            <summary>
+            Является ли свойство навигационным к коллекции зависимых сущностей
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityDependencyHelper.IsNavigationalToSingleChildProperty(TsSoft.Expressions.Models.ValueHoldingMember,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.Collections.Generic.IReadOnlyList{TsSoft.Expressions.Models.ValueHoldingMember},TsSoft.Expressions.Models.ValueHoldingMember}})">
+            <summary>
+            Является ли свойство навигационным к зависимой сущности
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityDependencyHelper.IsNavigationalToParentProperty(TsSoft.Expressions.Models.ValueHoldingMember,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.Collections.Generic.IReadOnlyList{TsSoft.Expressions.Models.ValueHoldingMember},TsSoft.Expressions.Models.ValueHoldingMember}})">
+            <summary>
+            Является ли свойство навигационным к сущности, от которой зависит данная
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityDependencyHelper.GetChildMembers(System.Type)">
+            <summary>
+            Получить свойства, содержащие зависимые сущности
+            </summary>
+            <param name="entityType">Тип сущности</param>
+        </member>
+        <member name="T:TsSoft.Expressions.Helpers.Entity.IEntityExpressionBuilder">
+            <summary>
+            Построитель выражений для работы с сущностями
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityExpressionBuilder.GetGetByIdLambda(System.Type,System.Collections.Generic.IReadOnlyList{TsSoft.Expressions.Models.ValueHoldingMember},System.Collections.Generic.IReadOnlyList{System.Object})">
+            <summary>
+            Получить лямбда-выражение для выборки сущности по идентификатору
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityExpressionBuilder.GetGetByIdLambda(System.Type,TsSoft.Expressions.Models.ValueHoldingMember,System.Object)">
+            <summary>
+            Получить лямбда-выражение для выборки сущности по идентификатору
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityExpressionBuilder.GetGetByIdLambda(System.Type,System.Collections.Generic.IReadOnlyList{System.Object})">
+            <summary>
+            Получить лямбда-выражение для выборки сущности по идентификатору
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityExpressionBuilder.GetGetByIdLambda``1(System.Collections.Generic.IReadOnlyList{System.Object})">
+            <summary>
+            Получить лямбда-выражение для выборки сущности по идентификатору
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityExpressionBuilder.GetIncludeLambda(System.Type,TsSoft.Expressions.Models.ValueHoldingMember)">
+            <summary>
+            Получить инклюды для свойств
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityExpressionBuilder.GetIncludeLambdas(System.Type,System.Collections.Generic.IEnumerable{TsSoft.Expressions.Models.ValueHoldingMember})">
+            <summary>
+            Получить список инклюдов для заданных навигационных свойств
+            </summary>
+            <returns>List[Expression[Func[entityType, object]]] с инклюдами</returns>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityExpressionBuilder.GetAllIncludes(System.Type)">
+            <summary>
+            Получить список инклюдов для всех навигационных свойств
+            </summary>
+            <param name="entityType"></param>
+            <returns>List[Expression[Func[entityType, object]]] с инклюдами</returns>
+        </member>
+        <member name="T:TsSoft.Expressions.Helpers.Entity.IEntityTypesHelper">
+            <summary>
+            Хелпер для работы с типами сущностей: определяет тип свойства в классе сущности, получает обёрнутые свойства из обёрток, получает имена таблиц и столбцов для raw sql
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityTypesHelper.Create(System.Type)">
+            <summary>
+            Создать объект сущности
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityTypesHelper.IsNavigationalCollectionProperty(TsSoft.Expressions.Models.ValueHoldingMember)">
+            <summary>
+            Является ли свойство навигационной коллекцией
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityTypesHelper.IsNavigationalSingleProperty(TsSoft.Expressions.Models.ValueHoldingMember)">
+            <summary>
+            Является ли свойство навигационной ссылкой
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityTypesHelper.IsColumnProperty(TsSoft.Expressions.Models.ValueHoldingMember)">
+            <summary>
+            Соответствует ли свойству столбец
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityTypesHelper.IsDependentProperty(TsSoft.Expressions.Models.ValueHoldingMember)">
+            <summary>
+            Является ли свойство зависимым от свойства-столбца
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityTypesHelper.IsNavigationWrapperProperty(TsSoft.Expressions.Models.ValueHoldingMember)">
+            <summary>
+            Является ли свойство обёрткой над навигационным свойством
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityTypesHelper.IsExternalProperty(TsSoft.Expressions.Models.ValueHoldingMember)">
+            <summary>
+            Является ли свойство ссылкой на внешнюю сущность
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityTypesHelper.IsNonDbProperty(TsSoft.Expressions.Models.ValueHoldingMember)">
+            <summary>
+            Является ли свойство NotMapped-свойством
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityTypesHelper.GetUnderlyingColumn(TsSoft.Expressions.Models.ValueHoldingMember)">
+            <summary>
+            Получить свойство-столбец, от которого зависит данное
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityTypesHelper.GetUnderlyingColumns(TsSoft.Expressions.Models.ValueHoldingMember)">
+            <summary>
+            Получить свойства-столбцы, от которого зависит данное
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityTypesHelper.GetWrappedNavigation(TsSoft.Expressions.Models.ValueHoldingMember)">
+            <summary>
+            Получить навигационные свойства, обёрнутые данным
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityTypesHelper.GetInverseForeignKey(TsSoft.Expressions.Models.ValueHoldingMember)">
+            <summary>
+            Получить внешний ключ, соответствующий коллекции
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityTypesHelper.GetInverseForeignKeySimple(TsSoft.Expressions.Models.ValueHoldingMember)">
+            <summary>
+            Получить простой внешний ключ (из одного столбца), соответствующий коллекции
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityTypesHelper.GetPrimaryKeySimple(System.Type)">
+            <summary>
+            Получить свойство, содержащее первичный ключ
+            </summary>
+            <exception cref="T:System.InvalidOperationException">Первичный ключ состоит из нескольких столбцов</exception>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityTypesHelper.GetPrimaryKey(System.Type)">
+            <summary>
+            Получить свойства, содержащие первичный ключ
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityTypesHelper.GetForeignKeys(System.Type)">
+            <summary>
+            Получить пары свойств (внешний ключ, соответствующее навигационное свойство)
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityTypesHelper.TryGetExternalKey(TsSoft.Expressions.Models.ValueHoldingMember)">
+            <summary>
+            Получить свойство, содержащее ключ для заданного внешнего навигационного свойства
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityTypesHelper.GetExternalKeys(System.Type)">
+            <summary>
+            Получить пары свойств (ключ, соответствующее внешнее навигационное свойство)
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityTypesHelper.GetTableName(System.Type)">
+            <summary>
+            Получить имя таблицы
+            </summary>
+            <param name="entityType">Тип сущности</param>
+            <returns>Экранированное имя таблицы для использования в SQL-запросе</returns>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityTypesHelper.GetColumnName(TsSoft.Expressions.Models.ValueHoldingMember)">
+            <summary>
+            Получить имя столбца
+            </summary>
+            <param name="column">Столбец</param>
+            <returns>Экранированное имя столбца для использования в SQL-запросе</returns>
+        </member>
+        <member name="T:TsSoft.Expressions.Helpers.Entity.IEntityTypesRetriever">
+            <summary>
+            Определяет, является ли тип типом сущности
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityTypesRetriever.IsEntityType(System.Type)">
+            <summary>
+            Является ли тип сущностью БД
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityTypesRetriever.IsEntityCollectionType(System.Type)">
+            <summary>
+            Является ли тип коллекцией сущностей БД
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityTypesRetriever.GetEntityTypes">
+            <summary>
+            Получить все типы сущностей
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityTypesRetriever.IsExternalEntityType(System.Type)">
+            <summary>
+            Является ли тип внешней сущностью
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.IEntityTypesRetriever.GetExternalEntityTypes">
+            <summary>
+            Получить все типы внешних сущностей
+            </summary>
+        </member>
+        <member name="T:TsSoft.Expressions.Helpers.Entity.EntityTypesRetrieverExtensions">
+            <summary>
+            Расширения для IEntityTypesRetriever
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityTypesRetrieverExtensions.IsIncludableType(TsSoft.Expressions.Helpers.Entity.IEntityTypesRetriever,System.Type)">
+            <summary>
+            Может ли тип участвовать в инклюде
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.Helpers.Entity.EntityTypesRetrieverExtensions.IsDbIncludableType(TsSoft.Expressions.Helpers.Entity.IEntityTypesRetriever,System.Type)">
+            <summary>
+            Может ли тип участвовать в чистом БД-инклюде
+            </summary>
+        </member>
+        <member name="T:TsSoft.Bindings.ExpressionsHelpersEntityBindings">
+            <summary>
+            Описание интерфейсов и их реализаций в сборке TsSoft.Expressions.Helpers.Entity
+            </summary>
+        </member>
+        <member name="M:TsSoft.Bindings.ExpressionsHelpersEntityBindings.#ctor">
+            <summary>
+            Описание интерфейсов и их реализаций в сборке TsSoft.Expressions.Helpers.Entity
+            </summary>
+        </member>
+    </members>
+</doc>

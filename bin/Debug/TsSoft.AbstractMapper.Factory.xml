@@ -1,0 +1,643 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TsSoft.AbstractMapper.Factory</name>
+    </assembly>
+    <members>
+        <member name="T:TsSoft.AbstractMapper.Factory.AbstractMapperDependenciesFactory">
+            <summary>
+            Фабрика зависимостей мапперов
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.AbstractMapperDependenciesFactory.AddBindings(TsSoft.BindingsDescription.IBindingsDescription)">
+            <summary>
+            Добавить связи интерфейсов с реализациями зависимостей
+            </summary>
+            <param name="description">Описание связей</param>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.AbstractMapperDependenciesFactory.RemoveBinding``1">
+            <summary>
+            Удалить связь интерфейса с реализацией
+            </summary>
+            <typeparam name="T">Тип интерфейса</typeparam>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.AbstractMapperDependenciesFactory.AddStaticHelper``1(``0)">
+            <summary>
+            Добавить статический хелпер
+            </summary>
+            <typeparam name="T">Интерфейс хелпера</typeparam>
+            <param name="helper">Хелпер</param>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.AbstractMapperDependenciesFactory.GetDependency``1(TsSoft.AbstractMapper.Factory.MapperTypes,TsSoft.AbstractMapper.Factory.MockObjects,TsSoft.AbstractMapper.Factory.Entities,TsSoft.AbstractMapper.Factory.External)">
+            <summary>
+            Создать зависимость
+            </summary>
+            <typeparam name="TDependency">Тип зависимости</typeparam>
+            <param name="types">Типы мапперов</param>
+            <param name="objects">Экземпляры мапперов</param>
+            <param name="entities">Типы сущностей</param>
+            <param name="external">Типы внешних сущностей</param>
+            <returns>Экземпляр зависимости</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.AbstractMapperDependenciesFactory.GetDependency``1(TsSoft.AbstractMapper.Factory.MapperTypes,TsSoft.AbstractMapper.Factory.Entities,TsSoft.AbstractMapper.Factory.External)">
+            <summary>
+            Создать зависимость
+            </summary>
+            <typeparam name="TDependency">Тип зависимости</typeparam>
+            <param name="types">Типы мапперов</param>
+            <param name="entities">Типы сущностей</param>
+            <param name="external">Типы внешних сущностей</param>
+            <returns>Экземпляр зависимости</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.AbstractMapperDependenciesFactory.GetDependency``1(TsSoft.AbstractMapper.Factory.MockObjects,TsSoft.AbstractMapper.Factory.Entities,TsSoft.AbstractMapper.Factory.External)">
+            <summary>
+            Создать зависимость
+            </summary>
+            <typeparam name="TDependency">Тип зависимости</typeparam>
+            <param name="objects">Экземпляры мапперов</param>
+            <param name="entities">Типы сущностей</param>
+            <param name="external">Типы внешних сущностей</param>
+            <returns>Экземпляр зависимости</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.AbstractMapperDependenciesFactory.GetDependency``1(TsSoft.Expressions.Helpers.Entity.IEntityTypesRetriever,TsSoft.AbstractMapper.Resolvers.IMapperResolver)">
+            <summary>
+            Создать зависимость
+            </summary>
+            <typeparam name="TDependency">Тип зависимости</typeparam>
+            <param name="retriever">Хранилище типов сущностей</param>
+            <param name="resolver">Разрешитель зависимостей мапперов</param>
+            <returns>Экземпляр зависимости</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.AbstractMapperDependenciesFactory.GetDependency(System.Type,TsSoft.AbstractMapper.Factory.MapperTypes,TsSoft.AbstractMapper.Factory.MockObjects,TsSoft.AbstractMapper.Factory.Entities,TsSoft.AbstractMapper.Factory.External)">
+            <summary>
+            Создать зависимость
+            </summary>
+            <param name="dependencyType">Тип зависимости</param>
+            <param name="types">Типы мапперов</param>
+            <param name="objects">Экземпляры мапперов</param>
+            <param name="entities">Типы сущностей</param>
+            <param name="external">Типы внешних сущностей</param>
+            <returns>Экземпляр зависимости</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.AbstractMapperDependenciesFactory.GetDependency(System.Type,TsSoft.AbstractMapper.Factory.MapperTypes,TsSoft.AbstractMapper.Factory.Entities,TsSoft.AbstractMapper.Factory.External)">
+            <summary>
+            Создать зависимость
+            </summary>
+            <param name="dependencyType">Тип зависимости</param>
+            <param name="types">Типы мапперов</param>
+            <param name="entities">Типы сущностей</param>
+            <param name="external">Типы внешних сущностей</param>
+            <returns>Экземпляр зависимости</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.AbstractMapperDependenciesFactory.GetDependency(System.Type,TsSoft.AbstractMapper.Factory.MockObjects,TsSoft.AbstractMapper.Factory.Entities,TsSoft.AbstractMapper.Factory.External)">
+            <summary>
+            Создать зависимость
+            </summary>
+            <param name="dependencyType">Тип зависимости</param>
+            <param name="objects">Экземпляры мапперов</param>
+            <param name="entities">Типы сущностей</param>
+            <param name="external">Типы внешних сущностей</param>
+            <returns>Экземпляр зависимости</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.AbstractMapperDependenciesFactory.GetDependency(System.Type,TsSoft.Expressions.Helpers.Entity.IEntityTypesRetriever,TsSoft.AbstractMapper.Resolvers.IMapperResolver)">
+            <summary>
+            Создать зависимость
+            </summary>
+            <param name="dependencyType">Тип зависимости</param>
+            <param name="retriever">Хранилище типов сущностей</param>
+            <param name="resolver">Разрешитель зависимостей мапперов</param>
+            <returns>Экземпляр зависимости</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.AbstractMapperDependenciesFactory.GetDependency(System.Type,TsSoft.Expressions.Helpers.Entity.IEntityTypesRetriever,TsSoft.AbstractMapper.Resolvers.IMapperResolver,TsSoft.AbstractMapper.Factory.MockObjects)">
+            <summary>
+            Создать зависимость
+            </summary>
+            <param name="dependencyType">Тип зависимости</param>
+            <param name="retriever">Хранилище типов сущностей</param>
+            <param name="resolver">Разрешитель зависимостей мапперов</param>
+            <param name="objects">Экземпляры зависимостей</param>
+            <returns>Экземпляр зависимости</returns>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Factory.AbstractMapperFactory">
+            <summary>
+            Фабрика мапперов
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.AbstractMapperFactory.Create``1(TsSoft.AbstractMapper.Factory.MapperTypes,TsSoft.AbstractMapper.Factory.Entities,TsSoft.AbstractMapper.Factory.External)">
+            <summary>
+            Создать маппер
+            </summary>
+            <typeparam name="TMapper">Тип маппера</typeparam>
+            <param name="mappers">Типы внутренних мапперов</param>
+            <param name="entityTypes">Типы сущностей</param>
+            <param name="externalEntityTypes">Типы внешних сущностей</param>
+            <returns>Экземпляр маппера</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.AbstractMapperFactory.Create``1(TsSoft.AbstractMapper.Factory.MockObjects,TsSoft.AbstractMapper.Factory.Entities,TsSoft.AbstractMapper.Factory.External,System.Boolean)">
+            <summary>
+            Создать маппер
+            </summary>
+            <typeparam name="TMapper">Тип маппера</typeparam>
+            <param name="mocks">Экземпляры внутренних мапперов</param>
+            <param name="entityTypes">Типы сущностей</param>
+            <param name="externalEntityTypes">Типы внешних сущностей</param>
+            <param name="useMocksForHelper">Использовать mocks для выбора </param>
+            <returns>Экземпляр маппера</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.AbstractMapperFactory.Create``1(TsSoft.Expressions.Helpers.Entity.IEntityTypesRetriever,TsSoft.AbstractMapper.Resolvers.IMapperResolver)">
+            <summary>
+            Создать маппер
+            </summary>
+            <typeparam name="TMapper">Тип маппера</typeparam>
+            <param name="retriever">Хранилище типов сущностей</param>
+            <param name="resolver">Разрешитель зависимостей мапперов</param>
+            <returns>Экземпляр маппера</returns>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Factory.NoTypes">
+            <summary>
+            Пустая коллекция типов
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Factory.NoTypes.ZeroTypes">
+            <summary>
+            Пустая коллекция типов
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Factory.Entities">
+            <summary>
+            Типы сущностей
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Factory.Entities.Types">
+            <summary>
+            Типы сущностей
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.Entities.Are(System.Type[])">
+            <summary>
+            Создать окружение с типами сущностей
+            </summary>
+            <param name="types">Типы сущностей</param>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.Entities.Are(System.Collections.Generic.ICollection{System.Type})">
+            <summary>
+            Создать окружение с типами сущностей
+            </summary>
+            <param name="types">Типы сущностей</param>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Factory.Entities.None">
+            <summary>
+            Окружение без типов сущностей
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Factory.External">
+            <summary>
+            Типы внешних сущностей
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Factory.External.Types">
+            <summary>
+            Типы внешних сущностей
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.External.Are(System.Type[])">
+            <summary>
+            Создать окружение с типами внешних сущностей
+            </summary>
+            <param name="types">Типы внешних сущностей</param>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.External.Are(System.Collections.Generic.ICollection{System.Type})">
+            <summary>
+            Создать окружение с типами внешних сущностей
+            </summary>
+            <param name="types">Типы внешних сущностей</param>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Factory.External.None">
+            <summary>
+            Окружение без типов внешних сущностей
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Factory.MapperTypes">
+            <summary>
+            Специальное окружение из типов мапперов
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Factory.MapperTypes.Types">
+            <summary>
+            Типы мапперов
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.MapperTypes.Are(System.Type[])">
+            <summary>
+            Создать специальное окружение из типов мапперов
+            </summary>
+            <param name="types">Типы мапперов</param>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.MapperTypes.Are(System.Collections.Generic.ICollection{System.Type})">
+            <summary>
+            Создать специальное окружение из типов мапперов
+            </summary>
+            <param name="types">Типы мапперов</param>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Factory.MapperTypes.None">
+            <summary>
+            Специальное окружение без типов мапперов
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Factory.MockObjects">
+            <summary>
+            Специальное окружение из объектов мапперов
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Factory.MockObjects.Objects">
+            <summary>
+            Объекты-мапперы
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.MockObjects.Are(System.Object[])">
+            <summary>
+            Создать специальное окружение из объектов-мапперов
+            </summary>
+            <param name="objects">Объекты</param>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.MockObjects.Are(System.Collections.Generic.ICollection{System.Object})">
+            <summary>
+            Создать специальное окружение из объектов-мапперов
+            </summary>
+            <param name="objects">Объекты</param>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Factory.MockObjects.None">
+            <summary>
+            Специальное окружение без объектов-мапперов
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Factory.CustomEnvironmentTestEntityTypesRetriever">
+            <summary>
+            Извлекает типы сущностей из специального окружения
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.CustomEnvironmentTestEntityTypesRetriever.#ctor(TsSoft.AbstractMapper.Factory.Entities,TsSoft.AbstractMapper.Factory.External)">
+            <summary>
+            Извлекает типы сущностей из специального окружения
+            </summary>
+            <param name="entities">Типы сущностей</param>
+            <param name="external">Типы внешних сущностей</param>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.CustomEnvironmentTestEntityTypesRetriever.#ctor(System.Collections.Generic.ICollection{System.Type},System.Collections.Generic.ICollection{System.Type})">
+            <summary>
+            Извлекает типы сущностей из специального окружения
+            </summary>
+            <param name="entityTypes">Типы сущностей</param>
+            <param name="externalTypes">Типы внешних сущностей</param>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.CustomEnvironmentTestEntityTypesRetriever.IsEntityType(System.Type)">
+            <summary>
+            Является ли типом сущности
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.CustomEnvironmentTestEntityTypesRetriever.IsEntityCollectionType(System.Type)">
+            <summary>
+            Является ли типом коллекции сущностей
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.CustomEnvironmentTestEntityTypesRetriever.GetEntityTypes">
+            <summary>
+            Получить все типы сущностей
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.CustomEnvironmentTestEntityTypesRetriever.IsExternalEntityType(System.Type)">
+            <summary>
+            Является ли типом внешней сущности
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.CustomEnvironmentTestEntityTypesRetriever.GetExternalEntityTypes">
+            <summary>
+            Получить все типы внешних сущностей
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Factory.CustomEnvironmentMapperResolver">
+            <summary>
+            Разрешитель зависимостей мапперов для специального окружения
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.CustomEnvironmentMapperResolver.#ctor(System.Collections.Generic.IEnumerable{System.Type},System.Collections.Generic.ICollection{System.Object},TsSoft.Expressions.Helpers.Entity.IEntityTypesRetriever)">
+            <summary>
+            Разрешитель зависимостей мапперов для специального окружения
+            </summary>
+            <param name="mapperTypes">Типы мапперов</param>
+            <param name="mapperObjects">Экземпляры мапперов</param>
+            <param name="retriever">Хранилище типов сущностей</param>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.CustomEnvironmentMapperResolver.#ctor(System.Collections.Generic.IEnumerable{System.Type},System.Collections.Generic.ICollection{System.Object},TsSoft.Expressions.Helpers.Entity.IEntityTypesRetriever,TsSoft.AbstractMapper.Factory.FactoryInstance)">
+            <summary>
+            Разрешитель зависимостей мапперов для специального окружения
+            </summary>
+            <param name="mapperTypes">Типы мапперов</param>
+            <param name="mapperObjects">Экземпляры мапперов</param>
+            <param name="retriever">Хранилище типов сущностей</param>
+            <param name="factory">Фабрика зависимостей</param>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.CustomEnvironmentMapperResolver.TryGet``2">
+            <summary>
+            Получить экземпляр маппера
+            </summary>
+            <typeparam name="TFrom">Тип преобразуемых объектов</typeparam>
+            <typeparam name="TTo">Тип-результат</typeparam>
+            <returns>Экземпляр маппера</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.CustomEnvironmentMapperResolver.GetDefault``2">
+            <summary>
+            Получить стандартный маппер
+            </summary>
+            <typeparam name="TFrom">Тип преобразуемых объектов</typeparam>
+            <typeparam name="TTo">Тип-результат</typeparam>
+            <returns>Экземпляр маппера</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.CustomEnvironmentMapperResolver.GetDynamic``2">
+            <summary>
+            Получить абстрактный маппер из TFrom в TTo, определяющий типы внутренних сущностей во время выполнения
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.CustomEnvironmentMapperResolver.GetTypeDeterminingMapper``1">
+            <summary>
+            Получить абстрактный маппер из объекта в TTo, определяющий тип объекта во время выполнения
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Factory.FactoryInstance">
+            <summary>
+            Экземпляр фабрики зависимостей
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.FactoryInstance.#ctor(TsSoft.BindingsDescription.IBindingsDescription[],System.Type[])">
+            <summary>
+            Создать экземпляр фабрики зависимостей
+            </summary>
+            <param name="bindingDescriptions">Описания привязки интерфейсов к реализациям</param>
+            <param name="staticHelperContainers">Контейнеры статических зависимостей</param>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.FactoryInstance.AddBindings(TsSoft.BindingsDescription.IBindingsDescription)">
+            <summary>
+            Добавить связи интерфейсов с реализациями зависимостей
+            </summary>
+            <param name="description">Описание связей</param>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.FactoryInstance.AddBinding(System.Type,System.Type)">
+            <summary>
+            Добавить связи интерфейсов с реализациями зависимостей
+            </summary>
+            <param name="interface">Тип интерфейса</param>
+            <param name="implementation">Тип реализации</param>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.FactoryInstance.RemoveBinding``1">
+            <summary>
+            Удалить связь интерфейса с реализацией
+            </summary>
+            <typeparam name="T">Тип интерфейса</typeparam>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.FactoryInstance.AddStaticHelper``1(``0)">
+            <summary>
+            Добавить статический хелпер
+            </summary>
+            <typeparam name="T">Интерфейс хелпера</typeparam>
+            <param name="helper">Хелпер</param>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.FactoryInstance.GetDependency``1(TsSoft.AbstractMapper.Factory.MapperTypes,TsSoft.AbstractMapper.Factory.MockObjects,TsSoft.AbstractMapper.Factory.Entities,TsSoft.AbstractMapper.Factory.External)">
+            <summary>
+            Создать зависимость
+            </summary>
+            <typeparam name="TDependency">Тип зависимости</typeparam>
+            <param name="types">Типы мапперов</param>
+            <param name="objects">Экземпляры мапперов</param>
+            <param name="entities">Типы сущностей</param>
+            <param name="external">Типы внешних сущностей</param>
+            <returns>Экземпляр зависимости</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.FactoryInstance.GetDependency``1(TsSoft.AbstractMapper.Factory.MapperTypes,TsSoft.AbstractMapper.Factory.Entities,TsSoft.AbstractMapper.Factory.External)">
+            <summary>
+            Создать зависимость
+            </summary>
+            <typeparam name="TDependency">Тип зависимости</typeparam>
+            <param name="types">Типы мапперов</param>
+            <param name="entities">Типы сущностей</param>
+            <param name="external">Типы внешних сущностей</param>
+            <returns>Экземпляр зависимости</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.FactoryInstance.GetDependency``1(TsSoft.AbstractMapper.Factory.MockObjects,TsSoft.AbstractMapper.Factory.Entities,TsSoft.AbstractMapper.Factory.External)">
+            <summary>
+            Создать зависимость
+            </summary>
+            <typeparam name="TDependency">Тип зависимости</typeparam>
+            <param name="objects">Экземпляры мапперов</param>
+            <param name="entities">Типы сущностей</param>
+            <param name="external">Типы внешних сущностей</param>
+            <returns>Экземпляр зависимости</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.FactoryInstance.GetDependency``1(TsSoft.Expressions.Helpers.Entity.IEntityTypesRetriever,TsSoft.AbstractMapper.Resolvers.IMapperResolver)">
+            <summary>
+            Создать зависимость
+            </summary>
+            <typeparam name="TDependency">Тип зависимости</typeparam>
+            <param name="retriever">Хранилище типов сущностей</param>
+            <param name="resolver">Разрешитель зависимостей мапперов</param>
+            <returns>Экземпляр зависимости</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.FactoryInstance.GetDependency(System.Type,TsSoft.AbstractMapper.Factory.MapperTypes,TsSoft.AbstractMapper.Factory.MockObjects,TsSoft.AbstractMapper.Factory.Entities,TsSoft.AbstractMapper.Factory.External)">
+            <summary>
+            Создать зависимость
+            </summary>
+            <param name="dependencyType">Тип зависимости</param>
+            <param name="types">Типы мапперов</param>
+            <param name="objects">Экземпляры мапперов</param>
+            <param name="entities">Типы сущностей</param>
+            <param name="external">Типы внешних сущностей</param>
+            <returns>Экземпляр зависимости</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.FactoryInstance.GetDependency(System.Type,TsSoft.AbstractMapper.Factory.MapperTypes,TsSoft.AbstractMapper.Factory.Entities,TsSoft.AbstractMapper.Factory.External)">
+            <summary>
+            Создать зависимость
+            </summary>
+            <param name="dependencyType">Тип зависимости</param>
+            <param name="types">Типы мапперов</param>
+            <param name="entities">Типы сущностей</param>
+            <param name="external">Типы внешних сущностей</param>
+            <returns>Экземпляр зависимости</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.FactoryInstance.GetDependency(System.Type,TsSoft.AbstractMapper.Factory.MockObjects,TsSoft.AbstractMapper.Factory.Entities,TsSoft.AbstractMapper.Factory.External)">
+            <summary>
+            Создать зависимость
+            </summary>
+            <param name="dependencyType">Тип зависимости</param>
+            <param name="objects">Экземпляры мапперов</param>
+            <param name="entities">Типы сущностей</param>
+            <param name="external">Типы внешних сущностей</param>
+            <returns>Экземпляр зависимости</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.FactoryInstance.GetDependency(System.Type,TsSoft.Expressions.Helpers.Entity.IEntityTypesRetriever,TsSoft.AbstractMapper.Resolvers.IMapperResolver)">
+            <summary>
+            Создать зависимость
+            </summary>
+            <param name="dependencyType">Тип зависимости</param>
+            <param name="retriever">Хранилище типов сущностей</param>
+            <param name="resolver">Разрешитель зависимостей мапперов</param>
+            <returns>Экземпляр зависимости</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.FactoryInstance.GetDependency(System.Type,TsSoft.Expressions.Helpers.Entity.IEntityTypesRetriever,TsSoft.AbstractMapper.Resolvers.IMapperResolver,TsSoft.AbstractMapper.Factory.MockObjects)">
+            <summary>
+            Создать зависимость
+            </summary>
+            <param name="dependencyType">Тип зависимости</param>
+            <param name="retriever">Хранилище типов сущностей</param>
+            <param name="resolver">Разрешитель зависимостей мапперов</param>
+            <param name="objects">Экземпляры зависимостей</param>
+            <returns>Экземпляр зависимости</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Factory.FactoryInstance.InternalGetDependency(System.Type,System.Collections.Generic.IDictionary{System.Type,System.Object})">
+            <summary>
+            Создать зависимость
+            </summary>
+            <param name="dependencyType">Тип зависимости</param>
+            <param name="contextObjects">Уже созданные зависимости</param>
+            <returns>Экземпляр зависимости</returns>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Factory.MapperStaticHelpers">
+            <summary>
+            Статические хелперы для фабрики мапперов
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Factory.MapperStaticHelpers.IgnoreRulesConverter">
+            <summary>
+            Преобразователь правил игнорирования
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Factory.MapperStaticHelpers.GetterAccessHelper">
+            <summary>
+            Хелпер для построения извлекающих выражений
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Factory.MapperStaticHelpers.CollectionConvertExpressionCreator">
+            <summary>
+            Хелпер для построения преобразований коллекций
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Factory.MapperStaticHelpers.PrimitiveConvertExpressionCreator">
+            <summary>
+            Хелпер для построения преобразований примитивных свойств
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Factory.SelectStaticHelpers">
+            <summary>
+            Статические хелперы для фабрики мапперов
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Factory.SelectStaticHelpers.TypeBuilderCreator">
+            <summary>
+            Создатель типов
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Factory.SelectStaticHelpers.PropertyCreator">
+            <summary>
+            Создатель свойств
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Factory.SelectStaticHelpers.TypeClonemaker">
+            <summary>
+            Копировальщик типов
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Factory.SelectStaticHelpers.PropertyBindingCreator">
+            <summary>
+            Создатель связываний свойств
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Factory.StaticHelpers">
+            <summary>
+            Хелперы для фабрики мапперов
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Factory.StaticHelpers.MemberInfo">
+            <summary>
+            Хелпер для извлечения членов типа
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Factory.StaticHelpers.Library">
+            <summary>
+            Библиотека методов
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Factory.StaticHelpers.FlatPathParser">
+            <summary>
+            Преобразователь выражений в линейные пути
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Factory.StaticHelpers.ExpressionBuilder">
+            <summary>
+            Построитель выражений
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Factory.StaticHelpers.ExceptionWrapperHelper">
+            <summary>
+            Хелпер для оборачивания исключений из выражений
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Factory.StaticHelpers.CollectionReflectionHelper">
+            <summary>
+            Хелпер для построения коллекций с неизвестными на этапе компиляции типами
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Factory.StaticHelpers.TypeHelper">
+            <summary>
+            Хелпер для работы с типами
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Factory.StaticHelpers.CollectionHelper">
+            <summary>
+            Хелпер для работы с коллекциями
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Factory.StaticHelpers.PropertyApplicator">
+            <summary>
+            Обходчик линейного пути
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Factory.StaticHelpers.PathHelper">
+            <summary>
+            Хелпер для работы с путями
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Factory.StaticHelpers.PathParser">
+            <summary>
+            Преобразователь выражения в путь
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Factory.StaticHelpers.CorrespondingMemberHelper">
+            <summary>
+            Хелпер для поиска соответствующих членов
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Factory.StaticHelpers.MemberNamingHelper">
+            <summary>
+            Определяет именование специальных членов класса
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Factory.StaticHelpers.NewExpressionHelper">
+            <summary>
+            Хелпер для работы с выражениями-конструкторами
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Factory.StaticHelpers.UpdateObjectActionFactory">
+            <summary>
+            Фабрика обновляторов объектов
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Factory.StaticHelpers.NestedGeneratorHelper">
+            <summary>
+            Хелпер для построения объектов в контексте
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Factory.StaticHelpers.ConversionChecker">
+            <summary>
+            Хелпер для проверки существования неявных преобразований
+            </summary>
+        </member>
+    </members>
+</doc>

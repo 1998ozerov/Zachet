@@ -1,0 +1,1743 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TsSoft.AbstractMapper</name>
+    </assembly>
+    <members>
+        <member name="T:TsSoft.AbstractMapper.BaseMapper`2">
+            <summary>
+            Null-безопасный маппер
+            </summary>
+            <typeparam name="TFrom">Тип, из которого происходит преобразование</typeparam>
+            <typeparam name="TTo">Тип, в который происходит преобразование</typeparam>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.BaseMapper`2.Map(`0)">
+            <summary>
+            Преобразовать экземпляр TFrom в экземпляр TTo
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.BaseMapper`2.RealMap(`0)">
+            <summary>
+            Преобразовать существующий экземпляр TFrom в экземпляр TTo
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Bindings.AllowMultipleBindingAttribute">
+            <summary>
+            Разрешить биндинг нескольких классов для одного интерфейса
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Bindings.ExtendedModelsMappedAttribute">
+            <summary>
+            Указать автобиндеру мапперов, что этот генерик-класс мапит в несколько типов
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Bindings.ExtendedModelsMappedAttribute.ModelTypes">
+            <summary>
+            Типы сущностей, которые производит маппер
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Bindings.ExtendedModelsMappedAttribute.#ctor(System.Type[])">
+            <summary>
+            Указать автобиндеру мапперов, что этот генерик-класс мапит в несколько типов
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Bindings.MapperBinder">
+            <summary>
+            Базовый класс для связывания интерфейсов маппера с реализациями
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Bindings.MapperBinder.Bind(System.Action{TsSoft.AbstractMapper.Bindings.MapperBinding},System.Collections.Generic.IReadOnlyList{System.Type},System.Collections.Generic.IEnumerable{System.Reflection.Assembly},TsSoft.Expressions.Helpers.Reflection.IAssemblyTypesRetriever)">
+            <summary>
+            Связать мапперы из сборки автоматически
+            </summary>
+            <param name="bindSingle">Функция связывания одной реализации</param>
+            <param name="genericMapperInterfaces">Интерфейсы мапперов с двумя параметрами-типами</param>
+            <param name="assemblies">Сборки с мапперами</param>
+            <param name="retriever">Получатель типов из сборки</param>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Bindings.MapperBinder.BindAllInterfaces``1(System.Action{TsSoft.AbstractMapper.Bindings.MapperBinding},System.String,System.Type)">
+            <summary>
+            Связать маппер для всех его интерфейсов
+            </summary>
+            <typeparam name="TMapper">Тип маппера</typeparam>
+            <param name="bindSingle">Функция связывания одной реализации</param>
+            <param name="name">Имя биндинга</param>
+            <param name="baseMapperInterface">Корневой интерфейс маппера (по умолчанию - <cref see="IMapper`2"></cref>)</param>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Bindings.MapperBinding">
+            <summary>
+            Описание связывания интерфейсов маппера с реализацией
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Bindings.MapperBinding.Interfaces">
+            <summary>
+            Интерфейсы
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Bindings.MapperBinding.Implementation">
+            <summary>
+            Реализация
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Bindings.MapperBinding.Name">
+            <summary>
+            Имя связывания
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Bindings.MapperBinding.#ctor(System.Collections.Generic.IEnumerable{System.Type},System.Type,System.String)">
+            <summary>
+            Описание связывания интерфейсов маппера с реализацией
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Bindings.MapperImplementationFinder">
+            <summary>
+            Ищет реализации интерфейсов мапперов
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Bindings.MapperImplementationFinder.InterfaceImplementation">
+            <summary>
+            Интерфейс и его реализация
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Bindings.MapperImplementationFinder.InterfaceImplementation.Interface">
+            <summary>
+            Тип-интерфейс
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Bindings.MapperImplementationFinder.InterfaceImplementation.Type">
+            <summary>
+            Тип-реализация
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Bindings.MapperImplementationFinder.NamedInterfaceImplementation">
+            <summary>
+            Биндинг
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Bindings.MapperImplementationFinder.NamedInterfaceImplementation.Name">
+            <summary>
+            Имя биндинга
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Bindings.MapperImplementationFinder.GetImplementations(System.Collections.Generic.IEnumerable{System.Type},System.Type)">
+            <summary>
+            Получить реализации генерик-интерфейса
+            </summary>
+            <param name="classes">Классы, в которых ищутся реализации</param>
+            <param name="genericInterface">Интерфейс (GenericTypeDefinition)</param>
+            <returns>Набор реализаций</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Bindings.MapperImplementationFinder.Bind(System.Collections.Generic.ICollection{TsSoft.AbstractMapper.Bindings.MapperImplementationFinder.NamedInterfaceImplementation},System.Type,System.Type,TsSoft.AbstractMapper.Bindings.MapperImplementationFinder.KernelState)">
+            <summary>
+            Добавить биндинг
+            </summary>
+            <param name="bindings">Коллекция биндингов</param>
+            <param name="inter">Интерфейс</param>
+            <param name="impl">Реализация</param>
+            <param name="state">Состояние ядра</param>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Bindings.MapperImplementationFinder.BindGeneric(System.Collections.Generic.ICollection{TsSoft.AbstractMapper.Bindings.MapperImplementationFinder.NamedInterfaceImplementation},System.Type,System.Type,System.Type,System.Type,TsSoft.AbstractMapper.Bindings.MapperImplementationFinder.KernelState)">
+            <summary>
+            Добавить биндинг интерфейса на генерик-класс
+            </summary>
+            <param name="bindings">Коллекция биндингов</param>
+            <param name="interGeneric">Генерик-интерфейс маппера (GenericTypeDefinition)</param>
+            <param name="implGeneric">Генерик-реализация</param>
+            <param name="fromParameter">Откуда мапить</param>
+            <param name="toParameter">Куда мапить</param>
+            <param name="state">Состояние ядра</param>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Bindings.MapperImplementationFinder.BindNonGenericMappers(System.Collections.Generic.ICollection{TsSoft.AbstractMapper.Bindings.MapperImplementationFinder.NamedInterfaceImplementation},System.Collections.Generic.IReadOnlyCollection{System.Type},System.Type,TsSoft.AbstractMapper.Bindings.MapperImplementationFinder.KernelState)">
+            <summary>
+            Забиндить классы мапперов, не являющиеся генериками
+            </summary>
+            <param name="bindings">Коллекция биндингов</param>
+            <param name="allSelfBindableTypes">Классы, не являющиеся генериками, среди которых нужно найти те, что можно забиндить</param>
+            <param name="genericInterface">Генерик-интерфейс маппера (GenericTypeDefinition)</param>
+            <param name="state">Состояние ядра</param>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Bindings.MapperImplementationFinder.BindMapperToConstraintAndExtended(System.Collections.Generic.ICollection{TsSoft.AbstractMapper.Bindings.MapperImplementationFinder.NamedInterfaceImplementation},System.Type,TsSoft.AbstractMapper.Bindings.MapperImplementationFinder.InterfaceImplementation,System.Type,System.Type,TsSoft.AbstractMapper.Bindings.MapperImplementationFinder.KernelState)">
+            <summary>
+            Забиндить генерик-класс маппера, у которого констрейнт TTo - некий класс, на маппинг в этот класс и те классы, что указаны в его <see cref="T:TsSoft.AbstractMapper.Bindings.ExtendedModelsMappedAttribute"/>
+            </summary>
+            <param name="bindings">Коллекция биндингов</param>
+            <param name="genericInterface">Интерфейс маппера (GenericTypeDefinition)</param>
+            <param name="impl">Генерик-реализация</param>
+            <param name="interfaceArgument">Первый аргумент интерфейса (TFrom)</param>
+            <param name="constraint">Констрейнт на генерик-реализации</param>
+            <param name="state">Состояние ядра</param>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Bindings.MapperImplementationFinder.BindMapperToInterfaceImplementations(System.Collections.Generic.ICollection{TsSoft.AbstractMapper.Bindings.MapperImplementationFinder.NamedInterfaceImplementation},System.Type,TsSoft.AbstractMapper.Bindings.MapperImplementationFinder.InterfaceImplementation,System.Collections.Generic.IEnumerable{System.Type},System.Type,System.Type,TsSoft.AbstractMapper.Bindings.MapperImplementationFinder.KernelState,System.Boolean)">
+            <summary>
+            Забиндить генерик-класс маппера, у которого констрейнт TTo - некий интерфейс, на маппинг во все известные реализации этого интерфейса
+            </summary>
+            <param name="bindings">Коллекция биндингов</param>
+            <param name="genericInterface">Генерик-интерфейс маппера (GenericTypeDefinition)</param>
+            <param name="impl">Генерик-реализация</param>
+            <param name="allTypes">Известные типы</param>
+            <param name="interfaceArgument">Первый аргумент интерфейса (TFrom)</param>
+            <param name="constraint">Констрейнт на генерик-реализации</param>
+            <param name="state">Состояние ядра</param>
+            <param name="doNotBindToInterface">Не подставлять сам интерфейс в качестве генерика</param>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Bindings.MapperImplementationFinder.BindGenericMappers(System.Collections.Generic.ICollection{TsSoft.AbstractMapper.Bindings.MapperImplementationFinder.NamedInterfaceImplementation},System.Collections.Generic.IReadOnlyCollection{System.Type},System.Collections.Generic.IReadOnlyCollection{System.Type},System.Type,TsSoft.AbstractMapper.Bindings.MapperImplementationFinder.KernelState)">
+            <summary>
+            Забиндить генерик-классы
+            </summary>
+            <param name="bindings">Коллекция биндингов</param>
+            <param name="allTypes">Все известные типы</param>
+            <param name="allGenericClasses">Все известные генерики, среди которых нужно найти мапперы, которые можно забиндить</param>
+            <param name="genericInterface">Интерфейс маппера (GenericTypeDefinition)</param>
+            <param name="state">Состояние ядра</param>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Bindings.MapperImplementationFinder.GetAutoBindings(System.Collections.Generic.IReadOnlyCollection{System.Type},System.Collections.Generic.IReadOnlyList{System.Type},System.Boolean,System.Boolean)">
+            <summary>
+            Получить список реализаций интерфейсов мапперов
+            </summary>
+            <param name="types">Все известные типы, среди которых ищутся мапперы</param>
+            <param name="genericMapperInterfaces">Генерик-интерфейсы мапперов (GenericTypeDefinition-ы)</param>
+            <param name="bindGeneric">Связывать ли мапперы с генерик-типами</param>
+            <param name="bindNonGeneric">Связывать ли мапперы с негенерик-типами</param>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Bindings.NamedBindingAttribute">
+            <summary>
+            Отметить маппер для именованного связывания
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Bindings.NamedBindingAttribute.Name">
+            <summary>
+            Имя
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Bindings.NamedBindingAttribute.#ctor(System.String)">
+            <summary>
+            Отметить маппер для именованного связывания
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Engine.AbstractMapperHelper">
+            <summary>
+            Хелпер для абстрактного маппера
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.AbstractMapperHelper.#ctor(TsSoft.AbstractMapper.Engine.IMapExpressionCreator,TsSoft.AbstractMapper.Rules.Factories.IIgnoreRulesFactory,TsSoft.Expressions.Helpers.Closures.ILambdaCompiler,TsSoft.AbstractMapper.Engine.IFullMapRulesCreator)">
+            <summary>
+            Хелпер для абстрактного маппера
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.AbstractMapperHelper.MakeFullRules``2(TsSoft.AbstractMapper.Rules.IMapRules{``1,``0},TsSoft.AbstractMapper.Rules.IIgnoreRules{``1},TsSoft.AbstractMapper.Rules.AutoPropertiesBehavior,TsSoft.AbstractMapper.Rules.InnerMapperStrategy)">
+            <summary>
+            Создать полную коллекцию правил с заполненными источниками преобразования и выражениями преобразования
+            </summary>
+            <typeparam name="TTo">Тип, в который идёт преобразование</typeparam>
+            <typeparam name="TFrom">Тип, из которого идёт преобразование</typeparam>
+            <param name="explicitRules">Указанные в маппере правила</param>
+            <param name="ignoreRules">Правила игнорирования</param>
+            <param name="autoPropertiesBehavior">Поведение в случае, когда в TFrom не найдены подходящие свойства для построения автоправил заполнения TTo</param>
+            <param name="innerMapperStrategy">Как получать внутренние мапперы</param>
+            <returns>Упорядоченный список правил преобразования</returns>
+            <exception cref="T:TsSoft.AbstractMapper.Exceptions.InvalidRulesException">Не удалось построить автоправила для некоторых свойств</exception>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.AbstractMapperHelper.CreateMapperExpression``2(TsSoft.AbstractMapper.Rules.IFullMapRules,System.Boolean,System.String)">
+            <summary>
+            Создать выражение для преобразования
+            </summary>
+            <typeparam name="TFrom">Тип, из которого осуществляется преобразование</typeparam>
+            <typeparam name="TTo">Тип, в который осуществляется преобразование</typeparam>
+            <param name="fullMapRules">Правила преобразования</param>
+            <param name="addCatchBlocks">Оборачивать ли в try-catch выражения маппинга</param>
+            <param name="exceptionMessage">Сообщение внутреннего исключения</param>
+            <returns>Выражение преобразования</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.AbstractMapperHelper.CreateIgnoreRules``1">
+            <summary>
+            Создать правила игнорирования
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.AbstractMapperHelper.CreateIgnoreRules``2">
+            <summary>
+            Создать правила игнорирования
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.AbstractMapperHelper.Compile``1(System.Linq.Expressions.Expression{``0},TsSoft.Expressions.Helpers.Closures.LambdaCompilationType)">
+            <summary>
+            Скомпилировать выражение
+            </summary>
+            <typeparam name="TDelegate">Тип делегата</typeparam>
+            <param name="lambda">Выражение</param>
+            <param name="compilationType">Тип компиляции</param>
+            <returns>Делегат</returns>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Engine.AutoConvertProvider">
+            <summary>
+            Дополняет правила выражениями преобразования
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.AutoConvertProvider.#ctor(TsSoft.AbstractMapper.Engine.IConvertExpressionCreator)">
+            <summary>
+            Дополняет правила выражениями преобразования
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.AutoConvertProvider.SetAutoConvert(TsSoft.AbstractMapper.Rules.IFullMapRules,TsSoft.AbstractMapper.Rules.InnerMapperStrategy)">
+            <summary>
+            Дополнить правила выражениями преобразования
+            </summary>
+            <param name="rules">Правила</param>
+            <param name="innerMapperStrategy">Как получать внутренние мапперы</param>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Engine.CollectionConverter">
+            <summary>
+            Преобразует коллекции в коллекции с помощью маппера
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.CollectionConverter.MakeEnumerable``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Превратить перечисление в перечисление
+            </summary>
+            <typeparam name="T">Тип элемента перечисления</typeparam>
+            <param name="source">Исходное перечисление</param>
+            <returns>Перечисление-результат</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.CollectionConverter.MakeList``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Превратить перечисление в коллекцию
+            </summary>
+            <typeparam name="T">Тип элемента перечисления</typeparam>
+            <param name="source">Исходное перечисление</param>
+            <returns>Перечисление-результат</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.CollectionConverter.MakeList``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Превратить перечисление в коллекцию
+            </summary>
+            <typeparam name="T">Тип элемента перечисления</typeparam>
+            <param name="source">Исходное перечисление</param>
+            <param name="count">Количество элементов в исходном перечислении</param>
+            <returns>Перечисление-результат</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.CollectionConverter.MakeArray``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Превратить перечисление в массив
+            </summary>
+            <typeparam name="T">Тип элемента перечисления</typeparam>
+            <param name="source">Исходное перечисление</param>
+            <returns>Перечисление-результат</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.CollectionConverter.MakeArray``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Превратить перечисление в массив
+            </summary>
+            <typeparam name="T">Тип элемента перечисления</typeparam>
+            <param name="source">Исходное перечисление</param>
+            <param name="count">Количество элементов в исходном перечислении</param>
+            <returns>Перечисление-результат</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.CollectionConverter.MakeHashSet``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Превратить перечисление в множество
+            </summary>
+            <typeparam name="T">Тип элемента перечисления</typeparam>
+            <param name="source">Исходное перечисление</param>
+            <returns>Перечисление-результат</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.CollectionConverter.MakeHashSet``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Превратить перечисление в множество
+            </summary>
+            <typeparam name="T">Тип элемента перечисления</typeparam>
+            <param name="source">Исходное перечисление</param>
+            <param name="count">Количество элементов в исходном перечислении</param>
+            <returns>Перечисление-результат</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.CollectionConverter.MakeEnumerable``2(System.Collections.Generic.IEnumerable{``0},TsSoft.AbstractMapper.IMapper{``0,``1})">
+            <summary>
+            Превратить перечисление в перечисление
+            </summary>
+            <typeparam name="TSource">Тип элемента исходного перечисления</typeparam>
+            <typeparam name="TTarget">Тип элемента перечисления-результата</typeparam>
+            <param name="source">Исходное перечисление</param>
+            <param name="mapper">Маппер</param>
+            <returns>Перечисление-результат</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.CollectionConverter.MakeList``2(System.Collections.Generic.IEnumerable{``0},TsSoft.AbstractMapper.IMapper{``0,``1})">
+            <summary>
+            Превратить перечисление в коллекцию
+            </summary>
+            <typeparam name="TSource">Тип элемента исходного перечисления</typeparam>
+            <typeparam name="TTarget">Тип элемента коллекции-результата</typeparam>
+            <param name="source">Исходное перечисление</param>
+            <param name="mapper">Маппер</param>
+            <returns>Коллекция-результат</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.CollectionConverter.MakeList``2(System.Collections.Generic.IEnumerable{``0},TsSoft.AbstractMapper.IMapper{``0,``1},System.Int32)">
+            <summary>
+            Превратить перечисление в коллекцию
+            </summary>
+            <typeparam name="TSource">Тип элемента исходного перечисления</typeparam>
+            <typeparam name="TTarget">Тип элемента коллекции-результата</typeparam>
+            <param name="source">Исходное перечисление</param>
+            <param name="mapper">Маппер</param>
+            <param name="count">Количество элементов в исходном перечислении</param>
+            <returns>Коллекция-результат</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.CollectionConverter.MakeArray``2(System.Collections.Generic.IEnumerable{``0},TsSoft.AbstractMapper.IMapper{``0,``1})">
+            <summary>
+            Превратить перечисление в массив
+            </summary>
+            <typeparam name="TSource">Тип элемента исходного перечисления</typeparam>
+            <typeparam name="TTarget">Тип элемента массива-результата</typeparam>
+            <param name="source">Исходное перечисление</param>
+            <param name="mapper">Маппер</param>
+            <returns>Массив-результат</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.CollectionConverter.MakeArray``2(System.Collections.Generic.IEnumerable{``0},TsSoft.AbstractMapper.IMapper{``0,``1},System.Int32)">
+            <summary>
+            Превратить перечисление в массив
+            </summary>
+            <typeparam name="TSource">Тип элемента исходного перечисления</typeparam>
+            <typeparam name="TTarget">Тип элемента массива-результата</typeparam>
+            <param name="source">Исходное перечисление</param>
+            <param name="mapper">Маппер</param>
+            <param name="count">Количество элементов в исходном перечислении</param>
+            <returns>Массив-результат</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.CollectionConverter.MakeHashSet``2(System.Collections.Generic.IEnumerable{``0},TsSoft.AbstractMapper.IMapper{``0,``1})">
+            <summary>
+            Превратить перечисление в множество
+            </summary>
+            <typeparam name="TSource">Тип элемента исходного перечисления</typeparam>
+            <typeparam name="TTarget">Тип элемента множества-результата</typeparam>
+            <param name="source">Исходное перечисление</param>
+            <param name="mapper">Маппер</param>
+            <returns>Множество-результат</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.CollectionConverter.MakeHashSet``2(System.Collections.Generic.IEnumerable{``0},TsSoft.AbstractMapper.IMapper{``0,``1},System.Int32)">
+            <summary>
+            Превратить перечисление в множество
+            </summary>
+            <typeparam name="TSource">Тип элемента исходного перечисления</typeparam>
+            <typeparam name="TTarget">Тип элемента множества-результата</typeparam>
+            <param name="source">Исходное перечисление</param>
+            <param name="mapper">Маппер</param>
+            <param name="count">Количество элементов в исходном перечислении</param>
+            <returns>Множество-результат</returns>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Engine.CollectionConvertExpressionCreator">
+            <summary>
+            Строит выражение для преобразования коллекций
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.CollectionConvertExpressionCreator.#ctor(TsSoft.Expressions.Helpers.Reflection.IMemberInfoLibrary)">
+            <summary>
+            Строит выражение для преобразования коллекций
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.CollectionConvertExpressionCreator.Convert(System.Linq.Expressions.Expression,System.Type,System.Type)">
+            <summary>
+            Создать выражение для преобразования IEnumerable к collectionType, который является коллекцией elementType
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.CollectionConvertExpressionCreator.Convert(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression,System.Linq.Expressions.ParameterExpression,System.Type,System.Type,System.Type,System.Type)">
+            <summary>
+            Создать выражение для преобразования коллекции в коллекцию
+            </summary>
+            <param name="source">Исходная коллекция</param>
+            <param name="elementConvert">Выражение, преобразующее элемент коллекции</param>
+            <param name="elementParameter">Параметр-элемент в выражении преобразования элемента</param>
+            <param name="sourceType">Тип исходной коллекции</param>
+            <param name="sourceElementType">Тип элемента исходной коллекции</param>
+            <param name="targetType">Тип коллекции-результата</param>
+            <param name="targetElementType">Тип элемента коллекции-результата</param>
+            <returns>Выражение для преобразования коллекции</returns>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Engine.IAutoConvertProvider">
+            <summary>
+            Дополняет правила выражениями преобразования
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.IAutoConvertProvider.SetAutoConvert(TsSoft.AbstractMapper.Rules.IFullMapRules,TsSoft.AbstractMapper.Rules.InnerMapperStrategy)">
+            <summary>
+            Дополнить правила выражениями преобразования
+            </summary>
+            <param name="rules">Правила</param>
+            <param name="innerMapperStrategy">Как получать внутренние мапперы</param>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Engine.ICollectionConverter">
+            <summary>
+            Преобразует коллекции в коллекции с помощью маппера
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.ICollectionConverter.MakeEnumerable``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Превратить перечисление в перечисление
+            </summary>
+            <typeparam name="T">Тип элемента перечисления</typeparam>
+            <param name="source">Исходное перечисление</param>
+            <returns>Перечисление-результат</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.ICollectionConverter.MakeList``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Превратить перечисление в коллекцию
+            </summary>
+            <typeparam name="T">Тип элемента перечисления</typeparam>
+            <param name="source">Исходное перечисление</param>
+            <returns>Перечисление-результат</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.ICollectionConverter.MakeList``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Превратить перечисление в коллекцию
+            </summary>
+            <typeparam name="T">Тип элемента перечисления</typeparam>
+            <param name="source">Исходное перечисление</param>
+            <param name="count">Количество элементов в исходном перечислении</param>
+            <returns>Перечисление-результат</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.ICollectionConverter.MakeArray``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Превратить перечисление в массив
+            </summary>
+            <typeparam name="T">Тип элемента перечисления</typeparam>
+            <param name="source">Исходное перечисление</param>
+            <returns>Перечисление-результат</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.ICollectionConverter.MakeArray``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Превратить перечисление в массив
+            </summary>
+            <typeparam name="T">Тип элемента перечисления</typeparam>
+            <param name="source">Исходное перечисление</param>
+            <param name="count">Количество элементов в исходном перечислении</param>
+            <returns>Перечисление-результат</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.ICollectionConverter.MakeHashSet``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Превратить перечисление в множество
+            </summary>
+            <typeparam name="T">Тип элемента перечисления</typeparam>
+            <param name="source">Исходное перечисление</param>
+            <returns>Перечисление-результат</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.ICollectionConverter.MakeHashSet``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Превратить перечисление в множество
+            </summary>
+            <typeparam name="T">Тип элемента перечисления</typeparam>
+            <param name="source">Исходное перечисление</param>
+            <param name="count">Количество элементов в исходном перечислении</param>
+            <returns>Перечисление-результат</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.ICollectionConverter.MakeEnumerable``2(System.Collections.Generic.IEnumerable{``0},TsSoft.AbstractMapper.IMapper{``0,``1})">
+            <summary>
+            Превратить перечисление в перечисление
+            </summary>
+            <typeparam name="TSource">Тип элемента исходного перечисления</typeparam>
+            <typeparam name="TTarget">Тип элемента перечисления-результата</typeparam>
+            <param name="source">Исходное перечисление</param>
+            <param name="mapper">Маппер</param>
+            <returns>Перечисление-результат</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.ICollectionConverter.MakeList``2(System.Collections.Generic.IEnumerable{``0},TsSoft.AbstractMapper.IMapper{``0,``1})">
+            <summary>
+            Превратить перечисление в коллекцию
+            </summary>
+            <typeparam name="TSource">Тип элемента исходного перечисления</typeparam>
+            <typeparam name="TTarget">Тип элемента коллекции-результата</typeparam>
+            <param name="source">Исходное перечисление</param>
+            <param name="mapper">Маппер</param>
+            <returns>Коллекция-результат</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.ICollectionConverter.MakeList``2(System.Collections.Generic.IEnumerable{``0},TsSoft.AbstractMapper.IMapper{``0,``1},System.Int32)">
+            <summary>
+            Превратить перечисление в коллекцию
+            </summary>
+            <typeparam name="TSource">Тип элемента исходного перечисления</typeparam>
+            <typeparam name="TTarget">Тип элемента коллекции-результата</typeparam>
+            <param name="source">Исходное перечисление</param>
+            <param name="mapper">Маппер</param>
+            <param name="count">Количество элементов в исходном перечислении</param>
+            <returns>Коллекция-результат</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.ICollectionConverter.MakeArray``2(System.Collections.Generic.IEnumerable{``0},TsSoft.AbstractMapper.IMapper{``0,``1})">
+            <summary>
+            Превратить перечисление в массив
+            </summary>
+            <typeparam name="TSource">Тип элемента исходного перечисления</typeparam>
+            <typeparam name="TTarget">Тип элемента массива-результата</typeparam>
+            <param name="source">Исходное перечисление</param>
+            <param name="mapper">Маппер</param>
+            <returns>Массив-результат</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.ICollectionConverter.MakeArray``2(System.Collections.Generic.IEnumerable{``0},TsSoft.AbstractMapper.IMapper{``0,``1},System.Int32)">
+            <summary>
+            Превратить перечисление в массив
+            </summary>
+            <typeparam name="TSource">Тип элемента исходного перечисления</typeparam>
+            <typeparam name="TTarget">Тип элемента массива-результата</typeparam>
+            <param name="source">Исходное перечисление</param>
+            <param name="mapper">Маппер</param>
+            <param name="count">Количество элементов в исходном перечислении</param>
+            <returns>Массив-результат</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.ICollectionConverter.MakeHashSet``2(System.Collections.Generic.IEnumerable{``0},TsSoft.AbstractMapper.IMapper{``0,``1})">
+            <summary>
+            Превратить перечисление в множество
+            </summary>
+            <typeparam name="TSource">Тип элемента исходного перечисления</typeparam>
+            <typeparam name="TTarget">Тип элемента множества-результата</typeparam>
+            <param name="source">Исходное перечисление</param>
+            <param name="mapper">Маппер</param>
+            <returns>Множество-результат</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.ICollectionConverter.MakeHashSet``2(System.Collections.Generic.IEnumerable{``0},TsSoft.AbstractMapper.IMapper{``0,``1},System.Int32)">
+            <summary>
+            Превратить перечисление в множество
+            </summary>
+            <typeparam name="TSource">Тип элемента исходного перечисления</typeparam>
+            <typeparam name="TTarget">Тип элемента множества-результата</typeparam>
+            <param name="source">Исходное перечисление</param>
+            <param name="mapper">Маппер</param>
+            <param name="count">Количество элементов в исходном перечислении</param>
+            <returns>Множество-результат</returns>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Engine.ICollectionConvertExpressionCreator">
+            <summary>
+            Строит выражение для преобразования коллекций
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.ICollectionConvertExpressionCreator.Convert(System.Linq.Expressions.Expression,System.Type,System.Type)">
+            <summary>
+            Создать выражение для преобразования IEnumerable к collectionType, который является коллекцией elementType
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.ICollectionConvertExpressionCreator.Convert(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression,System.Linq.Expressions.ParameterExpression,System.Type,System.Type,System.Type,System.Type)">
+            <summary>
+            Создать выражение для преобразования коллекции в коллекцию
+            </summary>
+            <param name="source">Исходная коллекция</param>
+            <param name="elementConvert">Выражение, преобразующее элемент коллекции</param>
+            <param name="elementParameter">Параметр-элемент в выражении преобразования элемента</param>
+            <param name="sourceType">Тип исходной коллекции</param>
+            <param name="sourceElementType">Тип элемента исходной коллекции</param>
+            <param name="targetType">Тип коллекции-результата</param>
+            <param name="targetElementType">Тип элемента коллекции-результата</param>
+            <returns>Выражение для преобразования коллекции</returns>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Engine.IConvertExpressionCreator">
+            <summary>
+            Строит выражение для преобразования выражения к другому типу
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.IConvertExpressionCreator.Convert(System.Linq.Expressions.Expression,System.Type,System.Boolean,TsSoft.AbstractMapper.Rules.InnerMapperStrategy,TsSoft.Expressions.Models.AbstractMapper.MapperDescription@)">
+            <summary>
+            Построить выражение для приведения выражения к типу
+            </summary>
+            <param name="source">Исходное выражение</param>
+            <param name="targetType">Тип, к которому выражение приводится</param>
+            <param name="useCollectionMapper">Использовать маппер коллекции в коллекцию вместо поэлементного маппера</param>
+            <param name="innerMapperStrategy">Как мапить объекты</param>
+            <param name="mapperDescription">Описание внутреннего маппера, null в случае примитивного маппинга</param>
+            <returns>Выражение для маппинга</returns>
+            <remarks>Реализация предполагает, что содержимое source отлично от null</remarks>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Engine.IDirectCollectionConvertExpressionCreator">
+            <summary>
+            Строит выражения преобразования коллекций
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.IDirectCollectionConvertExpressionCreator.Convert(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression,System.Type,System.Type,System.Type,System.Type)">
+            <summary>
+            Построить выражение для преобразования коллекции
+            </summary>
+            <param name="source">Исходная коллекция</param>
+            <param name="mapperExpression">Маппер</param>
+            <param name="sourceType">Тип исходной коллекции</param>
+            <param name="sourceElementType">Тип элемента исходной коллекции</param>
+            <param name="targetType">Тип результата</param>
+            <param name="targetElementType">Тип элемента результата</param>
+            <returns>Преобразованная коллекция</returns>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Engine.IFullMapRulesCreator">
+            <summary>
+            Дополняет явно указанные правила преобразования автоправилами
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.IFullMapRulesCreator.MakeFullRules``2(TsSoft.AbstractMapper.Rules.IMapRules{``1,``0},TsSoft.AbstractMapper.Rules.IIgnoreRules{``1},TsSoft.AbstractMapper.Rules.AutoPropertiesBehavior,TsSoft.AbstractMapper.Rules.InnerMapperStrategy)">
+            <summary>
+            Создать полную коллекцию правил с заполненными источниками преобразования и выражениями преобразования
+            </summary>
+            <typeparam name="TTo">Тип, в который идёт преобразование</typeparam>
+            <typeparam name="TFrom">Тип, из которого идёт преобразование</typeparam>
+            <param name="explicitRules">Указанные в маппере правила</param>
+            <param name="ignoreRules">Правила игнорирования</param>
+            <param name="autoPropertiesBehavior">Поведение в случае, когда в TFrom не найдены подходящие свойства для построения автоправил заполнения TTo</param>
+            <param name="innerMapperStrategy">Как получать внутренние мапперы</param>
+            <returns>Упорядоченный список правил преобразования</returns>
+            <exception cref="T:TsSoft.AbstractMapper.Exceptions.InvalidRulesException">Не удалось построить автоправила для некоторых свойств</exception>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Engine.IImplicitMapRulesProvider">
+            <summary>
+            Дополняет коллекцию правил автоправилами
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.IImplicitMapRulesProvider.AddImplicitRules``2(TsSoft.AbstractMapper.Rules.IMapRules{``1,``0},TsSoft.AbstractMapper.Rules.IIgnoreRules{``1},System.Boolean)">
+            <summary>
+            Получить упорядоченную коллекцию правил, состоящую из явных правил и автоправил
+            </summary>
+            <typeparam name="TTo">Тип, в который идёт преобразование</typeparam>
+            <typeparam name="TFrom">Тип, из которого идёт преобразование</typeparam>
+            <param name="explicitRules">Указанные в маппере правила</param>
+            <param name="ignoreRules">Правила игнорирования</param>
+            <param name="throwOnError">Выбрасывать ли исключение при ошибке</param>
+            <returns>Упорядоченный список правил преобразования</returns>
+            <exception cref="T:TsSoft.AbstractMapper.Exceptions.InvalidRulesException">Не удалось построить автоправила для некоторых свойств</exception>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Engine.IMapExpressionCreator">
+            <summary>
+            Строит выражение для преобразования TFrom в TTo вместе с описаниями использованных путей
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.IMapExpressionCreator.GetExpression``2(TsSoft.AbstractMapper.Rules.IFullMapRules,System.Boolean,System.String)">
+            <summary>
+            Строит выражение для преобразования TFrom в TTo вместе с описаниями использованных путей
+            </summary>
+            <typeparam name="TFrom">Тип, из которого идёт преобразование</typeparam>
+            <typeparam name="TTo">Тип, в который идёт преобразование</typeparam>
+            <param name="mapRules">Правила преобразования</param>
+            <param name="addCatchBlocks">Добавлять try-catch блоки, оборачивающие исключения, для каждого сгенерированного выражения преобразования</param>
+            <param name="exceptionMessage">Сообщения исключений-обёрток</param>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Engine.IPrimitiveConvertExpressionCreator">
+            <summary>
+            Строит выражения для преобразования примитивных свойств
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.IPrimitiveConvertExpressionCreator.TryGetExpression(System.Linq.Expressions.Expression,System.Type,System.Linq.Expressions.Expression@)">
+            <summary>
+            Строит выражение для преобразования примитивного типа в примитивный тип
+            </summary>
+            <param name="value">Преобразуемое значение</param>
+            <param name="targetType">Тип, в который нужно преобразовать</param>
+            <param name="convertExpression">Построенное выражение</param>
+            <returns>Успешность построения</returns>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Engine.NewCollectionConvertExpressionCreator">
+            <summary>
+            Строит выражение для преобразования коллекций
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.NewCollectionConvertExpressionCreator.#ctor(TsSoft.Expressions.Helpers.Reflection.IMemberInfoHelper,TsSoft.Expressions.Helpers.Reflection.IMemberInfoLibrary,TsSoft.Expressions.Helpers.IExpressionBuilder)">
+            <summary>
+            Строит выражение для преобразования коллекций
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.NewCollectionConvertExpressionCreator.Convert(System.Linq.Expressions.Expression,System.Type,System.Type)">
+            <summary>
+            Создать выражение для преобразования IEnumerable к collectionType, который является коллекцией elementType
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.NewCollectionConvertExpressionCreator.Convert(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression,System.Linq.Expressions.ParameterExpression,System.Type,System.Type,System.Type,System.Type)">
+            <summary>
+            Создать выражение для преобразования коллекции в коллекцию
+            </summary>
+            <param name="source">Исходная коллекция</param>
+            <param name="elementConvert">Выражение, преобразующее элемент коллекции</param>
+            <param name="elementParameter">Параметр-элемент в выражении преобразования элемента</param>
+            <param name="sourceType">Тип исходной коллекции</param>
+            <param name="sourceElementType">Тип элемента исходной коллекции</param>
+            <param name="targetType">Тип коллекции-результата</param>
+            <param name="targetElementType">Тип элемента коллекции-результата</param>
+            <returns>Выражение для преобразования коллекции</returns>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Engine.PrimitiveConvertExpressionCreator">
+            <summary>
+            Строит выражения для преобразования примитивных свойств
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.PrimitiveConvertExpressionCreator.#ctor(TsSoft.Expressions.Helpers.Reflection.IMemberInfoHelper,TsSoft.Expressions.Helpers.Reflection.IMemberInfoLibrary,TsSoft.Expressions.Helpers.Reflection.IConversionChecker)">
+            <summary>
+            Строит выражения для преобразования примитивных свойств
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Engine.PrimitiveConvertExpressionCreator.TryGetExpression(System.Linq.Expressions.Expression,System.Type,System.Linq.Expressions.Expression@)">
+            <summary>
+            Строит выражение для преобразования примитивного типа в примитивный тип
+            </summary>
+            <param name="value">Преобразуемое значение</param>
+            <param name="targetType">Тип, в который нужно преобразовать</param>
+            <param name="convertExpression">Построенное выражение</param>
+            <returns>Успешность построения</returns>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Exceptions.AbstractMapperResolverException">
+            <summary>
+            Исключение разрешителя зависимостей мапперов
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Exceptions.AbstractMapperResolverException.#ctor(System.Type)">
+            <summary>
+            Исключение разрешителя зависимостей мапперов
+            </summary>
+            <param name="mapperType">Тип маппера, который не удалось завершить</param>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Exceptions.InvalidRulesException">
+            <summary>
+            Неверные правила маппера
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Exceptions.InvalidRulesException.#ctor(System.String)">
+            <summary>
+            Неверные правила маппера
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Exceptions.IUnresolvedDependency">
+            <summary>
+            Зависимость абстрактного маппера, которую не удалось разрешить
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Exceptions.IUnresolvedDependency.MapperType">
+            <summary>
+            Тип маппера, зависимость которого не удалось разрешить
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Exceptions.IUnresolvedDependency.DependencyFromType">
+            <summary>
+            Тип свойства в TFrom, породившего неразрешённую зависимость
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Exceptions.IUnresolvedDependency.DependencyToType">
+            <summary>
+            Тип свойства в TTo, породившего неразрешённую зависимость
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Exceptions.IUnresolvedDependency.Exception">
+            <summary>
+            Исключение разрешителя
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Exceptions.MapperBinderException">
+            <summary>
+            Исключение, возникающее при реализации двумя классами одного интерфейса маппера
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Exceptions.MapperBinderException.#ctor(System.String)">
+            <summary>
+            Исключение, возникающее при реализации двумя классами одного интерфейса маппера
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Exceptions.UnresolvedDependency">
+            <summary>
+            Зависимость абстрактного маппера, которую не удалось разрешить
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Exceptions.UnresolvedDependency.MapperType">
+            <summary>
+            Тип маппера, зависимость которого не удалось разрешить
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Exceptions.UnresolvedDependency.DependencyFromType">
+            <summary>
+            Тип свойства в TFrom, породившего неразрешённую зависимость
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Exceptions.UnresolvedDependency.DependencyToType">
+            <summary>
+            Тип свойства в TTo, породившего неразрешённую зависимость
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Exceptions.UnresolvedDependency.Exception">
+            <summary>
+            Исключение разрешителя или создателя выражения преобразования
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Exceptions.UnresolvedDependency.#ctor(System.Type,System.Type,System.Type,System.Exception)">
+            <summary>
+            Зависимость абстрактного маппера, которую не удалось разрешить
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Exceptions.UnresolvedDependency.#ctor(System.Type,System.Type,System.Type)">
+            <summary>
+            Зависимость абстрактного маппера, которую не удалось разрешить
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Exceptions.UnresolvedDependency.#ctor(System.Type,System.Exception)">
+            <summary>
+            Зависимость абстрактного маппера, которую не удалось разрешить
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.FuncCreators.IDynamicEntityMapFuncCache">
+            <summary>
+            Кэш делегатов, мапящих динамические типы в обычные
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.FuncCreators.IDynamicEntityMapFuncCache.Get``1(System.Type)">
+            <summary>
+            Получить делегат для преобразования объекта динамического типа в обычный
+            </summary>
+            <typeparam name="TEntity">Тип сущности БД</typeparam>
+            <param name="dynamicType">Динамический тип сущности</param>
+            <returns>Делегат для преобразования</returns>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.FuncCreators.IDynamicEntityMapFuncCreator">
+            <summary>
+            Создаёт делегат для преобразования объекта заданного типа к типу TEntity с помощью копирования одноимённых свойств
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.FuncCreators.IDynamicEntityMapFuncCreator.CreateMapperFunc``1(System.Type)">
+            <summary>
+            Создаёт делегат для преобразования объекта заданного типа к типу TEntity с помощью копирования одноимённых свойств
+            </summary>
+            <typeparam name="TEntity">Тип, в который преобразуется объект</typeparam>
+            <param name="dynamicType">Тип объекта</param>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Helpers.IGetterAccessHelper">
+            <summary>
+            Создаёт выражения для извлечения значения
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Helpers.IGetterAccessHelper.GetGetterAccess``1(System.Linq.Expressions.ParameterExpression,System.Reflection.PropertyInfo)">
+            <summary>
+            Создаёт выражения для извлечения значения из TFrom при заполнении заданного свойства с описанием использованного пути
+            </summary>
+            <param name="from">Аргумент выражения типа TFrom</param>
+            <param name="propertyInfo">Заполняемое свойство</param>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Helpers.IMapperDependenciesChecker">
+            <summary>
+            Проверяет зависимости абстрактных мапперов
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Helpers.IMapperDependenciesChecker.GetUnresolved``1(System.Collections.Generic.IEnumerable{System.Object})">
+            <summary>
+            Получить зависимости, которые не удалось разрешить
+            </summary>
+            <param name="mapperInstances">Экземпляры мапперов, зависимости которых проверяются</param>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Helpers.IMapperDependenciesRetriever">
+            <summary>
+            Получает мапперы, от которых зависит экземпляр абстрактного маппера
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Helpers.IMapperDependenciesRetriever.GetDependencies``2(TsSoft.AbstractMapper.Mapper{``0,``1})">
+            <summary>
+            Получить интерфейсы мапперов, от которых зависит данный экземпляр
+            </summary>
+            <typeparam name="TFrom">Входной тип рассматриваемого маппера</typeparam>
+            <typeparam name="TTo">Выходной тип рассматриваемого маппера</typeparam>
+            <param name="mapper">Экземпляр маппера</param>
+            <returns>Перечисление пар типов (откуда, куда) для мапперов, которые нужны для работы представленному экземпляру</returns>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Helpers.IMapperMethodHelper">
+            <summary>
+            Получает метод интерфейса маппера
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Helpers.IMapperMethodHelper.GetMapMethod(System.Type)">
+            <summary>
+            Получить метод Map() по типу
+            </summary>
+            <param name="mapperType">Тип маппера</param>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Helpers.IMapperTypeHelper">
+            <summary>
+            Определяет, является ли нечто абстрактным маппером
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Helpers.IMapperTypeHelper.IsAbstractMapperType(System.Type)">
+            <summary>
+            Является ли тип типом абстрактного маппера
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Helpers.IMapperTypeHelper.IsAbstractMapperInstance(System.Object)">
+            <summary>
+            Является ли объект абстрактным маппером
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Helpers.IMapperTypeHelper.GetMapperBaseType(System.Type)">
+            <summary>
+            Получить базовый тип маппера, если mapperType - тип абстрактного маппера, и null в противном случае
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Helpers.IMapperTypesRetriever">
+            <summary>
+            Получает типы мапперов из сборки
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Helpers.IMapperTypesRetriever.GetMapperTypes(System.Reflection.Assembly,TsSoft.Expressions.Helpers.Reflection.IAssemblyTypesRetriever)">
+            <summary>
+            Получить типы неабстрактных наследников <see cref="T:TsSoft.AbstractMapper.Mapper`2"/> из сборки
+            </summary>
+            <param name="assembly">Сборка</param>
+            <param name="assemblyTypesRetriever">Получатель типов из сборки</param>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Helpers.MapperTypeHelper">
+            <summary>
+            Определяет, является ли нечто абстрактным маппером
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Helpers.MapperTypeHelper.IsAbstractMapperType(System.Type)">
+            <summary>
+            Является ли тип абстрактным маппером
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Helpers.MapperTypeHelper.IsAbstractMapperInstance(System.Object)">
+            <summary>
+            Является ли объект абстрактным маппером
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Helpers.MapperTypeHelper.GetMapperBaseType(System.Type)">
+            <summary>
+            Получить базовый класс маппера для типа
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.IAbstractMapperHelper">
+            <summary>
+            Хелпер для абстрактных мапперов
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.IAbstractMapperHelper.MakeFullRules``2(TsSoft.AbstractMapper.Rules.IMapRules{``1,``0},TsSoft.AbstractMapper.Rules.IIgnoreRules{``1},TsSoft.AbstractMapper.Rules.AutoPropertiesBehavior,TsSoft.AbstractMapper.Rules.InnerMapperStrategy)">
+            <summary>
+            Создать полную коллекцию правил с заполненными источниками преобразования и выражениями преобразования
+            </summary>
+            <typeparam name="TTo">Тип, в который идёт преобразование</typeparam>
+            <typeparam name="TFrom">Тип, из которого идёт преобразование</typeparam>
+            <param name="explicitRules">Указанные в маппере правила</param>
+            <param name="ignoreRules">Правила игнорирования</param>
+            <param name="autoPropertiesBehavior">Поведение в случае, когда в TFrom не найдены подходящие свойства для построения автоправил заполнения TTo</param>
+            <param name="innerMapperStrategy">Как получать внутренние мапперы</param>
+            <returns>Упорядоченный список правил преобразования</returns>
+            <exception cref="T:TsSoft.AbstractMapper.Exceptions.InvalidRulesException">Не удалось построить автоправила для некоторых свойств</exception>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.IAbstractMapperHelper.CreateMapperExpression``2(TsSoft.AbstractMapper.Rules.IFullMapRules,System.Boolean,System.String)">
+            <summary>
+            Создать выражение для преобразования
+            </summary>
+            <typeparam name="TFrom">Тип, из которого осуществляется преобразование</typeparam>
+            <typeparam name="TTo">Тип, в который осуществляется преобразование</typeparam>
+            <param name="fullMapRules">Правила преобразования</param>
+            <param name="addCatchBlocks">Оборачивать ли в try-catch выражения маппинга</param>
+            <param name="exceptionMessage">Сообщение внутреннего исключения</param>
+            <returns>Выражение преобразования</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.IAbstractMapperHelper.CreateIgnoreRules``1">
+            <summary>
+            Создать правила игнорирования
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.IAbstractMapperHelper.CreateIgnoreRules``2">
+            <summary>
+            Создать правила игнорирования
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.IAbstractMapperHelper.Compile``1(System.Linq.Expressions.Expression{``0},TsSoft.Expressions.Helpers.Closures.LambdaCompilationType)">
+            <summary>
+            Скомпилировать выражение
+            </summary>
+            <typeparam name="TDelegate">Тип делегата</typeparam>
+            <param name="lambda">Выражение</param>
+            <param name="compilationType">Тип компиляции</param>
+            <returns>Делегат</returns>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.IMapper`2">
+            <summary>
+            Интерфейс маппера
+            </summary>
+            <typeparam name="TFrom">Тип, из которого осуществляется преобразование</typeparam>
+            <typeparam name="TTo">Тип, в который осуществляется преобразование</typeparam>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.IMapper`2.Map(`0)">
+            <summary>
+            Преобразовать экземпляр TFrom в экземпляр TTo
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Mapper`2">
+            <summary>
+            Базовый класс для абстрактных мапперов
+            </summary>
+            <typeparam name="TFrom"></typeparam>
+            <typeparam name="TTo"></typeparam>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Mapper`2.MapperHelper">
+            <summary>
+            Хелпер для абстрактного маппера
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Mapper`2.#ctor(TsSoft.AbstractMapper.IAbstractMapperHelper)">
+            <summary>
+            Создать маппер
+            </summary>
+            <param name="mapperHelper">Хелпер абстрактного маппера</param>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Mapper`2.MapperExpression">
+            <summary>
+            Выражение маппинга
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Mapper`2.MapRules">
+            <summary>
+            Правила маппинга
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Mapper`2.FullMapRules">
+            <summary>
+            Правила маппинга, дополненные автоправилами
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Mapper`2.IgnoreRules">
+            <summary>
+            Правила игнорирования
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Mapper`2.AutoPropertiesBehavior">
+            <summary>
+            Поведение в случае наличия в TTo свойств, для которых не найдено соответствие
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Mapper`2.InnerMapperStrategy">
+            <summary>
+            Стратегия маппинга подсущностей
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Mapper`2.IsExpressionProcessed">
+            <summary>
+            Вся ли необходимая информация получена из построенного выражения
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Mapper`2.GenerateCatchBlocks">
+            <summary>
+            Оборачивать ли в try выражения маппинга
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Mapper`2.RealMap(`0)">
+            <summary>
+            Применить преобразование
+            </summary>
+            <param name="from">Преобразуемый объект</param>
+            <returns>Преобразованный объект</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Mapper`2.GetMapper">
+            <summary>
+            Получить делегат для преобразования
+            </summary>
+            <returns>Делегат для преобразования</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Mapper`2.CompileMapper">
+            <summary>
+            Скомпилировать выражение для преобразования в делегат
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Mapper`2.GetLazyValueAndClearCacheIfProcessed``1(System.Lazy{``0})">
+            <summary>
+            Получить лениво создаваемый по MapperExpression объект и удалить ссылку на MapperExpression, если она больше не нужна
+            </summary>
+            <typeparam name="T">Тип объекта</typeparam>
+            <param name="lazy">Ленивая обёртка</param>
+            <returns>Созданный объект</returns>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Mappers.DynamicMapper`2">
+            <summary>
+            Базовый класс для абстрактного маппера, определяющего типы вложенных сущностей во время выполнения
+            </summary>
+            <typeparam name="TFrom">Тип, из которого происходит преобразование</typeparam>
+            <typeparam name="TTo">Тип, в который происходит преобразование</typeparam>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Mappers.DynamicMapper`2.#ctor(TsSoft.AbstractMapper.IAbstractMapperHelper)">
+            <summary>
+            Базовый класс для абстрактного маппера, определяющего типы вложенных сущностей во время выполнения
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Mappers.DynamicMapper`2.InnerMapperStrategy">
+            <summary>
+            Стратегия маппинга подсущностей
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Mappers.IDynamicEntityToEntityMapper`1">
+            <summary>
+            Преобразователь произвольных объектов к типу TEntity, копирующий значения одноимённых свойств
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Mappers.LooseMapper`2">
+            <summary>
+            Базовый класс для абстрактного маппера, тихо игнорирующего свойства, для которых не найдено соответствие
+            </summary>
+            <typeparam name="TFrom">Тип, из которого происходит преобразование</typeparam>
+            <typeparam name="TTo">Тип, в который происходит преобразование</typeparam>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Mappers.LooseMapper`2.#ctor(TsSoft.AbstractMapper.IAbstractMapperHelper)">
+            <summary>
+            Базовый класс для абстрактного маппера, тихо игнорирующего свойства, для которых не найдено соответствие
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Mappers.LooseMapper`2.AutoPropertiesBehavior">
+            <summary>
+            Поведение в случае наличия в TTo свойств, для которых не найдено соответствие
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Metadata.MapIgnoreAttribute">
+            <summary>
+            Игнорировать свойство при преобразовании абстрактным маппером
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Metadata.MapIgnoreAttribute.#ctor">
+            <summary>
+            Игнорировать свойство при преобразовании абстрактным маппером
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Metadata.MapIgnoreAttribute.#ctor(System.Type)">
+            <summary>
+            Игнорировать свойство при преобразовании абстрактным маппером из указанного типа
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Metadata.MapIgnoreAttribute.#ctor(System.Type[])">
+            <summary>
+            Игнорировать свойство при преобразовании абстрактным маппером из указанных типов
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Metadata.MapIgnoreAttribute.FromIgnoredTypes">
+            <summary>
+            При преобразовании из каких типов игнорировать свойство
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Resolvers.IMapperResolver">
+            <summary>
+            Разрешитель зависимостей мапперов
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Resolvers.IMapperResolver.TryGet``2">
+            <summary>
+            Попытаться получить экземпляр маппера из TFrom в TTo
+            </summary>
+            <typeparam name="TFrom">Тип, из которого идёт преобразование</typeparam>
+            <typeparam name="TTo">Тип, в который идёт преобразование</typeparam>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Resolvers.IMapperResolver.GetDefault``2">
+            <summary>
+            Получить стандартный абстрактный маппер из TFrom в TTo
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Resolvers.IMapperResolver.GetDynamic``2">
+            <summary>
+            Получить абстрактный маппер из TFrom в TTo, определяющий типы внутренних сущностей во время выполнения
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Resolvers.IMapperResolver.GetTypeDeterminingMapper``1">
+            <summary>
+            Получить абстрактный маппер из объекта в TTo, определяющий тип объекта во время выполнения
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.RuleConverters.IIgnoreRulesConverter">
+            <summary>
+            Преобразователь правил игнорирования
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.RuleConverters.IIgnoreRulesConverter.Convert``1(System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}})">
+            <summary>
+            Получить из правил игнорирования свойства, которые не следует заполнять
+            </summary>
+            <typeparam name="TTo">Тип, в который происходит преобразование</typeparam>
+            <param name="ignoreRules">Правила игнорирования</param>
+            <returns>Перечисление игнорируемых свойств типа</returns>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.RuleConverters.IMapRulesConverter">
+            <summary>
+            Преобразователь правил маппинга
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.RuleConverters.IMapRulesConverter.Convert(TsSoft.AbstractMapper.Rules.IFullMapRules)">
+            <summary>
+            Преобразует правила преобразования в удобный для рефлексии объект
+            </summary>
+            <param name="fullMapRules">Правила преобразования</param>
+            <returns>Свойство, в которое идёт преобразование => описание пути</returns>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Rules.AutoPropertiesBehavior">
+            <summary>
+            Поведение маппера при наличии в типе, в который происходит преобразование, свойств для которых нет соответствия в типе, из которого происходит преобразование
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Rules.AutoPropertiesBehavior.Loose">
+            <summary>
+            Игнорировать свойства, для которых не найдено соответствие
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Rules.AutoPropertiesBehavior.Strict">
+            <summary>
+            Создавать исключение, если существуют свойства без соответствия
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Rules.EmptyIgnoreRules`1">
+            <summary>
+            Не игнорировать ничего
+            </summary>
+            <typeparam name="TTo">Тип, в который происходит преобразование</typeparam>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.EmptyIgnoreRules`1.GetEnumerator">
+            <summary>
+            Перечислитель пустых правил игнорирования
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.EmptyIgnoreRules`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Перечислитель пустых правил игнорирования
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Rules.EmptyIgnoreRules`1.Count">
+            <summary>
+            Нуль
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Rules.EmptyMapRules`2">
+            <summary>
+            Пустая коллекция правил преобразования
+            </summary>
+            <typeparam name="TTo">Тип, в который происходит преобразование</typeparam>
+            <typeparam name="TFrom">Тип, из которого происходит преобразование</typeparam>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Rules.EmptyMapRules`2.Count">
+            <summary>
+            Нуль
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.EmptyMapRules`2.GetEnumerator">
+            <summary>
+            Перечислитель пустых правил преобразования
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.EmptyMapRules`2.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Перечислитель пустых правил преобразования
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Rules.Factories.IIgnoreRulesFactory">
+            <summary>
+            Фабрика правил игнорирования
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.Factories.IIgnoreRulesFactory.CreateRules``2">
+            <summary>
+            Создать правила игнорирования при маппинге TFrom в TTo
+            </summary>
+            <typeparam name="TTo">Тип, в который осуществляется преобразование</typeparam>
+            <typeparam name="TFrom">Тип, из которого осуществляется преобразование</typeparam>
+            <returns>Правила игнорирования</returns>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.Factories.IIgnoreRulesFactory.CreateRules``1">
+            <summary>
+            Создать правила игнорирования при маппинге в TTo
+            </summary>
+            <typeparam name="TTo">Тип, в который осуществляется преобразование</typeparam>
+            <returns>Правила игнорирования</returns>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Rules.FullMapRules">
+            <summary>
+            Полные правила преобразования
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Rules.FullMapRules.Rules">
+            <summary>
+            Список правил
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Rules.FullMapRules.TargetType">
+            <summary>
+            Тип, в который идёт преобразование
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.FullMapRules.GetEnumerator">
+            <summary>
+            Получить перечислитель
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.FullMapRules.Add(TsSoft.AbstractMapper.Rules.MemberedMapRule)">
+            <summary>
+            Добавить правило
+            </summary>
+            <param name="rule"></param>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Rules.FullMapRules.Count">
+            <summary>
+            Количество правил
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.FullMapRules.#ctor(System.Type)">
+            <summary>
+            Создать полные правила преобразования
+            </summary>
+            <param name="targetType">Тип, в который идёт преобразование</param>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Rules.IFullMapRules">
+            <summary>
+            Правила перобразования
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Rules.IFullMapRules.TargetType">
+            <summary>
+            Конкретный тип результата
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Rules.IgnoreRules`1">
+            <summary>
+            Правила игнорирования
+            </summary>
+            <typeparam name="TTo">Тип, в который происходит преобразование</typeparam>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.IgnoreRules`1.Add(TsSoft.AbstractMapper.Rules.IIgnoreRules{`0})">
+            <summary>
+            Добавить коллекцию правил игнорирования
+            </summary>
+            <param name="rules">Тип, в который происходит преобразование</param>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Rules.IIgnoreRules`1">
+            <summary>
+            Правила игнорирования
+            </summary>
+            <typeparam name="TTo">Тип, в который происходит преобразование</typeparam>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Rules.IMapRules`2">
+            <summary>
+            Правила преобразования
+            </summary>
+            <typeparam name="TTo">Тип, в который осуществляется преобразование</typeparam>
+            <typeparam name="TFrom">Тип, из которого осуществляется преобразование</typeparam>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Rules.InnerMapperStrategy">
+            <summary>
+            Как и какие мапперы для подсущностей получать
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Rules.InnerMapperStrategy.Default">
+            <summary>
+            Получать внутренние мапперы для статически определяемых типов во время преобразования
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Rules.InnerMapperStrategy.StaticTypes">
+            <summary>
+            Получать внутренние мапперы для статически определяемых типов
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Rules.InnerMapperStrategy.DynamicTypes">
+            <summary>
+            Определять типы внутренних сущностей во время выполнения
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Rules.InnerMapperStrategy.ResolveOnMapping">
+            <summary>
+            Получать внутренние мапперы по необходимости во время преобразования
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Rules.InnerMapperStrategy.ResolveOnMapperBuilding">
+            <summary>
+            Получать внутренние мапперы во время построения внешнего маппера
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Rules.MapRule">
+            <summary>
+            Правило преобразования
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Rules.MapRule.FromAccess">
+            <summary>
+            Откуда брать значения в TFrom
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Rules.MapRule.ToAccess">
+            <summary>
+            Куда писать значение в TTo
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Rules.MapRule.Convert">
+            <summary>
+            Как превращать полученные из TFrom значения в значение в TTo
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Rules.MapRule.Default">
+            <summary>
+            Значение по умолчанию
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Rules.MapRule.ToPassedToMap">
+            <summary>
+            Передавать ли TTo в лямбду маппинга
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Rules.MapRule.FromPropertyCount">
+            <summary>
+            Количество получаемых из TFrom значений
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Rules.MapRule.ProcessorCount">
+            <summary>
+            Количество внутренних обработчиков
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.MapRule.ToString">
+            <summary>
+            Строковое представление
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Rules.MapRules`2">
+            <summary>
+                Коллекция правил преобразования
+            </summary>
+            <typeparam name="TTo">Тип, в который происходит преобразование</typeparam>
+            <typeparam name="TFrom">Тип, из которого происходит преобразование</typeparam>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Rules.MapRules`2.Rules">
+            <summary>
+                Список правил преобразования
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.MapRules`2.Add(TsSoft.AbstractMapper.Rules.MapRule)">
+            <summary>
+            Добавить правило преобразования
+            </summary>
+            <param name="item">Правило преобразования</param>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.MapRules`2.Clear">
+            <summary>
+            Очистить коллекцию
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.MapRules`2.Contains(TsSoft.AbstractMapper.Rules.MapRule)">
+            <summary>
+            Содержит ли коллекция заданный экземпляр правила
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.MapRules`2.CopyTo(TsSoft.AbstractMapper.Rules.MapRule[],System.Int32)">
+            <summary>
+            Скопировать правила в массив
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.MapRules`2.Remove(TsSoft.AbstractMapper.Rules.MapRule)">
+            <summary>
+            Удалить правило
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Rules.MapRules`2.IsReadOnly">
+            <summary>
+            Является ли коллекцией только для чтения
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.MapRules`2.GetEnumerator">
+            <summary>
+                Перечислитель правил преобразования
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.MapRules`2.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+                Перечислитель правил преобразования
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Rules.MapRules`2.Count">
+            <summary>
+                Количество правил преобразования в коллекции
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.MapRules`2.Add(TsSoft.AbstractMapper.Rules.IMapRules{`0,`1})">
+            <summary>
+                Добавить коллекцию правил преобразования
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.MapRules`2.Add(TsSoft.AbstractMapper.Rules.MapRules{`0,`1})">
+            <summary>
+                Добавить коллекцию правил преобразования
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.MapRules`2.Add``2(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Linq.Expressions.Expression{System.Func{``1,``0}},System.Linq.Expressions.Expression{System.Func{``0}})">
+            <summary>
+                Добавить правило
+            </summary>
+            <typeparam name="TToProperty">Тип свойства, в которое идёт преобразование</typeparam>
+            <typeparam name="TFromProperty">Тип свойства, из которого идёт преобразование</typeparam>
+            <param name="toAccess">Куда</param>
+            <param name="convert">Как</param>
+            <param name="defaultValue">Значение по умолчанию</param>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.MapRules`2.Add``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Linq.Expressions.Expression{System.Func{``0}})">
+            <summary>
+                Добавить правило
+            </summary>
+            <typeparam name="TToProperty">Тип свойства, в которое идёт преобразование</typeparam>
+            <param name="toAccess">Куда</param>
+            <param name="value">Что</param>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.MapRules`2.Add``2(System.Linq.Expressions.Expression{System.Func{`0,``1}},System.Linq.Expressions.Expression{System.Func{`1,``0}},System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Linq.Expressions.Expression{System.Func{``1}})">
+            <summary>
+                Добавить правило
+            </summary>
+            <typeparam name="TToProperty">Тип свойства, в которое идёт преобразование</typeparam>
+            <typeparam name="TFromProperty">Тип свойства, из которого идёт преобразование</typeparam>
+            <param name="toAccess">Куда</param>
+            <param name="fromAccess">Что</param>
+            <param name="convert">Как</param>
+            <param name="defaultValue">Значение по умолчанию</param>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.MapRules`2.Add``3(System.Linq.Expressions.Expression{System.Func{`0,``2}},System.Linq.Expressions.Expression{System.Func{`1,``0}},System.Linq.Expressions.Expression{System.Func{`1,``1}},System.Linq.Expressions.Expression{System.Func{``0,``1,``2}})">
+            <summary>
+            </summary>
+            <typeparam name="TToProperty">Тип свойства, в которое идёт преобразование</typeparam>
+            <typeparam name="TFromProperty1">Тип первого свойства, из которого идёт преобразование</typeparam>
+            <typeparam name="TFromProperty2">Тип второго свойства, из которого идёт преобразование</typeparam>
+            <param name="toAccess">Куда</param>
+            <param name="fromFirstAccess">Что #1</param>
+            <param name="fromSecondAccess">Что #2</param>
+            <param name="convert">Как</param>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.MapRules`2.Add``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},TsSoft.AbstractMapper.Rules.AfterMapRule,System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            </summary>
+            <typeparam name="TToProperty">Тип свойства, в которое идёт преобразование</typeparam>
+            <param name="toAccess">Куда</param>
+            <param name="dummy">Выполнить после остальных правил</param>
+            <param name="convert">Как</param>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Rules.AfterMapRule">
+            <summary>
+            Заглушка для intellisense
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Rules.AfterMapRule.Rule">
+            <summary>
+            Заглушка
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Rules.MapSource">
+            <summary>
+            Описание преобразуемого значения
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Rules.MapSource.FromAccess">
+            <summary>
+            Откуда брать значение в TFrom
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Rules.MapSource.ProcessorDescription">
+            <summary>
+            Обработчик значения
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Rules.MapSource.SkipAssignmentOnNull">
+            <summary>
+            Не производить присваивание, если из TFrom пришёл null
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.MapSource.#ctor(System.Linq.Expressions.LambdaExpression,TsSoft.Expressions.Models.AbstractMapper.ProcessorDescription)">
+            <summary>
+            Описание преобразуемого значения
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.MapSource.#ctor(TsSoft.AbstractMapper.Rules.MapSource)">
+            <summary>
+            Описание преобразуемого значения
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.MapSource.AppendTo(System.Text.StringBuilder)">
+            <summary>
+            Записать строковое представление
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.MapSource.ToString">
+            <summary>
+            Строковое представление
+            </summary>
+        </member>
+        <member name="F:TsSoft.AbstractMapper.Rules.MapSource.NoSources">
+            <summary>
+            Отсутствие преобразуемых значений
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Rules.MemberedMapRule">
+            <summary>
+            Правило преобразования с указанной целью
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Rules.MemberedMapRule.ToMember">
+            <summary>
+            Куда писать значение в TTo
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Rules.MemberedMapRule.MapperDescription">
+            <summary>
+            Описание маппера
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.MemberedMapRule.#ctor(TsSoft.Expressions.Models.ValueHoldingMember)">
+            <summary>
+            Правило преобразования с указанной целью
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.MemberedMapRule.#ctor(TsSoft.AbstractMapper.Rules.MapRule,TsSoft.Expressions.Models.ValueHoldingMember)">
+            <summary>
+            Правило преобразования
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Rules.ReflectedMapRule">
+            <summary>
+            Правило преобразования в удобном для рефлексии виде
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Rules.ReflectedMapRule.To">
+            <summary>
+            Куда
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Rules.ReflectedMapRule.From">
+            <summary>
+            Откуда и с помощью чего
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Rules.ReflectedMapRule.MapperDescription">
+            <summary>
+            Описание маппера
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Rules.ReflectedMapRule.Convert">
+            <summary>
+            Выражение для преобразования
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Rules.ReflectedMapRule.ToPassedToMap">
+            <summary>
+            Передаётся ли в Convert объект-результат преобразования
+            </summary>
+        </member>
+        <member name="M:TsSoft.AbstractMapper.Rules.ReflectedMapRule.ToString">
+            <summary>
+            Строковое представление
+            </summary>
+        </member>
+        <member name="T:TsSoft.AbstractMapper.Rules.ReflectedMapSource">
+            <summary>
+            Описание преобразуемого
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Rules.ReflectedMapSource.Path">
+            <summary>
+            Путь из свойств
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Rules.ReflectedMapSource.PathType">
+            <summary>
+            Тип, который должен вернуть путь
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Rules.ReflectedMapSource.SkipAssignmentOnNull">
+            <summary>
+            Не производить присваивание, если из TFrom пришёл null
+            </summary>
+        </member>
+        <member name="P:TsSoft.AbstractMapper.Rules.ReflectedMapSource.ProcessorDescription">
+            <summary>
+            Обработчик
+            </summary>
+        </member>
+        <member name="T:TsSoft.Bindings.AbstractMapperBindings">
+            <summary>
+            Описание интерфейсов и их реализаций в сборке TsSoft.AbstractMapper
+            </summary>
+        </member>
+        <member name="M:TsSoft.Bindings.AbstractMapperBindings.#ctor">
+            <summary>
+            Создать экземпляр описания интерфейсов и их реализаций в сборке TsSoft.AbstractMapper
+            </summary>
+        </member>
+    </members>
+</doc>

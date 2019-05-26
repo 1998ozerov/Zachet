@@ -1,0 +1,592 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TsSoft.Expressions.SelectBuilder</name>
+    </assembly>
+    <members>
+        <member name="T:TsSoft.Bindings.ExpressionsSelectBuilderBindings">
+            <summary>
+            Описание интерфейсов и их реализаций в сборке TsSoft.Expressions.SelectBuilder
+            </summary>
+        </member>
+        <member name="M:TsSoft.Bindings.ExpressionsSelectBuilderBindings.#ctor">
+            <summary>
+            Описание интерфейсов и их реализаций в сборке TsSoft.Expressions.SelectBuilder
+            </summary>
+        </member>
+        <member name="T:TsSoft.Expressions.SelectBuilder.DynamicTypes.IDynamicTypePool">
+            <summary>
+            Пул динамических типов сущностей
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.DynamicTypes.IDynamicTypePool.Reset">
+            <summary>
+            Сбросить пул
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.DynamicTypes.IDynamicTypePool.GetNext(System.Type)">
+            <summary>
+            Получить следующий экземпляр динамического типа
+            </summary>
+            <param name="type">Статический тип</param>
+        </member>
+        <member name="T:TsSoft.Expressions.SelectBuilder.DynamicTypes.IEntityDynamicTypesHelper">
+            <summary>
+            Хелпер для динамических типов сущностей
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.DynamicTypes.IEntityDynamicTypesHelper.GetDynamicType(System.Type,System.Int32)">
+            <summary>
+            Получить динамический тип
+            </summary>
+            <param name="entityType">Статический тип сущности</param>
+            <param name="index">Номер динамического типа</param>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.DynamicTypes.IEntityDynamicTypesHelper.GetPool">
+            <summary>
+            Получить пул динамических типов сущностей
+            </summary>
+        </member>
+        <member name="T:TsSoft.Expressions.SelectBuilder.DynamicTypes.ITypeBuilderCreator">
+            <summary>
+            Создатель динамических типов
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.DynamicTypes.ITypeBuilderCreator.CreateWithDefaultConstructor(System.String)">
+            <summary>
+            Создаёт построитель типа, в который включён пустой конструктор без параметров
+            </summary>
+            <param name="typeName">Имя типа</param>
+            <returns>Построитель типа</returns>
+            <exception cref="T:System.ArgumentException">Динамический тип с заданным именем уже существует</exception>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.DynamicTypes.ITypeBuilderCreator.CreateWithDefaultConstructor(System.String,System.Type)">
+            <summary>
+            Создаёт построитель типа, в который включён пустой конструктор без параметров
+            </summary>
+            <param name="typeName">Имя типа</param>
+            <param name="baseType">Базовый тип</param>
+            <returns>Построитель типа</returns>
+            <exception cref="T:System.ArgumentException">Динамический тип с заданным именем уже существует</exception>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.DynamicTypes.ITypeBuilderCreator.CreateInterface(System.String)">
+            <summary>
+            Создаёт построитель интерфейса
+            </summary>
+            <param name="typeName">Имя типа</param>
+            <returns>Построитель типа</returns>
+            <exception cref="T:System.ArgumentException">Динамический тип с заданным именем уже существует</exception>
+        </member>
+        <member name="T:TsSoft.Expressions.SelectBuilder.DynamicTypes.ITypeClonemaker">
+            <summary>
+            Копирует свойства в динамический тип
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.DynamicTypes.ITypeClonemaker.CloneAsFields(System.Type,System.Reflection.Emit.TypeBuilder,System.Func{System.Type,System.Type},System.Type,System.Func{TsSoft.Expressions.Models.ValueHoldingMember,System.Boolean})">
+            <summary>
+            Скопировать свойства из типа в тип как поля, заменяя типы свойств и подменяя типы коллекций
+            </summary>
+            <param name="source">Исходный тип</param>
+            <param name="builder">Построитель нового типа</param>
+            <param name="replaceWith">Сопоставление типов, которые нужно заменить</param>
+            <param name="genericCollectionType">Тип коллекции для нового типа</param>
+            <param name="ignore">Игнорируемые свойства</param>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.DynamicTypes.ITypeClonemaker.CloneAsProperties(System.Type,System.Reflection.Emit.TypeBuilder,System.Func{System.Type,System.Type},System.Type,System.Func{TsSoft.Expressions.Models.ValueHoldingMember,System.Boolean})">
+            <summary>
+            Скопировать свойства из типа в тип, заменяя типы свойств и подменяя типы коллекций
+            </summary>
+            <param name="source">Исходный тип</param>
+            <param name="builder">Построитель нового типа</param>
+            <param name="replaceWith">Сопоставление типов, которые нужно заменить</param>
+            <param name="genericCollectionType">Тип коллекции для нового типа</param>
+            <param name="ignore">Игнорируемые свойства</param>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.DynamicTypes.ITypeClonemaker.CloneAsInterfaceProperties(System.Type,System.Reflection.Emit.TypeBuilder,System.Func{System.Type,System.Type},System.Type,System.Func{TsSoft.Expressions.Models.ValueHoldingMember,System.Boolean})">
+            <summary>
+            Скопировать свойства из типа в тип-интерфейс, заменяя типы свойств и подменяя типы коллекций
+            </summary>
+            <param name="source">Исходный тип</param>
+            <param name="builder">Построитель нового интерфейса</param>
+            <param name="replaceWith">Сопоставление типов, которые нужно заменить</param>
+            <param name="genericCollectionType">Тип коллекции для нового типа</param>
+            <param name="ignore">Игнорируемые свойства</param>
+        </member>
+        <member name="T:TsSoft.Expressions.SelectBuilder.Helpers.IDbSelectTreeToSelectConverter">
+            <summary>
+            Преобразователь дерева свойств в select-выражение
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.Helpers.IDbSelectTreeToSelectConverter.Convert``1(TsSoft.Expressions.Models.Path.SelectTree,TsSoft.Expressions.SelectBuilder.Models.SelectSettings)">
+            <summary>
+            Создать select-выражение по дереву свойств
+            </summary>
+            <typeparam name="T">Тип выбираемой сущности</typeparam>
+            <param name="tree">Дерево свойств</param>
+            <param name="settings">Настройки построения выражения</param>
+            <returns>Построенное select-выражение</returns>
+        </member>
+        <member name="T:TsSoft.Expressions.SelectBuilder.Helpers.IIncludeToSelectTreeConverter">
+            <summary>
+            Преобразует include-выражения в дерево выбранных свойств
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.Helpers.IIncludeToSelectTreeConverter.Convert``1(TsSoft.Expressions.IncludeBuilder.Models.IReadOnlyIncludes{``0})">
+            <summary>
+            Построить дерево выбранных свойств по include-выражениям
+            </summary>
+            <typeparam name="T">Тип выбираемой сущности</typeparam>
+            <param name="includes">Include-выражения</param>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.Helpers.IIncludeToSelectTreeConverter.Convert``1(System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}})">
+            <summary>
+            Построить дерево выбранных свойств по include-выражениям
+            </summary>
+            <typeparam name="T">Тип выбираемой сущности</typeparam>
+            <param name="includes">Include-выражения</param>
+        </member>
+        <member name="T:TsSoft.Expressions.SelectBuilder.Helpers.IMergedSelectCache`1">
+            <summary>
+            Кэш селект-выражений
+            </summary>
+            <typeparam name="T">Тип сущности</typeparam>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.Helpers.IMergedSelectCache`1.GetMerged(TsSoft.Expressions.SelectBuilder.Models.IReadOnlySelectExpression{`0},TsSoft.Expressions.SelectBuilder.Models.IReadOnlySelectExpression{`0})">
+            <summary>
+            Получить из кэша или создать там селект, являющийся слиянием двух селектов
+            </summary>
+            <param name="firstSelect">Основной селект</param>
+            <param name="secondSelect">Добавляемый селект</param>
+            <returns>Селект, являющийся слиянием основного и добавляемого</returns>
+        </member>
+        <member name="T:TsSoft.Expressions.SelectBuilder.Helpers.IParsedPathsToSelectTreeConverter">
+            <summary>
+            Преобразует использованный путь в дерево выбранных свойств
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.Helpers.IParsedPathsToSelectTreeConverter.Convert(System.Type,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{TsSoft.Expressions.Models.Path.ParsedPath,TsSoft.Expressions.Models.Path.SelectTree}})">
+            <summary>
+            Собрать дерево выбранных свойств по использованным путям
+            </summary>
+            <param name="entityType">Тип выбираемой сущности</param>
+            <param name="paths">Перечисление пар (использованный путь, дерево свойств для обработчика конца пути)</param>
+        </member>
+        <member name="T:TsSoft.Expressions.SelectBuilder.Helpers.IPathToSelectConverter">
+            <summary>
+            Собирает селект-выражение по набору путей
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.Helpers.IPathToSelectConverter.Convert``1(System.Collections.Generic.IEnumerable{TsSoft.Expressions.Models.Path.ParsedPath},TsSoft.Expressions.SelectBuilder.Models.SelectSettings)">
+            <summary>
+            Собрать селект-выражение по набору путей (предполагается, что путь включает в себя только mapped-свойства)
+            </summary>
+            <typeparam name="T">Тип выбираемой сущности</typeparam>
+            <param name="selectedPaths">Пути</param>
+            <param name="settings">Настройки построения селекта</param>
+        </member>
+        <member name="T:TsSoft.Expressions.SelectBuilder.Helpers.IPropertyBindingCreator">
+            <summary>
+            Строит присваивания для свойства класса-сущности
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.Helpers.IPropertyBindingCreator.NewDynamic(System.Type,System.Collections.Generic.IEnumerable{System.Linq.Expressions.MemberBinding})">
+            <summary>
+            Построить new-выражение
+            </summary>
+            <param name="dynamicType">Динамический тип объекта, создаваемого внутри select</param>
+            <param name="bindings">Присваивания</param>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.Helpers.IPropertyBindingCreator.BindColumn(TsSoft.Expressions.Models.ValueHoldingMember,System.Type,System.Linq.Expressions.Expression)">
+            <summary>
+            Построить присваивание для свойства, соответствующего столбцу БД
+            </summary>
+            <param name="entityProperty">Свойство, соответствующее столбцу БД</param>
+            <param name="dynamicType">Динамический тип для сущности</param>
+            <param name="entity">Выражение с сущностью</param>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.Helpers.IPropertyBindingCreator.BindNavigationSingle(TsSoft.Expressions.Models.ValueHoldingMember,System.Type,System.Type,System.Linq.Expressions.Expression,System.Collections.Generic.IEnumerable{System.Linq.Expressions.MemberAssignment},System.Boolean)">
+            <summary>
+            Построить присваивание для навигационного свойства с одной сущностью
+            </summary>
+            <param name="entityProperty">Навигационное свойство</param>
+            <param name="dynamicType">Динамический тип сущности</param>
+            <param name="subentityDynamicType">Динамический тип свойства</param>
+            <param name="entity">Выражение с сущностью</param>
+            <param name="bindings">Присваивания для объекта в свойстве</param>
+            <param name="checkNull">Вставить проверку на null для навигационного свойства</param>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.Helpers.IPropertyBindingCreator.BindNavigationCollection(TsSoft.Expressions.Models.ValueHoldingMember,System.Type,System.Type,System.Type,System.Linq.Expressions.Expression,System.Linq.Expressions.ParameterExpression,System.Collections.Generic.IEnumerable{System.Linq.Expressions.MemberAssignment},System.Linq.Expressions.LambdaExpression)">
+            <summary>
+            Построить присваивание для навигационного свойства с коллекцией сущностей
+            </summary>
+            <param name="entityProperty">Навигационное свойство</param>
+            <param name="dynamicType">Динамический тип сущности</param>
+            <param name="subentityType">Тип элемента коллекции</param>
+            <param name="subentityDynamicType">Динамический тип элемента коллекции</param>
+            <param name="entity">Выражение с сущностью</param>
+            <param name="subentityParameter">Параметр внутреннего select</param>
+            <param name="bindings">Присваивания для объекта в свойстве</param>
+            <param name="whereExpression">Условие на элемент коллекции</param>
+        </member>
+        <member name="T:TsSoft.Expressions.SelectBuilder.Helpers.ISelectSettingsHelper">
+            <summary>
+            Обрабатывает настройки построения select-выражения
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.Helpers.ISelectSettingsHelper.ShouldCheckNull(TsSoft.Expressions.SelectBuilder.Models.SelectSettings,TsSoft.Expressions.Models.ValueHoldingMember)">
+            <summary>
+            Нужно ли вставлять проверку одиночной навигации на null
+            </summary>
+            <param name="settings">Настройки построения</param>
+            <param name="property">Свойство-одиночная навигация</param>
+        </member>
+        <member name="T:TsSoft.Expressions.SelectBuilder.Helpers.ISelectToPathsConverter">
+            <summary>
+            Преобразует селект-выражение в набор использованных в нём путей
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.Helpers.ISelectToPathsConverter.Convert``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
+            <summary>
+            Преобразовать селект-выражение в набор использованных в нём путей
+            </summary>
+            <typeparam name="T">Тип выбираемой сущности</typeparam>
+            <param name="select">Селект-выражение</param>
+        </member>
+        <member name="T:TsSoft.Expressions.SelectBuilder.Helpers.ISelectToSelectTreeConverter">
+            <summary>
+            Преобразователь select-выражения в дерево свойств
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.Helpers.ISelectToSelectTreeConverter.Convert``1(TsSoft.Expressions.SelectBuilder.Models.IReadOnlySelectExpression{``0})">
+            <summary>
+            Построить дерево выбранных свойств по select-выражению
+            </summary>
+            <typeparam name="T">Тип выбираемой сущности</typeparam>
+            <param name="selectExpression">Select-выражение</param>
+            <returns>Дерево выбранных свойств</returns>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.Helpers.ISelectToSelectTreeConverter.Convert``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
+            <summary>
+            Построить дерево выбранных свойств по select-выражению
+            </summary>
+            <typeparam name="T">Тип выбираемой сущности</typeparam>
+            <param name="selectExpression">Select-выражение</param>
+            <returns>Дерево выбранных свойств</returns>
+        </member>
+        <member name="T:TsSoft.Expressions.SelectBuilder.Helpers.ISelectTreeExtractor">
+            <summary>
+            Получает дерево выбранных свойств из обработчика
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.Helpers.ISelectTreeExtractor.GetSelectTree(TsSoft.Expressions.Models.AbstractMapper.ProcessorDescription,TsSoft.Expressions.Models.AbstractMapper.GeneratorContext)">
+            <summary>
+            Получить дерево выбранных свойств для обработчика
+            </summary>
+            <param name="processor">Описание обработчика</param>
+            <param name="context">Контекст генерации</param>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.Helpers.ISelectTreeExtractor.GetSelectTree(System.Type,System.Object,TsSoft.Expressions.Models.AbstractMapper.GeneratorContext)">
+            <summary>
+            Получить дерево выбранных свойств для обработчика
+            </summary>
+            <param name="entityType">Тип обрабатываемой сущности БД</param>
+            <param name="processor">Экземпляр обработчика</param>
+            <param name="context">Контекст генерации</param>
+        </member>
+        <member name="T:TsSoft.Expressions.SelectBuilder.Helpers.ISelectTreeMerger">
+            <summary>
+            Осуществляет слияние деревьев выбранных свойств
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.Helpers.ISelectTreeMerger.Merge(TsSoft.Expressions.Models.Path.SelectTreeNode,TsSoft.Expressions.Models.Path.SelectTreeNode,System.Boolean)">
+            <summary>
+            Добавить условие и подузлы узла-источника в узел-цель
+            </summary>
+            <param name="target">Цель</param>
+            <param name="source">Источник</param>
+            <param name="ignoreSourceCondition">Игнорировать условие в узле-источнике</param>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.Helpers.ISelectTreeMerger.Merge(TsSoft.Expressions.Models.Path.SelectTree,TsSoft.Expressions.Models.Path.SelectTree)">
+            <summary>
+            Добавить условие и подузлы узла-источника в узел-цель
+            </summary>
+            <param name="target">Цель</param>
+            <param name="source">Источник</param>
+        </member>
+        <member name="T:TsSoft.Expressions.SelectBuilder.Helpers.ISelectTreeSplitter">
+            <summary>
+            Разбивает дерево выбранных свойств на БД-часть и внешнюю часть
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.Helpers.ISelectTreeSplitter.CutExternalTrees(TsSoft.Expressions.Models.Path.SelectTree)">
+            <summary>
+            Удалить из дерева выбранных свойств внешние части
+            </summary>
+            <param name="tree">Дерево выбираемых свойств</param>
+            <returns>Внешние части с путями к ним</returns>
+        </member>
+        <member name="T:TsSoft.Expressions.SelectBuilder.Helpers.ISelectTreeToSelectConverter">
+            <summary>
+            Собирает селект-выражение с внешними инклюдами по дереву выбранных свойств
+            </summary>
+            <remarks>В основном занимается внешними инклюдами, сборка непосредственно селекта делегируется в <see cref="T:TsSoft.Expressions.SelectBuilder.Helpers.IDbSelectTreeToSelectConverter" /></remarks>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.Helpers.ISelectTreeToSelectConverter.Convert``1(TsSoft.Expressions.Models.Path.SplitSelectTree,TsSoft.Expressions.SelectBuilder.Models.SelectSettings)">
+            <summary>
+            Получить селект-выражение по дереву выбранных свойств
+            </summary>
+            <typeparam name="T">Тип сущности БД</typeparam>
+            <param name="splitTree">Разбитое на внутреннюю и внешние части дерево выбранных свойств</param>
+            <param name="settings">Настройки построения селекта</param>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.Helpers.ISelectTreeToSelectConverter.Convert``1(TsSoft.Expressions.Models.Path.SelectTree,TsSoft.Expressions.SelectBuilder.Models.SelectSettings)">
+            <summary>
+            Получить селект-выражение по дереву выбранных свойств, среди которых могут быть внешние
+            </summary>
+            <typeparam name="T">Тип сущности БД</typeparam>
+            <param name="tree">Дерево выбранных свойств</param>
+            <param name="settings">Настройки построения селекта</param>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.Helpers.ISelectTreeToSelectConverter.ConvertDbTree``1(TsSoft.Expressions.Models.Path.SelectTree,TsSoft.Expressions.SelectBuilder.Models.SelectSettings)">
+            <summary>
+            Получить селект-выражение по дереву выбранных (только) из БД свойств
+            </summary>
+            <typeparam name="T">Тип сущности БД</typeparam>
+            <param name="tree">Дерево выбранных свойств</param>
+            <param name="settings">Настройки построения селекта</param>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.Helpers.ISelectTreeToSelectConverter.TransformAndConvert``1(TsSoft.Expressions.Models.Path.SelectTree,TsSoft.Expressions.SelectBuilder.Models.SelectSettings)">
+            <summary>
+            Собрать селект-выражение по дереву выбранных свойств, среди которых могут быть обёртки и внешние свойства
+            </summary>
+            <typeparam name="T">Тип сущности</typeparam>
+            <param name="tree">Дерево выбранных свойств</param>
+            <param name="settings">Настройки построения селекта</param>
+        </member>
+        <member name="T:TsSoft.Expressions.SelectBuilder.Helpers.ISelectTreeTypeChanger">
+            <summary>
+            Копирует деревья выбранных свойств, заменяя в нём типы
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.Helpers.ISelectTreeTypeChanger.ChangeType(System.Type,TsSoft.Expressions.Models.Path.SelectTree)">
+            <summary>
+            Построить копию дерева выбранных свойств, заменяя типы узлов и свойства
+            </summary>
+            <param name="newType">Тип сущности в новом дереве</param>
+            <param name="tree">Исходное дерево</param>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.Helpers.ISelectTreeTypeChanger.ChangeType(System.Type,TsSoft.Expressions.Models.Path.SelectTreeNode)">
+            <summary>
+            Построить копию узла дерева выбранных свойств, заменяя типы узлов и свойства
+            </summary>
+            <param name="newType">Тип сущности в новом дереве</param>
+            <param name="node">Исходный узел</param>
+        </member>
+        <member name="T:TsSoft.Expressions.SelectBuilder.Helpers.ITypeToSelectTreeConverter">
+            <summary>
+            Превращает интерфейс сущности в дерево выбранных свойств
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.Helpers.ITypeToSelectTreeConverter.MakeTree``2(System.Boolean)">
+            <summary>
+            Получить из интерфейса сущности дерево выбранных свойств
+            </summary>
+            <typeparam name="TEntity">Тип сущности</typeparam>
+            <typeparam name="TInterface">Тип интерфейса</typeparam>
+            <param name="ignoreEntityTypes">Игнорировать типы сущностей в интерфейсе вместо выбрасывания исключения</param>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.Helpers.ITypeToSelectTreeConverter.MakePkTree``1">
+            <summary>
+            Получить дерево выбранных свойств для первичного ключа сущности
+            </summary>
+            <typeparam name="TEntity">Тип сущности</typeparam>
+        </member>
+        <member name="T:TsSoft.Expressions.SelectBuilder.Helpers.IWrapperPropertyProcessor">
+            <summary>
+            Заменяет в дереве выбранных свойств свойства-обёртки на свойства-столбцы
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.Helpers.IWrapperPropertyProcessor.ProcessWrapperProperties(TsSoft.Expressions.Models.Path.SelectTree)">
+            <summary>
+            Заменить в дереве свойства-обёртки на свойства-столбцы
+            </summary>
+            <param name="tree">Дерево выбранных свойств</param>
+            <returns>Дерево выбранных свойств, в котором нет свойств-обёрток</returns>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.Helpers.ParsedPathsToSelectTreeConverter.IsDeadendPath(TsSoft.Expressions.Models.Path.ParsedPath,TsSoft.Expressions.Models.Path.SelectTree)">
+            <summary>
+            Обрывается ли путь на навигационном свойстве
+            </summary>
+            <param name="path">Путь</param>
+            <param name="processorTree">Продолжение пути</param>
+        </member>
+        <member name="T:TsSoft.Expressions.SelectBuilder.Helpers.SelectTreeMerger">
+            <summary>
+            Осуществляет слияние деревьев выбранных свойств
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.Helpers.SelectTreeTypeChanger.ChangeSubnode(System.Type,TsSoft.Expressions.Models.ValueHoldingMember,TsSoft.Expressions.Models.Path.SelectTreeNode)">
+            <summary>
+            Превращает узел дерева свойств, выбранных из обёртки, в узел дерева свойств, выбранных из обёрнутого свойства
+            </summary>
+            <param name="entityType"></param>
+            <param name="wrapperProperty"></param>
+            <param name="subnode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.Helpers.WrapperPropertyProcessor.ChangeNodeType(System.Type,TsSoft.Expressions.Models.Path.SelectTreeNode)">
+            <summary>
+            Превращает дерево выбранных из обёртки свойств в дерево свойств, выбранных из mapped-навигации
+            </summary>
+            <param name="entityType">Тип mapped-навигации</param>
+            <param name="node">Узел свойства-обёртки</param>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.Helpers.WrapperPropertyProcessor.ProcessLevel(System.Collections.Generic.IDictionary{TsSoft.Expressions.Models.ValueHoldingMember,TsSoft.Expressions.Models.Path.SelectTreeNode})">
+            <summary>
+            Обработать поддерево
+            </summary>
+            <param name="level">Поддерево выбранных свойств</param>
+        </member>
+        <member name="T:TsSoft.Expressions.SelectBuilder.ISelectHelper">
+            <summary>
+            Хелпер для построения select-выражений
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.ISelectHelper.Merge``1(TsSoft.Expressions.SelectBuilder.Models.IReadOnlySelectExpression{``0},TsSoft.Expressions.SelectBuilder.Models.IReadOnlySelectExpression{``0})">
+            <summary>
+            Слить два select-выражения
+            </summary>
+            <typeparam name="TEntity">Тип сущности БД</typeparam>
+            <param name="first">Первое выражение</param>
+            <param name="second">Второе выражение</param>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.ISelectHelper.Merge``1(TsSoft.Expressions.SelectBuilder.Models.IReadOnlySelectExpression{``0},TsSoft.Expressions.SelectBuilder.Models.IReadOnlySelectExpression{``0},TsSoft.Expressions.SelectBuilder.Models.SelectSettings)">
+            <summary>
+            Слить два select-выражения
+            </summary>
+            <typeparam name="TEntity">Тип сущности БД</typeparam>
+            <param name="first">Первое выражение</param>
+            <param name="second">Второе выражение</param>
+            <param name="settings">Настройки генерации селекта</param>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.ISelectHelper.CreateFromIncludes``1(TsSoft.Expressions.IncludeBuilder.Models.IReadOnlyIncludes{``0})">
+            <summary>
+            Создать select-выражение по include-выражениям
+            </summary>
+            <typeparam name="TEntity">Тип сущности БД</typeparam>
+            <param name="includes">Include-выражения</param>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.ISelectHelper.CreateFromIncludes``1(TsSoft.Expressions.IncludeBuilder.Models.IReadOnlyIncludes{``0},TsSoft.Expressions.SelectBuilder.Models.SelectSettings)">
+            <summary>
+            Создать select-выражение по include-выражениям
+            </summary>
+            <typeparam name="TEntity">Тип сущности БД</typeparam>
+            <param name="includes">Include-выражения</param>
+            <param name="settings">Настройки генерации селекта</param>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.ISelectHelper.CreateFromInterface``2(System.Boolean)">
+            <summary>
+            Создать select-выражение по интерфейсу сущности, выбирающее все свойства из интерфейса
+            </summary>
+            <typeparam name="TEntity">Тип сущности БД</typeparam>
+            <typeparam name="TInterface">Тип реализуемого сущностью интерфейса</typeparam>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.ISelectHelper.CreateFromInterface``2(TsSoft.Expressions.SelectBuilder.Models.SelectSettings,System.Boolean)">
+            <summary>
+            Создать select-выражение по интерфейсу сущности, выбирающее все свойства из интерфейса
+            </summary>
+            <typeparam name="TEntity">Тип сущности БД</typeparam>
+            <typeparam name="TInterface">Тип реализуемого сущностью интерфейса</typeparam>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.ISelectHelper.CreateByPrimaryKey``1">
+            <summary>
+            Создать select-выражение для выбора первичного ключа сущности
+            </summary>
+            <typeparam name="TEntity">Тип сущности</typeparam>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.ISelectHelper.AddSelect``2(TsSoft.Expressions.SelectBuilder.Models.SelectExpression{``0},TsSoft.Expressions.SelectBuilder.Models.ISelectProvider{``1},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+            Добавить в select-выражение свойства, используемые внутренним обработчиком
+            </summary>
+            <typeparam name="TEntity">Тип сущности select-выражения</typeparam>
+            <typeparam name="TDependentEntity">Тип сущности внутреннего обработчика</typeparam>
+            <param name="select">Текущее select-выражение</param>
+            <param name="processor">Внутренний обработчик</param>
+            <param name="path">Передаваемый внутреннему обработчику путь</param>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.ISelectHelper.AddSelect``2(TsSoft.Expressions.SelectBuilder.Models.SelectExpression{``0},TsSoft.Expressions.SelectBuilder.Models.ISelectProvider{``1},System.Linq.Expressions.Expression{System.Func{``0,System.Collections.Generic.IEnumerable{``1}}})">
+            <summary>
+            Добавить в select-выражение свойства, используемые внутренним обработчиком
+            </summary>
+            <typeparam name="TEntity">Тип сущности select-выражения</typeparam>
+            <typeparam name="TDependentEntity">Тип сущности внутреннего обработчика</typeparam>
+            <param name="select">Текущее select-выражение</param>
+            <param name="processor">Внутренний обработчик</param>
+            <param name="path">Передаваемый внутреннему обработчику путь</param>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.ISelectHelper.AddSelect``2(TsSoft.Expressions.SelectBuilder.Models.SelectExpression{``0},TsSoft.Expressions.SelectBuilder.Models.IReadOnlySelectExpression{``1},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+            Добавить в select-выражение свойства, используемые внутренним обработчиком
+            </summary>
+            <typeparam name="TEntity">Тип сущности select-выражения</typeparam>
+            <typeparam name="TDependentEntity">Тип сущности внутреннего обработчика</typeparam>
+            <param name="select">Текущее select-выражение</param>
+            <param name="innerSelect">Select-выражение внутреннего обработчика</param>
+            <param name="path">Передаваемый внутреннему обработчику путь</param>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.ISelectHelper.AddSelect``2(TsSoft.Expressions.SelectBuilder.Models.SelectExpression{``0},TsSoft.Expressions.SelectBuilder.Models.IReadOnlySelectExpression{``1},System.Linq.Expressions.Expression{System.Func{``0,System.Collections.Generic.IEnumerable{``1}}})">
+            <summary>
+            Добавить в select-выражение свойства, используемые внутренним обработчиком
+            </summary>
+            <typeparam name="TEntity">Тип сущности select-выражения</typeparam>
+            <typeparam name="TDependentEntity">Тип сущности внутреннего обработчика</typeparam>
+            <param name="select">Текущее select-выражение</param>
+            <param name="innerSelect">Select-выражение внутреннего обработчика</param>
+            <param name="path">Передаваемый внутреннему обработчику путь</param>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.ISelectHelper.AddSelect``2(TsSoft.Expressions.SelectBuilder.Models.SelectExpression{``0},TsSoft.Expressions.SelectBuilder.Models.ISelectProvider{``1},System.Linq.Expressions.Expression{System.Func{``0,``1}},TsSoft.Expressions.SelectBuilder.Models.SelectSettings)">
+            <summary>
+            Добавить в select-выражение свойства, используемые внутренним обработчиком
+            </summary>
+            <typeparam name="TEntity">Тип сущности select-выражения</typeparam>
+            <typeparam name="TDependentEntity">Тип сущности внутреннего обработчика</typeparam>
+            <param name="select">Текущее select-выражение</param>
+            <param name="processor">Внутренний обработчик</param>
+            <param name="path">Передаваемый внутреннему обработчику путь</param>
+            <param name="settings">Настройки генерации селекта</param>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.ISelectHelper.AddSelect``2(TsSoft.Expressions.SelectBuilder.Models.SelectExpression{``0},TsSoft.Expressions.SelectBuilder.Models.ISelectProvider{``1},System.Linq.Expressions.Expression{System.Func{``0,System.Collections.Generic.IEnumerable{``1}}},TsSoft.Expressions.SelectBuilder.Models.SelectSettings)">
+            <summary>
+            Добавить в select-выражение свойства, используемые внутренним обработчиком
+            </summary>
+            <typeparam name="TEntity">Тип сущности select-выражения</typeparam>
+            <typeparam name="TDependentEntity">Тип сущности внутреннего обработчика</typeparam>
+            <param name="select">Текущее select-выражение</param>
+            <param name="processor">Внутренний обработчик</param>
+            <param name="path">Передаваемый внутреннему обработчику путь</param>
+            <param name="settings">Настройки генерации селекта</param>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.ISelectHelper.AddSelect``2(TsSoft.Expressions.SelectBuilder.Models.SelectExpression{``0},TsSoft.Expressions.SelectBuilder.Models.IReadOnlySelectExpression{``1},System.Linq.Expressions.Expression{System.Func{``0,``1}},TsSoft.Expressions.SelectBuilder.Models.SelectSettings)">
+            <summary>
+            Добавить в select-выражение свойства, используемые внутренним обработчиком
+            </summary>
+            <typeparam name="TEntity">Тип сущности select-выражения</typeparam>
+            <typeparam name="TDependentEntity">Тип сущности внутреннего обработчика</typeparam>
+            <param name="select">Текущее select-выражение</param>
+            <param name="innerSelect">Select-выражение внутреннего обработчика</param>
+            <param name="path">Передаваемый внутреннему обработчику путь</param>
+            <param name="settings">Настройки генерации селекта</param>
+        </member>
+        <member name="M:TsSoft.Expressions.SelectBuilder.ISelectHelper.AddSelect``2(TsSoft.Expressions.SelectBuilder.Models.SelectExpression{``0},TsSoft.Expressions.SelectBuilder.Models.IReadOnlySelectExpression{``1},System.Linq.Expressions.Expression{System.Func{``0,System.Collections.Generic.IEnumerable{``1}}},TsSoft.Expressions.SelectBuilder.Models.SelectSettings)">
+            <summary>
+            Добавить в select-выражение свойства, используемые внутренним обработчиком
+            </summary>
+            <typeparam name="TEntity">Тип сущности select-выражения</typeparam>
+            <typeparam name="TDependentEntity">Тип сущности внутреннего обработчика</typeparam>
+            <param name="select">Текущее select-выражение</param>
+            <param name="innerSelect">Select-выражение внутреннего обработчика</param>
+            <param name="path">Передаваемый внутреннему обработчику путь</param>
+            <param name="settings">Настройки генерации селекта</param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,336 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TsSoft.Expressions.IncludeBuilder.Models</name>
+    </assembly>
+    <members>
+        <member name="T:TsSoft.Expressions.IncludeBuilder.Models.ConditionalIncludeApplicationDescription">
+            <summary>
+            Описание применения условного инклюда
+            </summary>
+        </member>
+        <member name="P:TsSoft.Expressions.IncludeBuilder.Models.ConditionalIncludeApplicationDescription.Containers">
+            <summary>
+            Контейнеры
+            </summary>
+        </member>
+        <member name="P:TsSoft.Expressions.IncludeBuilder.Models.ConditionalIncludeApplicationDescription.ContainerPk">
+            <summary>
+            Ключ контейнера
+            </summary>
+        </member>
+        <member name="P:TsSoft.Expressions.IncludeBuilder.Models.ConditionalIncludeApplicationDescription.ContainedFk">
+            <summary>
+            Внешний ключ содержимого
+            </summary>
+        </member>
+        <member name="P:TsSoft.Expressions.IncludeBuilder.Models.ConditionalIncludeApplicationDescription.Collection">
+            <summary>
+            Свойство-коллекция контейнера
+            </summary>
+        </member>
+        <member name="P:TsSoft.Expressions.IncludeBuilder.Models.ConditionalIncludeApplicationDescription.ContainedType">
+            <summary>
+            Тип содержимого
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.Models.ConditionalIncludeApplicationDescription.#ctor(System.Collections.Generic.IEnumerable{System.Object},System.Collections.Generic.IReadOnlyList{TsSoft.Expressions.Models.ValueHoldingMember},System.Collections.Generic.IReadOnlyList{TsSoft.Expressions.Models.ValueHoldingMember},TsSoft.Expressions.Models.ValueHoldingMember)">
+            <summary>
+            Описание применения условного инклюда
+            </summary>
+        </member>
+        <member name="T:TsSoft.Expressions.IncludeBuilder.Models.ConditionalIncludeFunctionalDescription`3">
+            <summary>
+            Описание условного инклюда
+            </summary>
+            <typeparam name="TDb">Тип условно включённой сущности</typeparam>
+            <typeparam name="TFk">Тип внешнего ключа условно включённой сущности</typeparam>
+            <typeparam name="TContainer">Тип контейнера, содержащего условно включённые сущности</typeparam>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.Models.ConditionalIncludeFunctionalDescription`3.#ctor(System.Linq.Expressions.Expression{System.Func{`0,System.Collections.Generic.ICollection{`1}}},System.Linq.Expressions.Expression{System.Func{`0,`2}},System.Linq.Expressions.Expression{System.Func{`1,`2}})">
+            <summary>
+            Описание условного инклюда
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.Models.ConditionalIncludeFunctionalDescription`3.GetPk(System.Object)">
+            <summary>
+            Получить ключ контейнера
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.Models.ConditionalIncludeFunctionalDescription`3.GetFk(`1)">
+            <summary>
+            Получить внешний ключ включённой сущности
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.Models.ConditionalIncludeFunctionalDescription`3.GetCollection(System.Object)">
+            <summary>
+            Получить коллекцию включённых в контейнер сущностей
+            </summary>
+        </member>
+        <member name="T:TsSoft.Expressions.IncludeBuilder.Models.ExternalIncludeDescriptionCollection`2">
+            <summary>
+            Коллекция описаний внешних инклюдов
+            </summary>
+            <typeparam name="TExt">Тип внешней сущности</typeparam>
+            <typeparam name="TId">Тип идентификатора внешней сущности</typeparam>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.Models.ExternalIncludeDescriptionCollection`2.#ctor(System.Collections.Generic.IReadOnlyCollection{System.Collections.Generic.KeyValuePair{TsSoft.Expressions.IncludeBuilder.Models.IncludeApplicationDescription,TsSoft.Expressions.IncludeBuilder.Models.IExternalIncludeFunctionalDescription{`0,`1}}})">
+            <summary>
+            Коллекция описаний внешних инклюдов
+            </summary>
+        </member>
+        <member name="P:TsSoft.Expressions.IncludeBuilder.Models.ExternalIncludeDescriptionCollection`2.Descriptions">
+            <summary>
+            Описания
+            </summary>
+        </member>
+        <member name="T:TsSoft.Expressions.IncludeBuilder.Models.ExternalIncludeFunctionalDescription`3">
+            <summary>
+            Описание внешнего инклюда
+            </summary>
+            <typeparam name="TExt">Тип внешней сущности</typeparam>
+            <typeparam name="TExtId">Тип идентификатора внешней сущности</typeparam>
+            <typeparam name="TDb">Тип контейнера, содержащего внешнюю сущность</typeparam>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.Models.ExternalIncludeFunctionalDescription`3.#ctor(System.Linq.Expressions.Expression{System.Func{`0,System.Collections.Generic.KeyValuePair{System.Boolean,`2}}},System.Linq.Expressions.Expression{System.Action{`0,`1}})">
+            <summary>
+            Создать описание внешнего инклюда
+            </summary>
+            <param name="idSelector">Сущность БД -> пара (имеется ненулевая ссылка на внешнюю сущность, идентификатор сущности)</param>
+            <param name="setter">Установщик ссылки</param>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.Models.ExternalIncludeFunctionalDescription`3.GetId(System.Object)">
+            <summary>
+            Получить идентификатор внешней сущности из содержащего её контейнера вместе с флагом, определяющим, заполнен ли идентификатор
+            </summary>
+            <param name="entity">Контейнер со ссылкой на внешнюю сущность</param>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.Models.ExternalIncludeFunctionalDescription`3.Set(System.Object,`1)">
+            <summary>
+            Заполнить ссылку на внешнюю сущность
+            </summary>
+            <param name="entity">Контейнер со ссылкой на внешнюю сущность</param>
+            <param name="externalEntity">Внешняя сущность</param>
+        </member>
+        <member name="T:TsSoft.Expressions.IncludeBuilder.Models.IConditionalIncludeFunctionalDescription`2">
+            <summary>
+            Описание условного инклюда
+            </summary>
+            <typeparam name="TDb">Тип условно включённой сущности</typeparam>
+            <typeparam name="TFk">Тип внешнего ключа условно включённой сущности</typeparam>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.Models.IConditionalIncludeFunctionalDescription`2.GetPk(System.Object)">
+            <summary>
+            Получить ключ контейнера
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.Models.IConditionalIncludeFunctionalDescription`2.GetFk(`0)">
+            <summary>
+            Получить внешний ключ включённой сущности
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.Models.IConditionalIncludeFunctionalDescription`2.GetCollection(System.Object)">
+            <summary>
+            Получить коллекцию включённых в контейнер сущностей
+            </summary>
+        </member>
+        <member name="T:TsSoft.Expressions.IncludeBuilder.Models.ICyclePreventingIncludeGenerator`1">
+            <summary>
+            Интерфейс генератора селектов, способного включить себя в качестве зависимого генератора
+            </summary>
+            <typeparam name="TFrom">Тип сущности</typeparam>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.Models.ICyclePreventingIncludeGenerator`1.GenerateIncludes(TsSoft.Expressions.Models.AbstractMapper.GeneratorContext)">
+            <summary>
+            Сгенерировать инклюды в заданном контексте
+            </summary>
+        </member>
+        <member name="T:TsSoft.Expressions.IncludeBuilder.Models.IExternalIncludeFunctionalDescription`2">
+            <summary>
+            Описание внешнего инклюда
+            </summary>
+            <typeparam name="TExt">Тип внешней сущности</typeparam>
+            <typeparam name="TExtId">Тип идентификатора внешней сущности</typeparam>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.Models.IExternalIncludeFunctionalDescription`2.GetId(System.Object)">
+            <summary>
+            Получить идентификатор внешней сущности из содержащего её контейнера вместе с флагом, определяющим, заполнен ли идентификатор
+            </summary>
+            <param name="entity">Контейнер со ссылкой на внешнюю сущность</param>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.Models.IExternalIncludeFunctionalDescription`2.Set(System.Object,`0)">
+            <summary>
+            Заполнить ссылку на внешнюю сущность
+            </summary>
+            <param name="entity">Контейнер со ссылкой на внешнюю сущность</param>
+            <param name="externalEntity">Внешняя сущность</param>
+        </member>
+        <member name="T:TsSoft.Expressions.IncludeBuilder.Models.IIncludeProvider`1">
+            <summary>
+            Обработчик сущности, отдающий необходимые ему инклюды
+            </summary>
+            <typeparam name="TEntity">Тип сущности</typeparam>
+        </member>
+        <member name="P:TsSoft.Expressions.IncludeBuilder.Models.IIncludeProvider`1.Includes">
+            <summary>
+            Необходимые обработчику инклюды
+            </summary>
+        </member>
+        <member name="T:TsSoft.Expressions.IncludeBuilder.Models.IncludeApplicationDescription">
+            <summary>
+            Результат обработки внешнего инклюда: контейнеры для сущностей, как доставать их Id и куда писать результат
+            </summary>
+        </member>
+        <member name="P:TsSoft.Expressions.IncludeBuilder.Models.IncludeApplicationDescription.DbEntities">
+            <summary>
+            Полученные из БД сущности
+            </summary>
+        </member>
+        <member name="P:TsSoft.Expressions.IncludeBuilder.Models.IncludeApplicationDescription.IdSelector">
+            <summary>
+            Как доставать идентификатор сущностей
+            </summary>
+        </member>
+        <member name="P:TsSoft.Expressions.IncludeBuilder.Models.IncludeApplicationDescription.ContainedEntity">
+            <summary>
+            Куда записывать сущности
+            </summary>
+        </member>
+        <member name="P:TsSoft.Expressions.IncludeBuilder.Models.IncludeApplicationDescription.DbEntityType">
+            <summary>
+            Тип полученных из БД сущностей
+            </summary>
+        </member>
+        <member name="T:TsSoft.Expressions.IncludeBuilder.Models.IIncludeCondition`1">
+            <summary>
+            Условие на инклюды
+            </summary>
+            <typeparam name="TEntity">Тип сущности</typeparam>
+        </member>
+        <member name="P:TsSoft.Expressions.IncludeBuilder.Models.IIncludeCondition`1.PathProperties">
+            <summary>
+            Линейный путь к условно включённым сущностям
+            </summary>
+        </member>
+        <member name="P:TsSoft.Expressions.IncludeBuilder.Models.IIncludeCondition`1.ForeignKey">
+            <summary>
+            Внешний ключ включённой сущности
+            </summary>
+        </member>
+        <member name="P:TsSoft.Expressions.IncludeBuilder.Models.IIncludeCondition`1.WhereExpression">
+            <summary>
+            Условие
+            </summary>
+        </member>
+        <member name="P:TsSoft.Expressions.IncludeBuilder.Models.IIncludeCondition`1.OrderByObjects">
+            <summary>
+            Условия сортировки для включённых сущностей
+            </summary>
+        </member>
+        <member name="P:TsSoft.Expressions.IncludeBuilder.Models.IIncludeCondition`1.IncludedEntityType">
+            <summary>
+            Тип условно включённой сущности
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.Models.IIncludeCondition`1.ComposeUsingOr(System.Linq.Expressions.LambdaExpression)">
+            <summary>
+            Объединить условия с помощью оператора ИЛИ
+            </summary>
+            <param name="expression">Дополнительное условие</param>
+        </member>
+        <member name="T:TsSoft.Expressions.IncludeBuilder.Models.IncludeDescription`1">
+            <summary>
+            Описание инклюда
+            </summary>
+        </member>
+        <member name="P:TsSoft.Expressions.IncludeBuilder.Models.IncludeDescription`1.DbInclude">
+            <summary>
+            БД-часть инклюда
+            </summary>
+        </member>
+        <member name="P:TsSoft.Expressions.IncludeBuilder.Models.IncludeDescription`1.DbIncludeProperties">
+            <summary>
+            Свойства из БД-части инклюда
+            </summary>
+        </member>
+        <member name="P:TsSoft.Expressions.IncludeBuilder.Models.IncludeDescription`1.FullInclude">
+            <summary>
+            Полный инклюд
+            </summary>
+        </member>
+        <member name="P:TsSoft.Expressions.IncludeBuilder.Models.IncludeDescription`1.Condition">
+            <summary>
+            Условный инклюд, обрезавший данный
+            </summary>
+        </member>
+        <member name="P:TsSoft.Expressions.IncludeBuilder.Models.IncludeDescription`1.IncludeSuffix">
+            <summary>
+            Инклюд для вложенной сущности
+            </summary>
+        </member>
+        <member name="P:TsSoft.Expressions.IncludeBuilder.Models.IncludeDescription`1.DeclaringType">
+            <summary>
+            Тип БД-сущности, на которой обрезан полный инклюд / содержащей свойство с внешней сущностью
+            </summary>
+        </member>
+        <member name="P:TsSoft.Expressions.IncludeBuilder.Models.IncludeDescription`1.ExternalType">
+            <summary>
+            Тип получаемой внешней сущности, null в случае БД-сущности
+            </summary>
+        </member>
+        <member name="P:TsSoft.Expressions.IncludeBuilder.Models.IncludeDescription`1.ExternalProperty">
+            <summary>
+            Свойство, содержащее внешнюю сущность
+            </summary>
+        </member>
+        <member name="P:TsSoft.Expressions.IncludeBuilder.Models.IncludeDescription`1.ExternalEntityContainersRetriever">
+            <summary>
+            Как получить по сущностям контейнеры внешних сущностей
+            </summary>
+        </member>
+        <member name="T:TsSoft.Expressions.IncludeBuilder.Models.Includes`1">
+            <summary>
+            Инклюды
+            </summary>
+            <typeparam name="TEntity">Тип сущности</typeparam>
+        </member>
+        <member name="P:TsSoft.Expressions.IncludeBuilder.Models.Includes`1.IncludeConditions">
+            <summary>
+            Условия на инклюды
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.Models.Includes`1.#ctor">
+            <summary>
+            Инклюды
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.Models.Includes`1.#ctor(System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{`0,System.Object}}})">
+            <summary>
+            Копия инклюдов
+            </summary>
+            <param name="collection">Исходные инклюды</param>
+        </member>
+        <member name="M:TsSoft.Expressions.IncludeBuilder.Models.Includes`1.#ctor(TsSoft.Expressions.IncludeBuilder.Models.Includes{`0})">
+            <summary>
+            Копия инклюдов
+            </summary>
+            <param name="includes">Исходные инклюды</param>
+        </member>
+        <member name="P:TsSoft.Expressions.IncludeBuilder.Models.Includes`1.TsSoft#Expressions#IncludeBuilder#Models#IReadOnlyIncludes{TEntity}#IncludeConditions">
+            <summary>
+            Условия на инклюды
+            </summary>
+        </member>
+        <member name="T:TsSoft.Expressions.IncludeBuilder.Models.IReadOnlyIncludes`1">
+            <summary>
+            Инклюды
+            </summary>
+            <typeparam name="TEntity">Тип сущности</typeparam>
+        </member>
+        <member name="P:TsSoft.Expressions.IncludeBuilder.Models.IReadOnlyIncludes`1.IncludeConditions">
+            <summary>
+            Условия на инклюды
+            </summary>
+        </member>
+    </members>
+</doc>

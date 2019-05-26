@@ -1,0 +1,142 @@
+N:\ApiManeger\ApiManeger\bin\Debug\ApiManeger.exe.config
+N:\ApiManeger\ApiManeger\bin\Debug\ApiManeger.exe
+N:\ApiManeger\ApiManeger\bin\Debug\ApiManeger.pdb
+N:\ApiManeger\ApiManeger\bin\Debug\EntityFramework.dll
+N:\ApiManeger\ApiManeger\bin\Debug\EntityFramework.SqlServer.dll
+N:\ApiManeger\ApiManeger\bin\Debug\Newtonsoft.Json.dll
+N:\ApiManeger\ApiManeger\bin\Debug\EntityFramework.xml
+N:\ApiManeger\ApiManeger\bin\Debug\EntityFramework.SqlServer.xml
+N:\ApiManeger\ApiManeger\bin\Debug\Newtonsoft.Json.pdb
+N:\ApiManeger\ApiManeger\bin\Debug\Newtonsoft.Json.xml
+N:\ApiManeger\ApiManeger\obj\Debug\ApiManeger.csprojAssemblyReference.cache
+N:\ApiManeger\ApiManeger\obj\Debug\ApiManeger.csproj.CoreCompileInputs.cache
+N:\ApiManeger\ApiManeger\obj\Debug\ApiManeger.csproj.CopyComplete
+N:\ApiManeger\ApiManeger\obj\Debug\ApiManeger.exe
+N:\ApiManeger\ApiManeger\obj\Debug\ApiManeger.pdb
+N:\ApiManeger\ApiManeger\bin\Debug\Google.Protobuf.dll
+N:\ApiManeger\ApiManeger\bin\Debug\MySql.Data.dll
+N:\ApiManeger\ApiManeger\bin\Debug\Google.Protobuf.xml
+N:\ApiManeger\ApiManeger\bin\Debug\MySql.Data.xml
+C:\Users\lenya\OneDrive\Рабочий стол\ApiManeger\ApiManeger\bin\Debug\ApiManeger.exe.config
+C:\Users\lenya\OneDrive\Рабочий стол\ApiManeger\ApiManeger\bin\Debug\ApiManeger.exe
+C:\Users\lenya\OneDrive\Рабочий стол\ApiManeger\ApiManeger\bin\Debug\ApiManeger.pdb
+C:\Users\lenya\OneDrive\Рабочий стол\ApiManeger\ApiManeger\bin\Debug\EntityFramework.dll
+C:\Users\lenya\OneDrive\Рабочий стол\ApiManeger\ApiManeger\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\lenya\OneDrive\Рабочий стол\ApiManeger\ApiManeger\bin\Debug\Google.Protobuf.dll
+C:\Users\lenya\OneDrive\Рабочий стол\ApiManeger\ApiManeger\bin\Debug\MySql.Data.dll
+C:\Users\lenya\OneDrive\Рабочий стол\ApiManeger\ApiManeger\bin\Debug\Newtonsoft.Json.dll
+C:\Users\lenya\OneDrive\Рабочий стол\ApiManeger\ApiManeger\bin\Debug\EntityFramework.xml
+C:\Users\lenya\OneDrive\Рабочий стол\ApiManeger\ApiManeger\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\lenya\OneDrive\Рабочий стол\ApiManeger\ApiManeger\bin\Debug\Google.Protobuf.xml
+C:\Users\lenya\OneDrive\Рабочий стол\ApiManeger\ApiManeger\bin\Debug\MySql.Data.xml
+C:\Users\lenya\OneDrive\Рабочий стол\ApiManeger\ApiManeger\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\lenya\OneDrive\Рабочий стол\ApiManeger\ApiManeger\bin\Debug\Newtonsoft.Json.xml
+C:\Users\lenya\OneDrive\Рабочий стол\ApiManeger\ApiManeger\obj\Debug\ApiManeger.csprojAssemblyReference.cache
+C:\Users\lenya\OneDrive\Рабочий стол\ApiManeger\ApiManeger\obj\Debug\ApiManeger.csproj.CoreCompileInputs.cache
+C:\Users\lenya\OneDrive\Рабочий стол\ApiManeger\ApiManeger\obj\Debug\ApiManeger.csproj.CopyComplete
+C:\Users\lenya\OneDrive\Рабочий стол\ApiManeger\ApiManeger\obj\Debug\ApiManeger.exe
+C:\Users\lenya\OneDrive\Рабочий стол\ApiManeger\ApiManeger\obj\Debug\ApiManeger.pdb
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\ApiManeger.exe.config
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\ApiManeger.exe
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\ApiManeger.pdb
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\EntityFramework.dll
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\Google.Protobuf.dll
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\MySql.Data.dll
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\Newtonsoft.Json.dll
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\EntityFramework.xml
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\Google.Protobuf.xml
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\MySql.Data.xml
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\Newtonsoft.Json.xml
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\obj\Debug\ApiManeger.csprojAssemblyReference.cache
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\obj\Debug\ApiManeger.csproj.CoreCompileInputs.cache
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\obj\Debug\ApiManeger.csproj.CopyComplete
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\obj\Debug\ApiManeger.exe
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\obj\Debug\ApiManeger.pdb
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\TsSoft.AbstractMapper.dll
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\TsSoft.AbstractMapper.Entity.dll
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\TsSoft.AbstractMapper.Factory.dll
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\TsSoft.AbstractMapper.Include.dll
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\TsSoft.AbstractMapper.Select.dll
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\TsSoft.AbstractMapper.Update.dll
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\TsSoft.BindingsDescription.dll
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\TsSoft.EntityRepository.Interfaces.dll
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\TsSoft.Expressions.Helpers.dll
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\TsSoft.Expressions.Helpers.Entity.dll
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\TsSoft.Expressions.IncludeBuilder.dll
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\TsSoft.Expressions.IncludeBuilder.Models.dll
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\TsSoft.Expressions.Models.dll
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\TsSoft.Expressions.OrderBy.dll
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\TsSoft.Expressions.SelectBuilder.dll
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\TsSoft.Expressions.SelectBuilder.Models.dll
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\TsSoft.AbstractMapper.xml
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\TsSoft.AbstractMapper.Entity.xml
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\TsSoft.AbstractMapper.Factory.xml
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\TsSoft.AbstractMapper.Include.xml
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\TsSoft.AbstractMapper.Select.xml
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\TsSoft.AbstractMapper.Update.xml
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\TsSoft.BindingsDescription.xml
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\TsSoft.EntityRepository.Interfaces.xml
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\TsSoft.Expressions.Helpers.xml
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\TsSoft.Expressions.Helpers.Entity.xml
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\TsSoft.Expressions.IncludeBuilder.xml
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\TsSoft.Expressions.IncludeBuilder.Models.xml
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\TsSoft.Expressions.Models.xml
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\TsSoft.Expressions.OrderBy.xml
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\TsSoft.Expressions.SelectBuilder.xml
+C:\Users\1610506\Downloads\ApiManeger\ApiManeger\bin\Debug\TsSoft.Expressions.SelectBuilder.Models.xml
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\obj\Debug\ApiManeger.csprojAssemblyReference.cache
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\obj\Debug\ApiManeger.csproj.CoreCompileInputs.cache
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\obj\Debug\ApiManeger.exe
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\obj\Debug\ApiManeger.pdb
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\ApiManeger.exe.config
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\ApiManeger.exe
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\ApiManeger.pdb
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\EntityFramework.dll
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\Google.Protobuf.dll
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\MySql.Data.dll
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\Newtonsoft.Json.dll
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\TsSoft.AbstractMapper.dll
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\TsSoft.AbstractMapper.Entity.dll
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\TsSoft.AbstractMapper.Factory.dll
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\TsSoft.AbstractMapper.Include.dll
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\TsSoft.AbstractMapper.Select.dll
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\TsSoft.AbstractMapper.Update.dll
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\TsSoft.BindingsDescription.dll
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\TsSoft.EntityRepository.Interfaces.dll
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\TsSoft.Expressions.Helpers.dll
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\TsSoft.Expressions.Helpers.Entity.dll
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\TsSoft.Expressions.IncludeBuilder.dll
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\TsSoft.Expressions.IncludeBuilder.Models.dll
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\TsSoft.Expressions.Models.dll
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\TsSoft.Expressions.OrderBy.dll
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\TsSoft.Expressions.SelectBuilder.dll
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\TsSoft.Expressions.SelectBuilder.Models.dll
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\EntityFramework.xml
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\Google.Protobuf.xml
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\MySql.Data.xml
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\Newtonsoft.Json.xml
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\TsSoft.AbstractMapper.xml
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\TsSoft.AbstractMapper.Entity.xml
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\TsSoft.AbstractMapper.Factory.xml
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\TsSoft.AbstractMapper.Include.xml
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\TsSoft.AbstractMapper.Select.xml
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\TsSoft.AbstractMapper.Update.xml
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\TsSoft.BindingsDescription.xml
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\TsSoft.EntityRepository.Interfaces.xml
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\TsSoft.Expressions.Helpers.xml
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\TsSoft.Expressions.Helpers.Entity.xml
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\TsSoft.Expressions.IncludeBuilder.xml
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\TsSoft.Expressions.IncludeBuilder.Models.xml
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\TsSoft.Expressions.Models.xml
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\TsSoft.Expressions.OrderBy.xml
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\TsSoft.Expressions.SelectBuilder.xml
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\bin\Debug\TsSoft.Expressions.SelectBuilder.Models.xml
+C:\Users\1610506\Downloads\ApiManeger (1)\ApiManeger\ApiManeger\obj\Debug\ApiManeger.csproj.CopyComplete

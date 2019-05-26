@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TsSoft.Expressions.OrderBy</name>
+    </assembly>
+    <members>
+        <member name="T:TsSoft.Expressions.OrderBy.IOrderByClause`1">
+            <summary>
+            Условие сортировки
+            </summary>
+            <typeparam name="TEntity">Сортируемый тип</typeparam>
+        </member>
+        <member name="M:TsSoft.Expressions.OrderBy.IOrderByClause`1.ApplyOrderBy(System.Linq.IQueryable{`0})">
+            <summary>
+            Применить условие сортировки как первое
+            </summary>
+            <param name="source">Запрос</param>
+            <returns>Запрос с сортировкой</returns>
+        </member>
+        <member name="M:TsSoft.Expressions.OrderBy.IOrderByClause`1.ApplyThenBy(System.Linq.IOrderedQueryable{`0})">
+            <summary>
+            Применить условие сортировки как не первое
+            </summary>
+            <param name="source">Запрос</param>
+            <returns>Запрос с сортировкой</returns>
+        </member>
+        <member name="T:TsSoft.Expressions.OrderBy.OrderByClause`1">
+            <summary>
+            Условие сортировки
+            </summary>
+            <typeparam name="TEntity">Сортируемый тип</typeparam>
+        </member>
+        <member name="M:TsSoft.Expressions.OrderBy.OrderByClause`1.Create``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Boolean)">
+            <summary>
+            Условие сортировки
+            </summary>
+            <typeparam name="TKeyType">Тип поля, по которому происходит сортировка</typeparam>
+        </member>
+        <member name="M:TsSoft.Expressions.OrderBy.OrderByClause`1.Create``1(System.Linq.Expressions.LambdaExpression,System.Boolean)">
+            <summary>
+            Создать условие сортировки
+            </summary>
+            <typeparam name="TKeyType">Сортируемый тип</typeparam>
+            <param name="keySelector">Путь к полю, по которому происходит сортировка</param>
+            <param name="descending">Направление сортировки</param>
+            <returns>Условие сортировки</returns>
+        </member>
+        <member name="M:TsSoft.Expressions.OrderBy.OrderByClause`1.ApplyOrderBy(System.Linq.IQueryable{`0})">
+            <summary>
+            Применить условие сортировки как первое
+            </summary>
+            <param name="source">Запрос</param>
+            <returns>Запрос с сортировкой</returns>
+        </member>
+        <member name="M:TsSoft.Expressions.OrderBy.OrderByClause`1.ApplyThenBy(System.Linq.IOrderedQueryable{`0})">
+            <summary>
+            Применить условие сортировки как не первое
+            </summary>
+            <param name="source">Запрос</param>
+            <returns>Запрос с сортировкой</returns>
+        </member>
+        <member name="T:TsSoft.Expressions.OrderBy.OrderByClause`2">
+            <summary>
+            Условие сортировки
+            </summary>
+            <typeparam name="TEntity">Тип сортируемой сущности</typeparam>
+            <typeparam name="TKeyType">Тип поля, по которому идёт сортировка</typeparam>
+        </member>
+        <member name="P:TsSoft.Expressions.OrderBy.OrderByClause`2.KeySelector">
+            <summary>
+            Путь к полю, по которому идёт сортировка
+            </summary>
+        </member>
+        <member name="P:TsSoft.Expressions.OrderBy.OrderByClause`2.Descending">
+            <summary>
+            Направление сортировки
+            </summary>
+        </member>
+        <member name="M:TsSoft.Expressions.OrderBy.OrderByClause`2.#ctor(System.Linq.Expressions.Expression{System.Func{`0,`1}},System.Boolean)">
+            <summary>
+            Условие сортировки
+            </summary>
+            <param name="keySelector">Путь к полю, по которому идёт сортировка</param>
+            <param name="descending">Направление сортировки</param>
+        </member>
+        <member name="M:TsSoft.Expressions.OrderBy.OrderByClause`2.ApplyOrderBy(System.Linq.IQueryable{`0})">
+            <summary>
+            Применить условие сортировки как первое
+            </summary>
+            <param name="source">Запрос</param>
+            <returns>Запрос с сортировкой</returns>
+        </member>
+        <member name="M:TsSoft.Expressions.OrderBy.OrderByClause`2.ApplyThenBy(System.Linq.IOrderedQueryable{`0})">
+            <summary>
+            Применить условие сортировки как не первое
+            </summary>
+            <param name="source">Запрос</param>
+            <returns>Запрос с сортировкой</returns>
+        </member>
+    </members>
+</doc>
